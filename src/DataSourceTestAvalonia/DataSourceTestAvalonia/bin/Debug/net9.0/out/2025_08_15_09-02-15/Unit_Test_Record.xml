@@ -1,0 +1,5 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="0" />
+  <Common.ModeType filename="Common" type="int" value="3" />
+</script>

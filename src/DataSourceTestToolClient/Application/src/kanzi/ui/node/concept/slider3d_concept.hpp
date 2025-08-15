@@ -1,0 +1,90 @@
+// Copyright 2008-2021 by Rightware. All rights reserved.
+
+#ifndef KZ_SLIDER3D_CONCEPT_HPP
+#define KZ_SLIDER3D_CONCEPT_HPP
+
+#include <kanzi/ui/node/concept/slider.hpp>
+
+#include <kanzi/core.ui/binding/binding.hpp>
+
+
+namespace kanzi
+{
+
+class Node3D;
+
+
+template <class TBaseClass, class TPresenterClass, class TDerivedClass>
+class KANZI_UI_TEMPLATE_API Slider3DConceptImpl : public TBaseClass, public SliderConcept
+{
+public:
+    typedef shared_ptr<TPresenterClass> PresenterSharedPtr;
+
+    KZ_TEMPLATE_METACLASS_BEGIN(Slider3DConceptImpl, TBaseClass)
+        KZ_METACLASS_MIXIN(SliderConcept)
+    KZ_METACLASS_END()
+
+    static PropertyTypeEditorInfoSharedPtr makeEditorInfo();
+
+    void hitPointChanged();
+
+    void initialize();
+
+    void addBindingToIndicatorPrefab(Node3D& indicator) const;
+
+    const PresenterSharedPtr& getPresenter() const;
+
+    explicit Slider3DConceptImpl(Domain* domain, string_view name);
+    ~Slider3DConceptImpl();
+
+    /// Gets the value of #MaxDistanceFromCurveProperty.
+    /// \see setMaxDistanceFromCurve()
+    float getMaxDistanceFromCurve() const;
+
+    /// Sets the value of #MaxDistanceFromCurveProperty.
+    /// \see getMaxDistanceFromCurve()
+    void setMaxDistanceFromCurve(float value);
+
+protected:
+    virtual void onNodePropertyChanged(AbstractPropertyType propertyType, PropertyNotificationReason reason) KZ_OVERRIDE;
+
+    void findLayout();
+
+    virtual void onAttached() KZ_OVERRIDE;
+
+    /// KzuUiComponent::measureOverride() implementation.
+    virtual Vector3 measureOverride(Vector3 availableSize) KZ_OVERRIDE;
+
+    /// KzuUiComponent::arrangeOverride() implementation.
+    virtual void arrangeOverride(Vector3 actualSize) KZ_OVERRIDE;
+
+private:
+    PresenterSharedPtr m_presenter;
+    BindingSharedPtr m_trajectoryBinding;
+    BindingSharedPtr m_offsetBinding;
+    BindingSharedPtr m_alignToTangentBinding;
+    bool m_measureSizeOnly;
+    bool m_initialized;
+    ClassPropertyDefaultValue<bool> m_classValueHitTestable;
+    ClassPropertyDefaultValue<bool> m_classValueHitTestableContainer;
+    ClassPropertyDefaultValue<bool> m_classValueValueChanging;
+    ClassPropertyDefaultValue<float> m_classValueRangeValue;
+    ClassPropertyDefaultValue<float> m_classValueRangeMinimum;
+    ClassPropertyDefaultValue<float> m_classValueRangeMaximum;
+    ClassPropertyDefaultValue<float> m_classValueRangeStep;
+
+    /// Internal accessor for the Curiously Recurring Template Pattern.
+    inline TDerivedClass* getThisObject()
+    {
+        return static_cast<TDerivedClass*>(this);
+    }
+
+    /// Internal accessor for the Curiously Recurring Template Pattern.
+    inline const TDerivedClass* getThisObject() const
+    {
+        return static_cast<const TDerivedClass*>(this);
+    }
+};
+}
+
+#endif

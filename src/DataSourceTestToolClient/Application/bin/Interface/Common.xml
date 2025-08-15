@@ -1,0 +1,379 @@
+<Common name="Common">
+    <!--Precision:Not Applicable-->
+    <!--false:Don’t show-->
+    <!--true:Show-->
+    <ShowRoomVisible type="bool">false</ShowRoomVisible>
+    <!--Precision:Not Applicable-->
+    <!--0:Don’t  show;-->
+    <!--1: 0dial (460B don't use) -->
+    <!--	2: 1dial (460B don't use) -->
+    <!--	3: 2dial (460B don't use) -->
+    <!--4: 0dial has Widget (460B don't use) -->
+    <!--5: 1dial has Widget (460B don't use) -->
+    <!--6: 0dial GR-Mode  (893B/300D/178D don't use)-->
+    <!--7: 1Dial GR-Mode  (893B/300D/178D don't use)-->
+    <!--8: Hdial GR-Mode  (893B/300D/178D don't use)-->
+    <LeftRightMidPosition type="int">0</LeftRightMidPosition>
+    <!--Precision:Not Applicable-->
+    <!--false:Don’t show-->
+    <!--true:Show-->
+    <WidgetVisible type="bool">false</WidgetVisible>
+    <!--Precision:Not Applicable-->
+    <!--false:vehicle driving-->
+    <!--true:vehicle stop-->
+    <VehicleIsDriving type="bool">false</VehicleIsDriving>
+    <!--Precision:Not Applicable-->
+    <!--0:IG OFF normal (Show Ending and  interrupt)-->
+    <!--1:IG ON Blank ( Don’t show anything)-->
+    <!--2:IG ON  (Show opening animation)-->
+    <!--3:IG ON-->
+    <IG_State type="int">0</IG_State>
+    <!--Precision:Not Applicable-->
+    <!--0:NULL-->
+    <!--1:JP-->
+    <!--2:EN-->
+    <Language type="int">0</Language>
+    <!--Precision:Not Applicable-->
+    <!-- 0:Normal;COMFORT;CUSTOM;-->
+    <!-- 1:Eco; -->
+    <!-- 2:Sport;SPORT S;SPORT S+;-->
+    <DrivingMode type="int">0</DrivingMode>
+    <!--Precision:Not Applicable-->
+    <!--0:BLANK-->
+    <!--1:Casual-->
+    <!--2:Smart-->
+    <!--3:Sporty-->
+    <!--4:Tough-->
+    <!--5.GR-Mode-->
+    <ThemeType type="int">0</ThemeType>
+    <!--Precision:Not Applicable-->
+    <!--0: BLANK;-->
+    <!--1: NoneGauge (0 Dial);-->
+    <!--2: SimpleGauge (1 Dial);-->
+    <!--3: DualGauge; (2 Dial);(460B don't have 2 Dial mode)	-->
+    <!--4: Horizontal Dial; (H Dial) (893B/300D/178D don't have H Dial mode)-->
+    <ModeType type="int">0</ModeType>
+    <MidLeft>
+        <ContentList>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <Visible type="bool">false</Visible>
+            <!--Precision:Not Applicable-->
+            <!---1:don’t show selected bar-->
+            <!--0:Selecte 1-->
+            <!--1:Selecte 2-->
+            <!--2:Selecte 3-->
+            <!--3:Selecte 4-->
+            <!--4:Selecte 5-->
+            <CurrentIndex type="int">-1</CurrentIndex>
+            <!--Precision:Not Applicable-->
+            <!--0:Page1-->
+            <!--1:page2-->
+            <!--2:page3-->
+            <PageIndex type="int">0</PageIndex>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EcoFuelItem type="int">0</EcoFuelItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <PHVECOFuelItem type="int">0</PHVECOFuelItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <ECOBarItem type="int">0</ECOBarItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <HVEcoJudgeItem type="int">0</HVEcoJudgeItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EVRatioItem type="int">0</EVRatioItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <DrivingSupportItem type="int">0</DrivingSupportItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <NavigationItem type="int">0</NavigationItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <AudioItem type="int">0</AudioItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <DriveInfoItem type="int">0</DriveInfoItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EnergyMonitorItem type="int">0</EnergyMonitorItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TirePressureItem type="int">0</TirePressureItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <FourWDItem type="int">0</FourWDItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <AdBlueItem type="int">0</AdBlueItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TempPressItem type="int">0</TempPressItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <BoostGaugeItem type="int">0</BoostGaugeItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <GballItem type="int">0</GballItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TripA type="int">0</TripA>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TripB type="int">0</TripB>
+        </ContentList>
+        <!--Precision:Not Applicable-->
+        <!--0:Simple-->
+        <!--1:EcoFuel-->
+        <!--2:PHV ECO Fuel-->
+        <!--(This value is not reserved for future models, and model 893 May not be applicable)-->
+        <!--3:ECO bar-->
+        <!--4:HVindicator+EcoJudge-->
+        <!--5:EV-Ratio-->
+        <!--6:ADAS-->
+        <!--7:TBT-->
+        <!--8:Commpas-->
+        <!--9:Audio-->
+        <!--10:drive-info-->
+        <!--11:Energy monitor-->
+        <!--12:Tire pressure-->
+        <!--13:4WD-->
+        <!--14:AdBlue-->
+        <!--15:TempPress-->
+        <!--16:BoostGauge-->
+        <!--17:Gball-->
+        <ModuleIndex type="int">0</ModuleIndex>
+    </MidLeft>
+    <MidRight>
+        <ContentList>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <Visible type="bool">false</Visible>
+            <!--Precision:Not Applicable-->
+            <!---1:don’t show selected bar-->
+            <!--0:Selecte 1-->
+            <!--1:Selecte 2-->
+            <!--2:Selecte 3-->
+            <!--3:Selecte 4-->
+            <!--4:Selecte 5-->
+            <CurrentIndex type="int">-1</CurrentIndex>
+            <!--Precision:Not Applicable-->
+            <!--0:Page1-->
+            <!--1:page2-->
+            <!--2:page3-->
+            <PageIndex type="int">0</PageIndex>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EcoFuelItem type="int">0</EcoFuelItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <PHVECOFuelItem type="int">0</PHVECOFuelItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <ECOBarItem type="int">0</ECOBarItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <HVEcoJudgeItem type="int">0</HVEcoJudgeItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EVRatioItem type="int">0</EVRatioItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <DrivingSupportItem type="int">0</DrivingSupportItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <NavigationItem type="int">0</NavigationItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <AudioItem type="int">0</AudioItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <DriveInfoItem type="int">0</DriveInfoItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <EnergyMonitorItem type="int">0</EnergyMonitorItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TirePressureItem type="int">0</TirePressureItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <FourWDItem type="int">0</FourWDItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <AdBlueItem type="int">0</AdBlueItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TempPressItem type="int">0</TempPressItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <BoostGaugeItem type="int">0</BoostGaugeItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <GballItem type="int">0</GballItem>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TripA type="int">0</TripA>
+            <!--Precision:Not Applicable-->
+            <!--0:Not Applicable-->
+            <!--1:Applicable but not open-->
+            <!--2:Applicable and open-->
+            <TripB type="int">0</TripB>
+        </ContentList>
+        <!--Precision:Not Applicable-->
+        <!--0:Simple-->
+        <!--1:EcoFuel-->
+        <!--2:PHV ECO Fuel-->
+        <!--(This value is not reserved for future models, and model 893 May not be applicable)-->
+        <!--3:ECO bar-->
+        <!--4:HVindicator+EcoJudge-->
+        <!--5:EV-Ratio-->
+        <!--6:ADAS-->
+        <!--7:TBT-->
+        <!--8:Commpas-->
+        <!--9:Audio-->
+        <!--10:drive info-->
+        <!--11:Energy monitor-->
+        <!--12:Tire pressure-->
+        <!--13:4WD-->
+        <!--14:AdBlue-->
+        <!--15:TempPress-->
+        <!--16:BoostGauge-->
+        <!--17:Gball-->
+        <ModuleIndex type="int">0</ModuleIndex>
+    </MidRight>
+    <MidCenter>
+        <!--Precision:Not Applicable-->
+        <!--0:Simple-->
+        <!--1:ADAS-->
+        <!--2:MAP-->
+        <!--3:Dashboard-->
+        <!--4:Setting-->
+        <!--5:Message-->
+        <ModuleIndex type="int">0</ModuleIndex>
+    </MidCenter>
+    <Cursor>
+        <!--Precision:Not Applicable-->
+        <!--0-13-->
+        <PageIndex type="int">0</PageIndex>
+        <!--Precision:Not Applicable-->
+        <!--0-13-->
+        <PageCount type="int">0</PageCount>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t  show;-->
+        <!--1: Left; -->
+        <!--	2: Center; -->
+        <!--	3: Right -->
+        <Position type="int">0</Position>
+    </Cursor>
+    <KanziVersion>
+        <!--Precision:Not Applicable-->
+        <!--Version Visible Status-->
+        <!--false:don't show-->
+        <!--true:show-->
+        <Visible type="bool">false</Visible>
+    </KanziVersion>
+    <MessageList>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--401-->
+        <ItemCount type="int">0</ItemCount>
+    </MessageList>
+    <HVIndicator>
+        <!--Precision:0.01-->
+        <!--0.0-->
+        <!--|-->
+        <!--1.0-->
+        <Charge type="float">0.0</Charge>
+        <!--Precision:0.01-->
+        <!--0.0-->
+        <!--|-->
+        <!--1.0-->
+        <ECO type="float">0.0</ECO>
+        <!--Precision:0.000001-->
+        <!--0.0-->
+        <!--|-->
+        <!--1.0-->
+        <Power type="float">0.0</Power>
+        <!--Precision:Not Applicable-->
+        <!--0: invisible-->
+        <!--1: visible-->
+        <ReadyOFF type="int">0</ReadyOFF>
+    </HVIndicator>
+</Common>

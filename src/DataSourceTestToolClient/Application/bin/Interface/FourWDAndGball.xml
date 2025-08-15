@@ -1,0 +1,354 @@
+<FourWDAndGball name="FourWDAndGball">
+    <WheelDrive>
+        <Force>
+            <!--Precision:Not Applicable-->
+            <!--0:No drive force transmission-->
+            <!--1:amount of 1 segment -->
+            <!--2:amount of 2 segment -->
+            <!--3:amount of 3 segment -->
+            <!--4:amount of 4 segment -->
+            <!--5:amount of 5 segment -->
+            <FL type="int">0</FL>
+            <!--Precision:Not Applicable-->
+            <!--0:No drive force transmission-->
+            <!--1:amount of 1 segment -->
+            <!--2:amount of 2 segment -->
+            <!--3:amount of 3 segment -->
+            <!--4:amount of 4 segment -->
+            <!--5:amount of 5 segment -->
+            <FR type="int">0</FR>
+            <!--Precision:Not Applicable-->
+            <!--0:No drive force transmission-->
+            <!--1:amount of 1 segment -->
+            <!--2:amount of 2 segment -->
+            <!--3:amount of 3 segment -->
+            <!--4:amount of 4 segment -->
+            <!--5:amount of 5 segment -->
+            <RL type="int">0</RL>
+            <!--Precision:Not Applicable-->
+            <!--0:No drive force transmission-->
+            <!--1:amount of 1 segment -->
+            <!--2:amount of 2 segment -->
+            <!--3:amount of 3 segment -->
+            <!--4:amount of 4 segment -->
+            <!--5:amount of 5 segment -->
+            <RR type="int">0</RR>
+        </Force>
+        <Shaft>
+            <!--Precision:Not Applicable-->
+            <!--false:No drive force transmission-->
+            <!--true:Drive force transmission-->
+            <FL type="bool">false</FL>
+            <!--Precision:Not Applicable-->
+            <!--false:No drive force transmission-->
+            <!--true:Drive force transmission-->
+            <FR type="bool">false</FR>
+            <!--Precision:Not Applicable-->
+            <!--false:No drive force transmission-->
+            <!--true:Drive force transmission-->
+            <RL type="bool">false</RL>
+            <!--Precision:Not Applicable-->
+            <!--false:No drive force transmission-->
+            <!--true:Drive force transmission-->
+            <RR type="bool">false</RR>
+            <!--Precision:Not Applicable-->
+            <!--0:Without front propeller shaft-->
+            <!--1:With front propeller shaft and no drive force transmission to front propeller shaft-->
+            <!--2:With front propeller shaft and drive force transmission to front propeller shaft-->
+            <FrontPropeller type="int">0</FrontPropeller>
+            <!--Precision:Not Applicable-->
+            <!--0:Without rear propeller shaft-->
+            <!--1:With rear propeller shaft and no drive force transmission to rear propeller shaft-->
+            <!--2:With rear propeller shaft and drive force transmission to rear propeller shaft-->
+            <RearPropeller type="int">0</RearPropeller>
+        </Shaft>
+        <Axle>
+            <!--Precision:Not Applicable-->
+            <!--0:No drive force transmission to front axle -->
+            <!--1:Drive force transmission to front axle-->
+            <Front type="int">0</Front>
+            <!--Precision:Not Applicable-->
+            <!--0:Rr differential unit is displayed and no drive force transmission to rear differential-->
+            <!--1:Rr differential unit is displayed and drive force transmission to rear differential-->
+            <!--2:R-Four unit is displayed and no drive force transmission to E-Four unit-->
+            <!--3:R-Four unit is displayed and drive force transmission to E-Four unit-->
+            <Rear type="int">0</Rear>
+            <!--Precision:Not Applicable-->
+            <!--0:Without center differential lock-->
+            <!--1:With center differential lock and under center differential unlock condition-->
+            <!--2:With center differential lock and under center differential lock condition-->
+            <CenterDifferentialLock type="int">0</CenterDifferentialLock>
+        </Axle>
+        <!--Precision:Not Applicable-->
+        <!--false:Don’t Show-->
+        <!--true:Show-->
+        <Visible type="bool">false</Visible>
+        <Tyre>
+            <FL>
+                <!--Precision:Not Applicable-->
+                <!--false:Don’t Show-->
+                <!--true:Show-->
+                <Height type="bool">false</Height>
+            </FL>
+            <FR>
+                <!--Precision:Not Applicable-->
+                <!--false:Don’t Show-->
+                <!--true:Show-->
+                <Height type="bool">false</Height>
+            </FR>
+            <RL>
+                <!--Precision:Not Applicable-->
+                <!--false:Don’t Show-->
+                <!--true:Show-->
+                <Height type="bool">false</Height>
+            </RL>
+            <RR>
+                <!--Precision:Not Applicable-->
+                <!--false:Don’t Show-->
+                <!--true:Show-->
+                <Height type="bool">false</Height>
+            </RR>
+            <!--Precision:0.1-->
+            <!--0:Right-->
+            <!--|-->
+            <!--0.5:Center-->
+            <!--|-->
+            <!--1:Left-->
+            <!--This interface is to be defined,Please do not use this interface in this release-->
+            <Angle type="float">0.5</Angle>
+        </Tyre>
+    </WheelDrive>
+    <Gball>
+        <!--Precision:0.1-->
+        <!--0.0:0.0-->
+        <!--|-->
+        <!--9.9:9.9-->
+        <AccelerationValueFront type="float">0.0</AccelerationValueFront>
+        <!--Precision:0.1-->
+        <!--0.0:0.0-->
+        <!--|-->
+        <!--9.9:9.9-->
+        <AccelerationValueBack type="float">0.0</AccelerationValueBack>
+        <!--Precision:0.1-->
+        <!--0.0:0.0-->
+        <!--|-->
+        <!--9.9:9.9-->
+        <AccelerationValueLeft type="float">0.0</AccelerationValueLeft>
+        <!--Precision:0.1-->
+        <!--0.0:0.0-->
+        <!--|-->
+        <!--9.9:9.9-->
+        <AccelerationValueRight type="float">0.0</AccelerationValueRight>
+        <!--Precision:0.01-->
+        <!--0.00:null-->
+        <!--|-->
+        <!--1.00:full-->
+        <BarValueLeft type="float">0.00</BarValueLeft>
+        <!--Precision:0.01-->
+        <!--0.00:null-->
+        <!--|-->
+        <!--1.00:full-->
+        <BarValueRight type="float">0.00</BarValueRight>
+        <!--Precision:0.01-->
+        <!--0.00:null-->
+        <!--|-->
+        <!--1.00:full-->
+        <BarValueBrake type="float">0.00</BarValueBrake>
+        <!--Precision:0.01-->
+        <!--0.00:null-->
+        <!--|-->
+        <!--1.00:full-->
+        <BarValueAccelerator type="float">0.00</BarValueAccelerator>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Visible type="bool">false</Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line1X type="float">0.00</Line1X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line1Y type="float">0.00</Line1Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line1Visible type="bool">false</Line1Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line2X type="float">0.00</Line2X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line2Y type="float">0.00</Line2Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line2Visible type="bool">false</Line2Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line3X type="float">0.00</Line3X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line3Y type="float">0.00</Line3Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line3Visible type="bool">false</Line3Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line4X type="float">0.00</Line4X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line4Y type="float">0.00</Line4Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line4Visible type="bool">false</Line4Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line5X type="float">0.00</Line5X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line5Y type="float">0.00</Line5Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line5Visible type="bool">false</Line5Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line6X type="float">0.00</Line6X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line6Y type="float">0.00</Line6Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line6Visible type="bool">false</Line6Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line7X type="float">0.00</Line7X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line7Y type="float">0.00</Line7Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line7Visible type="bool">false</Line7Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line8X type="float">0.00</Line8X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line8Y type="float">0.00</Line8Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line8Visible type="bool">false</Line8Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line9X type="float">0.00</Line9X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line9Y type="float">0.00</Line9Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line9Visible type="bool">false</Line9Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <Line10X type="float">0.00</Line10X>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <Line10Y type="float">0.00</Line10Y>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <Line10Visible type="bool">false</Line10Visible>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <!---->
+        <CircleX type="float">0.00</CircleX>
+        <!--Precision:0.01-->
+        <!---1.00:-1.00-->
+        <!--|-->
+        <!--1.00:1.00-->
+        <!---->
+        <CircleY type="float">0.00</CircleY>
+        <!--Precision:Not Applicable-->
+        <!--false:Do not Show-->
+        <!--true:Show-->
+        <LineVisible type="bool">false</LineVisible>
+    </Gball>
+</FourWDAndGball>

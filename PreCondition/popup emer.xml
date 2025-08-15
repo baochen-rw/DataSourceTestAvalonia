@@ -1,0 +1,19 @@
+<script>
+	<Common.IG_State filename="Common" type="int" value="3" />
+	<wait delay="3000" />
+
+
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="14" />
+
+
+	<Popup.ADASPopup.TMN.Type filename="Popup" type="int" value="3" />
+	<Popup.DoorOpen.EngineCover filename="Popup" type="int" value="1" />
+	<Popup.ADASPopup.WarningID filename="Popup" type="int" value="4" />
+
+	<Common.CommonCarModelType filename="Common" type="int" value="16" />
+
+
+	<exit />
+</script>
+
+    

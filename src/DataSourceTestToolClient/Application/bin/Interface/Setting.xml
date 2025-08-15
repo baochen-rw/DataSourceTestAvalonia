@@ -1,0 +1,347 @@
+<Setting name="Setting">
+    <!--Precision:Not Applicable-->
+    <!--0:Down-->
+    <!--1:Up-->
+    <EndLinePosition type="int">0</EndLinePosition>
+    <!--Precision:Not Applicable-->
+    <!--1~5(The number of items displayed on the current page)-->
+    <ItemNumber type="int">1</ItemNumber>
+    <!--Precision:Not Applicable-->
+    <!--0:Show And Select the first item-->
+    <!--|-->
+    <!--4:Show And Select the fifth item-->
+    <CursorIndex type="int">0</CursorIndex>
+    <!--Precision:Not Applicable-->
+    <!--0:Level0-->
+    <!--1:OtherLevel-->
+    <SettingLevel type="int">0</SettingLevel>
+    <!--Precision:Not Applicable-->
+    <!--0:Invisible-->
+    <!--1:Normal-->
+    <!--2:Special-->
+    <!--3:LittleSetting-->
+    <SettingState type="int">0</SettingState>
+    <Bar>
+        <!--Precision:Not Applicable-->
+        <!--How many Items are currently displayed-->
+        <TotalCount type="int">20</TotalCount>
+        <!--Precision:Not Applicable-->
+        <!--What page is it on-->
+        <CurrentIndex type="int">1</CurrentIndex>
+    </Bar>
+    <Item0>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <Text type="string"></Text>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <ItemIconIndex type="int">0</ItemIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey-->
+        <IsGrey type="bool">false</IsGrey>
+    </Item0>
+    <Item1>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <Text type="string"></Text>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <ItemIconIndex type="int">0</ItemIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey！-->
+        <IsGrey type="bool">false</IsGrey>
+    </Item1>
+    <Item2>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <Text type="string"></Text>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <ItemIconIndex type="int">0</ItemIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey-->
+        <IsGrey type="bool">false</IsGrey>
+    </Item2>
+    <Item3>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <Text type="string"></Text>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <ItemIconIndex type="int">0</ItemIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey-->
+        <IsGrey type="bool">false</IsGrey>
+    </Item3>
+    <Item4>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <Text type="string"></Text>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <ItemIconIndex type="int">0</ItemIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey！-->
+        <IsGrey type="bool">false</IsGrey>
+    </Item4>
+    <Special>
+        <!--Precision:Not Applicable-->
+        <!--(Screen&Interface)QA262-->
+        <TitleIconIndex type="int">0</TitleIconIndex>
+        <!--Precision:Not Applicable-->
+        <!--Localization-->
+        <TitleText type="string"></TitleText>
+        <!--Precision:Not Applicable-->
+        <!--0:defult-->
+        <!--1:YesNoPrefab-->
+        <!--2:CalendarPrefab-->
+        <!--3.Brightness-->
+        <!--4:Clock-->
+        <!--5:OnlyTextPrefab-->
+        <!--6:OpeningAdjustmentPrefab-->
+        <!--7.HUD Rotation-->
+        <Index type="int">0</Index>
+        <!--Precision:Not Applicable-->
+        <!--0:12H-->
+        <!--1:hour-->
+        <!--2:minute-->
+        <!--3:am or pm-->
+        <ClockCheckBox type="int">0</ClockCheckBox>
+        <!--Precision:Not Applicable-->
+        <!--0:12H-->
+        <!--1:24H-->
+        <ClockFormat type="int">0</ClockFormat>
+        <!--Precision:Not Applicable-->
+        <!--0~12/0~24-->
+        <ClockHour type="string">0</ClockHour>
+        <!--Precision:Not Applicable-->
+        <!--0~59-->
+        <ClockMinute type="string">0</ClockMinute>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:am-->
+        <!--2:pm-->
+        <ClockAmPm type="int">0</ClockAmPm>
+        <!--Precision:Not Applicable-->
+        <!--0:Adjust Meter Brightness-->
+        <!--1::HUD Brightness/Position-->
+        <BrightnessIndex type="int">0</BrightnessIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Non-dimming mode-->
+        <!--1:Dimming-->
+        <BrightnessIcon type="int">0</BrightnessIcon>
+        <!--Precision:Not Applicable-->
+        <!--0~22-->
+        <Brightness type="int">0</Brightness>
+        <!--Precision:Not Applicable-->
+        <!--yyyy：20XX~2099/mm:1~12/dd:1~31-->
+        <FirstDate type="string"></FirstDate>
+        <!--Precision:Not Applicable-->
+        <!--yyyy：20XX~2099/mm:1~12/dd:1~32-->
+        <SecondDate type="string"></SecondDate>
+        <!--Precision:Not Applicable-->
+        <!--yyyy：20XX~2099/mm:1~12/dd:1~33-->
+        <ThirdDate type="string"></ThirdDate>
+        <Calendar>
+            <!--Precision:Not Applicable-->
+            <!--0:FirstData-->
+            <!--1:SecondData-->
+            <!--2:ThirdData-->
+            <Select type="int">0</Select>
+        </Calendar>
+        <OpeningAdjustment>
+            <!--Precision:Not Applicable-->
+            <!--eg：192—199（Localization）-->
+            <Text type="string"></Text>
+            <!--Precision:Not Applicable-->
+            <!--0：invisible-->
+            <!--1-6-->
+            <Num type="int">0</Num>
+            <!--Precision:Not Applicable-->
+            <!--0：invisible-->
+            <!--1：visible-->
+            <RPMVisible type="bool">false</RPMVisible>
+        </OpeningAdjustment>
+        <OnlyText>
+            <!--Precision:Not Applicable-->
+            <!--eg：308,309-->
+            <Text type="string">0</Text>
+        </OnlyText>
+        <YesNoPrefab>
+            <!--Precision:Not Applicable-->
+            <!--eg:259,294-->
+            <Text type="string">0</Text>
+            <!--Precision:Not Applicable-->
+            <!--True:Yes-->
+            <!--False:No-->
+            <Select type="bool">true</Select>
+            <!--Precision:Not Applicable-->
+            <!--0：invisible-->
+            <!--1：visible-->
+            <YesNoVisible type="bool">true</YesNoVisible>
+            <!--Precision:Not Applicable-->
+            <!--eg:260,295-->
+            <YesNoUp type="string"></YesNoUp>
+            <!--Precision:Not Applicable-->
+            <!--eg:261,296-->
+            <YesNoDown type="string"></YesNoDown>
+        </YesNoPrefab>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey-->
+        <IsGrey type="bool">false</IsGrey>
+    </Special>
+    <LittleSetting>
+        <!--Precision:Not Applicable-->
+        <!--0:Meter Style-->
+        <!--1:Meter Type-->
+        <Index type="int">0</Index>
+        <!--Precision:Not Applicable-->
+        <!--eg：378,379-->
+        <Title type="string"></Title>
+        <!--Precision:Not Applicable-->
+        <!--0-3-->
+        <TitleIcon type="int">0</TitleIcon>
+        <!--Precision:Not Applicable-->
+        <!--0:First-->
+        <!--1:Second-->
+        <!--2:Third-->
+        <!--3:Fourth-->
+        <CursorIndex type="int">0</CursorIndex>
+        <!--Precision:Not Applicable-->
+        <!--eg：380-383-->
+        <FirstText type="string"></FirstText>
+        <!--Precision:Not Applicable-->
+        <!--eg：380-383-->
+        <SecondText type="string"></SecondText>
+        <!--Precision:Not Applicable-->
+        <!--eg：380-383-->
+        <ThirdText type="string"></ThirdText>
+        <!--Precision:Not Applicable-->
+        <!--eg：380-383-->
+        <FourthText type="string"></FourthText>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible -->
+        <!--17,18-->
+        <Item1IconIndex type="int">0</Item1IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--1:Invisible -->
+        <!--17,18-->
+        <Item2IconIndex type="int">0</Item2IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--2:Invisible -->
+        <!--17,18-->
+        <Item3IconIndex type="int">0</Item3IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--3:Invisible -->
+        <!--17,18-->
+        <Item4IconIndex type="int">0</Item4IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--420(OpreationGuide)-->
+        <OperationGuide type="string">0</OperationGuide>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Grey-->
+        <IsGrey type="bool">false</IsGrey>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible -->
+        <!--1:Visible-->
+        <LineVisible type="bool">false</LineVisible>
+    </LittleSetting>
+    <Setting>
+        <!--Precision:Not Applicable-->
+        <!--0：InVisible-->
+        <!--(OpreationGuide)Except 420 is in the table-->
+        <OperationGuide type="string">0</OperationGuide>
+        <!--Precision:Not Applicable-->
+        <!--0：InVisible-->
+        <!--(OpreationGuide)Except 420 is in the table-->
+        <OperationGuideDown type="string">0</OperationGuideDown>
+    </Setting>
+    <SpecialSetting>
+        <!--Precision:Not Applicable-->
+        <!--0：InVisible-->
+        <!--(OpreationGuide)Except 420 is in the table-->
+        <OperationGuide type="string">0</OperationGuide>
+        <!--Precision:Not Applicable-->
+        <!--0：InVisible-->
+        <!--(OpreationGuide)Except 420 is in the table-->
+        <OperationGuideDown type="string">0</OperationGuideDown>
+    </SpecialSetting>
+    <DRCCItem>
+        <SpeedLimitOffset>
+            <!--Precision:Not Applicable-->
+            <!---10~+10;Blank;223-->
+            <Text type="string"></Text>
+            <!--Precision:Not Applicable-->
+            <!--0~3-->
+            <Position type="int">0</Position>
+            <!--Precision:Not Applicable-->
+            <!--0:Invisible -->
+            <!--1:Visible-->
+            <Visible type="bool">false</Visible>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal-->
+            <!--1:Grey-->
+            <IsGrey type="bool">false</IsGrey>
+        </SpeedLimitOffset>
+        <SpeedSettingPush>
+            <!--Precision:Not Applicable-->
+            <!--227~229-->
+            <Text type="string"></Text>
+            <!--Precision:Not Applicable-->
+            <!--428|429-->
+            <Unit type="int">428</Unit>
+            <!--Precision:Not Applicable-->
+            <!--0~3-->
+            <Position type="int">0</Position>
+            <!--Precision:Not Applicable-->
+            <!--0:Invisible -->
+            <!--1:Visible-->
+            <Visible type="bool">false</Visible>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal-->
+            <!--1:Grey-->
+            <IsGrey type="bool">false</IsGrey>
+        </SpeedSettingPush>
+        <SpeedSettingHold>
+            <!--Precision:Not Applicable-->
+            <!--227~229-->
+            <Text type="string"></Text>
+            <!--Precision:Not Applicable-->
+            <!--428|429-->
+            <Unit type="int">428</Unit>
+            <!--Precision:Not Applicable-->
+            <!--0~3-->
+            <Position type="int">0</Position>
+            <!--Precision:Not Applicable-->
+            <!--0:Invisible -->
+            <!--1:Visible-->
+            <Visible type="bool">false</Visible>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal-->
+            <!--1:Grey-->
+            <IsGrey type="bool">false</IsGrey>
+        </SpeedSettingHold>
+    </DRCCItem>
+</Setting>

@@ -1,0 +1,65 @@
+<EndingDisplay name="EndingDisplay">
+    <TripSummary>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--6553.3-->
+        <!--There may be a "- -"situation (in confirmation)-->
+        <DistanceValue type="string">0.0</DistanceValue>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--99:59-->
+        <TimeValue type="string">00:00</TimeValue>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--99.9-->
+        <!--There may be a "- -"situation (in confirmation)-->
+        <FuelEconomyValue type="string">-.-</FuelEconomyValue>
+        <!--Precision:Not Applicable-->
+        <!--0:km/L-->
+        <!--1:L/100km-->
+        <!--2:MPG-->
+        <!--3:km/kg-->
+        <!--4:kg/100km-->
+        <!--5:MPGe-->
+        <FuelEconomyUnit type="int">0</FuelEconomyUnit>
+        <!--Precision:Not Applicable-->
+        <!--0:km-->
+        <!--1:mile-->
+        <!---->
+        <!---->
+        <DistanceUnit type="int">0</DistanceUnit>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--100-->
+        <!--There may be a "- -"situation (in confirmation)-->
+        <EVRatioValue type="string">--</EVRatioValue>
+        <!--Precision:Not Applicable-->
+        <!--0:don’t show-->
+        <!--1:TripSummary-->
+        <!--2:EcoScore-->
+        <Index type="int">0</Index>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Show-->
+        <!--1:Show-->
+        <PowerEconomyVisible type="bool">false</PowerEconomyVisible>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--99.9-->
+        <!--There may be a "- -"situation (in confirmation)-->
+        <PowerEconomyValue type="string">-.-</PowerEconomyValue>
+        <!--Precision:Not Applicable-->
+        <!--0:km/kWh-->
+        <!--1:kWh/100km-->
+        <!--2:miles/kWh-->
+        <PowerEconomyUnit type="int">0</PowerEconomyUnit>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Show-->
+        <!--1:Show-->
+        <EVRatioVisible type="bool">false</EVRatioVisible>
+    </TripSummary>
+</EndingDisplay>

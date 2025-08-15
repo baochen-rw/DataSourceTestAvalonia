@@ -1,0 +1,18 @@
+<Commands>
+	<Common.IG_State filename="Common" type="int" value="3" />
+	<wait delay="5000" />
+
+	<Common.PopScreenType filename="Common" type="int" value="1" />
+
+	<Common.ModeType filename="Common" type="int" value="2" />
+
+	<Common.MidLeft.ModuleIndex filename="Common" type="int" value="12" />
+	<Common.MidRight.ModuleIndex filename="Common" type="int" value="12" />
+	<Common.LeftRightMidPosition filename="Common" type="int" value="2" />
+
+
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="5" />
+
+	<TPMS.Visible filename="TPMS" type="int" value="1" />
+	<TPMS.PopupVisible filename="TPMS" type="int" value="1" />
+</Commands>

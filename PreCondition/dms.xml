@@ -1,0 +1,5 @@
+<script>
+    <Common.IG_State filename="Common" type="int" value="3" />
+    <DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="1" />
+    <exit />
+</script>

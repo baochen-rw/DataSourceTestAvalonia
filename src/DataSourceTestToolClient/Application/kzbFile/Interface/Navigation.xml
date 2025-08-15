@@ -1,0 +1,66 @@
+<Navigation name="Navigation">
+    <Compass>
+        <!--Precision:Not Applicable-->
+        <!--false:don’t show the page-->
+        <!--true: show the page-->
+        <Visible type="bool">false</Visible>
+        <!--Precision:Not Applicable-->
+        <!--false:Head up-->
+        <!--true:North up-->
+        <ISNorthUP type="bool">false</ISNorthUP>
+        <!--Precision:Not Applicable-->
+        <!--0: 0*11.25°-->
+        <!--|-->
+        <!--8: 8*11.25°-->
+        <!--|-->
+        <!--16: 16*11.25°-->
+        <!--|-->
+        <!--24: 24*11.25°-->
+        <!--|-->
+        <!--31: 31*11.25 °-->
+        <DestinationDirection type="int">0</DestinationDirection>
+        <!--Precision:Not Applicable-->
+        <!--0: 0*11.25°-->
+        <!--|-->
+        <!--8: 8*11.25°-->
+        <!--|-->
+        <!--16: 16*11.25°-->
+        <!--|-->
+        <!--24: 24*11.25°-->
+        <!--|-->
+        <!--31: 31*11.25 °-->
+        <FrontDirection type="int">0</FrontDirection>
+    </Compass>
+    <Map>
+        <!--Precision:Not Applicable-->
+        <!--0:Don't show-->
+        <!--1:Small Map-->
+        <!--2:largeMap-->
+        <SizeState type="int">0</SizeState>
+        <!--Precision:Not Applicable-->
+        <!--To be confirmed-->
+        <ConnectionStatus type="int">0</ConnectionStatus>
+        <!--Precision:Not Applicable-->
+        <!--The specific value is to be defined-->
+        <!--Please do not use this interface in this release-->
+        <DestinationArriveTime type="string">0</DestinationArriveTime>
+        <!--Precision:Not Applicable-->
+        <!--0-->
+        <!--|-->
+        <!--3150-->
+        <DestinationDistanceValue type="string">0</DestinationDistanceValue>
+        <!--Precision:Not Applicable-->
+        <!--0:m-->
+        <!--1:feet-->
+        <!--2:yard-->
+        <!--3:km-->
+        <!--4:mile-->
+        <DestinationDistanceUnit type="int">0</DestinationDistanceUnit>
+        <!--Precision:Not Applicable-->
+        <!--…-->
+        <NextStreet type="string">Unknown</NextStreet>
+        <!--Precision:Not Applicable-->
+        <!--…-->
+        <CurrentRoad type="string">Unknown</CurrentRoad>
+    </Map>
+</Navigation>

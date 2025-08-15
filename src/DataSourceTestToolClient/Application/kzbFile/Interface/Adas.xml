@@ -1,0 +1,256 @@
+<ADAS name="ADAS">
+    <!--Precision:Not Applicable-->
+    <!--false:Don’t show-->
+    <!--true:Show-->
+    <CACCVisible type="bool">false</CACCVisible>
+    <!--Precision:Not Applicable-->
+    <!--false:Don’t show-->
+    <!--true:Show-->
+    <ACCWindowVisible type="bool">false</ACCWindowVisible>
+    <!--Precision:Not Applicable-->
+    <!--false:Don’t show-->
+    <!--true:Show-->
+    <MIDVisible type="bool">false</MIDVisible>
+    <!--Precision:Not Applicable-->
+    <!--0:Don't show-->
+    <!--1:Curve detection-->
+    <!--2:intersection-->
+    <!--3:Traffic light detection TypeA (Vertical)-->
+    <!--4:Traffic light detection TypeA (Horizontal)-->
+    <!--5:Traffic light detection TypeB (Horizontal)-->
+    <!--6:Traffic light detection TypeB (Vertical)-->
+    <!--7:Stop sign detection (EU)-->
+    <!--8:Stop sign detection (JP)-->
+    <!--9:Stop sign detection (US)-->
+    <DecelerationAssistIcon type="int">False</DecelerationAssistIcon>
+    <!--Precision:Not Applicable-->
+    <!--0:Don’t show-->
+    <!--1:Normal:Green-->
+    <!--2:Radar ready:Gray-->
+    <HandleIcon type="int">0</HandleIcon>
+    <DistanceTime>
+        <!--Precision:Not Applicable-->
+        <!--0: Don’t show-->
+        <!--1: Show And Level1-->
+        <!--2: Show And Level2-->
+        <!--3: Show And Level3-->
+        <!--4: Show And Level4-->
+        <Level type="int">0</Level>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal:Blue-->
+        <!--1:Closing warning:Amber-->
+        <!--2:Radar ready:Gray-->
+        <ColorState type="int">0</ColorState>
+    </DistanceTime>
+    <Lane>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t show-->
+        <!--1:Show and Lane recognition-->
+        <!--2:Lane non-recognition-->
+        <!--3:LDA warning-->
+        <!--4:LDA control-->
+        <!--5:LCA operating-->
+        <RightState type="int">0</RightState>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t show-->
+        <!--1:Show and Lane recognition-->
+        <!--2:Lane non-recognition-->
+        <!--3:LDA warning-->
+        <!--4:LDA control-->
+        <!--5:LCA operating-->
+        <LeftState type="int">0</LeftState>
+    </Lane>
+    <LCA>
+        <OperatingArrow>
+            <!--Precision:Not Applicable-->
+            <!--0:Don’t show-->
+            <!--1:Normal:LCA adjacent lane is accepted-->
+            <!--2:In Operation(Play animation):LCA adjacent lane is on going-->
+            <!--3:Stanby:LCA adjacent lane is standby mode-->
+            <Left type="int">0</Left>
+            <!--Precision:Not Applicable-->
+            <!--0:Don’t Show-->
+            <!--1:Normal:LCA adjacent lane is accepted-->
+            <!--2:In Operation(Play animation):LCA adjacent lane is on going-->
+            <!--3:Stanby:LCA adjacent lane is standby mode-->
+            <Right type="int">0</Right>
+        </OperatingArrow>
+        <VehicleApproachingLine>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t Show-->
+            <!--true:Show:vehicle approaching-->
+            <RightVisible type="bool">false</RightVisible>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t Show-->
+            <!--true:Show:vehicle approaching-->
+            <LeftVisible type="bool">false</LeftVisible>
+        </VehicleApproachingLine>
+    </LCA>
+    <Vehicle>
+        <Preceding>
+            <!--Precision:Not Applicable-->
+            <!--0:Distance0-->
+            <!--1:Distance1-->
+            <!--2:Distance2-->
+            <!--3:Distance3-->
+            <!--4:Distance4-->
+            <Distance type="int">0</Distance>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal:white-->
+            <!--1:Under accelerator overriding operation:gray-->
+            <!--2:Closing Warning:amber-->
+            <Color type="int">0</Color>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <MovingArrowVisible type="bool">false</MovingArrowVisible>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <Visible type="bool">false</Visible>
+        </Preceding>
+        <Left>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal:white-->
+            <!--1:Under accelerator overriding operation:gray-->
+            <!--2:Closing Warning:amber-->
+            <Color type="int">0</Color>
+            <!--Precision:Not Applicable-->
+            <!--1:Distance1-->
+            <!--2:Distance2-->
+            <!--3:Distance3-->
+            <!--4:Distance4-->
+            <Distance type="int">0</Distance>
+            <!--Precision:Not Applicable-->
+            <!--false:car is beside the line-->
+            <!--true: car is on the line-->
+            <IsOnTheline type="bool">false</IsOnTheline>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <Visible type="bool">false</Visible>
+        </Left>
+        <Right>
+            <!--Precision:Not Applicable-->
+            <!--0:Normal:white-->
+            <!--1:Under accelerator overriding operation:gray-->
+            <!--2:Closing Warning:amber-->
+            <Color type="int">0</Color>
+            <!--Precision:Not Applicable-->
+            <!--1:Distance1-->
+            <!--2:Distance2-->
+            <!--3:Distance3-->
+            <!--4:Distance4-->
+            <Distance type="int">0</Distance>
+            <!--Precision:Not Applicable-->
+            <!--false:car is beside the line-->
+            <!--true: car is on the line-->
+            <IsOnTheline type="bool">false</IsOnTheline>
+            <!--Precision:Not Applicable-->
+            <!--false:Don’t show-->
+            <!--true:Show-->
+            <Visible type="bool">false</Visible>
+        </Right>
+    </Vehicle>
+    <AdvancedDrive>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t show-->
+        <!--1:1dot-->
+        <!--2:2dot-->
+        <!--3:3dot-->
+        <TrajectoryDisplayState type="int">0</TrajectoryDisplayState>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t show-->
+        <!--1:Advanced Drive(3428)(Green)-->
+        <!--2:Advanced Drive(3428)(Gray)-->
+        <!--3:""#""Pay Attention to Surrounding Environment (3384)-->
+        <Status type="int">0</Status>
+    </AdvancedDrive>
+    <PDA>
+        <LeftDisplayArea>
+            <!--Precision:Not Applicable-->
+            <!--0:Don’t show-->
+            <!--1:Pedestrian-->
+            <!--2:Vehicle(Parallel)-->
+            <!--3:Vehicle(Oncoming)-->
+            <!--4:Obstacle existing steering directio-->
+            <State type="int">0</State>
+        </LeftDisplayArea>
+        <RightDisplayArea>
+            <!--Precision:Not Applicable-->
+            <!--0:Don’t Show-->
+            <!--1:Pedestrian-->
+            <!--2:Vehicle(Parallel)-->
+            <!--3:Vehicle(Oncoming)-->
+            <!--4:Obstacle existing steering directio-->
+            <State type="int">0</State>
+        </RightDisplayArea>
+        <CenterDisplayArea>
+            <!--Precision:Not Applicable-->
+            <!--0:Don’t show-->
+            <!--1:Pedestrian-->
+            <State type="int">0</State>
+        </CenterDisplayArea>
+    </PDA>
+    <Speed>
+        <!--Precision:Not Applicable-->
+        <!--false:invalid value(Display three minus signs)-->
+        <!--true:valid value(Display Speed Value)-->
+        <IsValidValue type="bool">false</IsValidValue>
+        <!--Precision:Not Applicable-->
+        <!--1-->
+        <!--|-->
+        <!--254-->
+        <Value type="int">1</Value>
+        <!--Precision:Not Applicable-->
+        <!--false:Don’t show-->
+        <!--true:Show-->
+        <Visible type="bool">false</Visible>
+        <!--Precision:Not Applicable-->
+        <!---->
+        <!--0: Gray-->
+        <!--1:Green-->
+        <!--2:Inversion-->
+        <!---->
+        <Color type="int">0</Color>
+    </Speed>
+    <MessageBox>
+        <!--Precision:Not Applicable-->
+        <!--false:Don’t show-->
+        <!--true:Show-->
+        <Visible type="bool">false</Visible>
+        <!--Precision:Not Applicable-->
+        <!--0:Don’t show-->
+        <!--1:Waiting(333)-->
+        <!--2:Acceleration Reduced(3682)-->
+        <!--3:Distance Control OFF(2854)-->
+        <!--4:Overtake Prevention(4418)-->
+        <!--5:Cruise Control Mode(2765)-->
+        <!--6:Adaptive Cruise Mode(3048)-->
+        <!--7:Deceleration Assist is Complete(3112)-->
+        <!--8:Deceleration Assist READY(3693)-->
+        <!--9:Check Surroundings(2123)-->
+        <!--10:To Activate the System Hold Turn Signal(4550)-->
+        <!--11:Advanced Drive(3428)(Shown in the top half)-->
+        <!--12:Speed Limiter Mode(3653)-->
+        <!--13:Push ""+RES"" to Set Current Speed(2859)-->
+        <!--14:Push ""+"" to Set Current Speed(4244)-->
+        <!--15:Push ""+RES"" or Press Accelerator to Resume(2856)-->
+        <!--16:Operate ""ο"" to Activate DrivingSupport System(2860)-->
+        <!--17:Push ""RES"" or Press Accelerator to Resume(4243)-->
+        <!--18:Hold ""+RES"" to Set ""LimitSpeed"" ""SpeedUnit"" (2857) -->
+        <!--19:Hold ""-"" to Set ""LimitSpeed"" ""SpeedUnit"" (2858)-->
+        <!--20:Hold ""+"" to Set ""LimitSpeed"" ""SpeedUnit"" (4242) -->
+        <MessageID type="int">0</MessageID>
+        <!--Precision:Not Applicable-->
+        <!--1-->
+        <!--|-->
+        <!--254-->
+        <LimitSpeed type="int">1</LimitSpeed>
+        <!--Precision:Not Applicable-->
+        <!--0:Dot't show-->
+        <!--1:km/h-->
+        <!--2:MPH-->
+        <SpeedUnit type="float">0</SpeedUnit>
+    </MessageBox>
+</ADAS>

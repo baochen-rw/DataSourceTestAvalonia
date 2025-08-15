@@ -1,0 +1,23 @@
+<SafetySystem name="SafetySystem">
+    <SafetySystem>
+        <!--0:don’t show-->
+        <!--1.Show Normal:highlight-->
+        <!--2.Show Unavailable or otherwise :gray-->
+        <BSMStatus type="int">0</BSMStatus>
+        <!--0:don’t show-->
+        <!--1.Show Normal:highlight-->
+        <!--2.Show Unavailable or otherwise :gray-->
+        <RCTAStatus type="int">0</RCTAStatus>
+        <!--0:don’t show-->
+        <!--1.Show Normal:highlight-->
+        <!--2.Show Unavailable or otherwise :gray-->
+        <PCSStatus type="int">0</PCSStatus>
+        <!--0:don’t show-->
+        <!--1.Show Normal:highlight-->
+        <!--2.Show Unavailable or otherwise :gray-->
+        <SonarStatus type="int">0</SonarStatus>
+        <!--false:don’t show-->
+        <!--true:Show-->
+        <OverallVisible type="bool">False</OverallVisible>
+    </SafetySystem>
+</SafetySystem>

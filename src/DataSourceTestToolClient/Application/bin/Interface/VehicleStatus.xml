@@ -1,0 +1,48 @@
+<VehicleStatus name="VehicleStatus">
+	
+	<TPMS>
+		<!--
+		0.kpa; 
+		1.psi; 
+		2.bar
+		-->
+		<Unit type = "int">0</TPMS_Unit>
+		
+		<FL_Value type = "string">0.0</FL_Value>
+		<FR_Value type = "string">0.0</FR_Value>
+		<RL_Value type = "string">0.0</RL_Value>
+		<RR_Value type = "string">0.0</RR_Value>
+		<!--
+		0.Normal; 
+		1.Highlighted
+		-->
+		<FL_State type = "int">1</FL_State>
+		<!--
+		0.Normal; 
+		1.Highlighted
+		-->
+		<FR_State type = "int">1</FR_State>
+		<!--
+		0.Normal; 
+		1.Highlighted
+		-->
+		<RL_State type = "int">1</RL_State>
+		<!--
+		0.Normal; 
+		1.Highlighted
+		-->
+		<RR_State type = "int">1</RR_State>
+	</TPMS>
+	
+	<SafetySystem>
+		<BSMStatus type = "bool">false</BSMStatus>
+		<SonarStatus type = "bool">false</SonarStatus>
+		<RCTAStatus type = "bool">false</RCTAStatus>
+		<PCSStatus type = "bool">false</PCSStatus>
+		<BSMVisible type = "bool">false</BSMVisible>
+		<SonarVisible type = "bool">false</SonarVisible>
+		<RCTAVisible type = "bool">false</RCTAVisible>
+		<PCSVisible type = "bool">false</PCSVisible>
+	<SafetySystem>
+	
+</VehicleStatus>

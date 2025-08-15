@@ -1,0 +1,7 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.ThemeType filename="Common" type="int" value="1" />
+  <Common.ModeType filename="Common" type="int" value="3" />
+  <Gauge.DialMode filename="Gauge" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="4" />
+</script>

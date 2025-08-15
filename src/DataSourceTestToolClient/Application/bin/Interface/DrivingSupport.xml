@@ -1,0 +1,115 @@
+<DrivingSupport name="DrivingSupport">
+    <!--0:Compass-->
+    <!--1:Arrow Guide-->
+    <!--2:MiniMap-->
+    <!--3:Acc/Lcc-->
+    <!---->
+    <!--The above values are defined based on previous project experience-->
+    <!--The specific value will change, to be defined-->
+    <PageIndex type="int">0</PageIndex>
+    <Compass>
+        <!--0: North up -->
+        <!--1:Heading up-->
+        <VectorMode type="int">0</VectorMode>
+        <!--0:due north-->
+        <!--|-->
+        <!--8: due east-->
+        <!--|-->
+        <!--16:due south-->
+        <!--|-->
+        <!--24:due west-->
+        <!--|-->
+        <!--31:West of due north 11.25 °-->
+        <DestinationDirection type="int">0</DestinationDirection>
+        <!--0:due north-->
+        <!--|-->
+        <!--8: due east-->
+        <!--|-->
+        <!--16:due south-->
+        <!--|-->
+        <!--24:due west-->
+        <!--|-->
+        <!--31:West of due north 11.25 °-->
+        <CarDirection type="int">0</CarDirection>
+    </Compass>
+    <ArrowGuide>
+        <!--false:Do not show-->
+        <!--true:show-->
+        <Visible type="bool">False</Visible>
+    </ArrowGuide>
+    <TBT>
+        <!--false:NoRoundabout-->
+        <!--true:Roundabout-->
+        <Rotary type="bool">False</Rotary>
+
+        <DistanceValue type="string"></DistanceValue>
+        <!--0:m-->
+        <!--1:km-->
+        <!--2:feet-->
+        <!--3:yard-->
+        <!--4:mile-->
+        <DistanceUnit type="int">0</DistanceUnit>
+
+        <TopStreetInfo type="string"></TopStreetInfo>
+        <!--false:Invisible-->
+        <!--true:Visible-->
+        <TopStreetInfoVisible type="bool">True</TopStreetInfoVisible>
+
+        <BottomStreetInfo type="string"></BottomStreetInfo>
+        <!--false:Invisible-->
+        <!--true:Visible-->
+        <BottomStreetInfoVisible type="bool">True</BottomStreetInfoVisible>
+        <!--0:left-->
+        <!--1:right-->
+        <DriveSide type="int">0</DriveSide>
+        <!--0:Generic-->
+        <!--1:AlongTheRoad_Left-->
+        <!--2:AlongTheRoad_Right-->
+        <!--3:HookTurn-->
+        <!--4:Michigan_UTurn_Left-->
+        <!--5:Michigan_UTurn_Right-->
+        <!--6:Roundabout_Inward_Left-->
+        <!--7:Roundabout_Inward_Right-->
+        <!--8:Roundabout_UTurn_Left-->
+        <!--9:Roundabout_UTurn_Right-->
+        <!--10:UTurn_Left-->
+        <!--11:UTurn_Right-->
+        <!--12:Destination_Dot-->
+        <!--13:Destination_Flag-->
+        <!--14:PassingPoint_Dot-->
+        <!--15:PassingPoint_Flag-->
+        <Shape type="int">0</Shape>
+        <!--false:Invisible-->
+        <!--true:Visible-->
+        <MeshVisible type="bool">False</MeshVisible>
+        <!--0:show distance  -->
+        <!--1:show just ahead -->
+        <!--2:hide all-->
+        <JustAhead type="int">0</JustAhead>
+        <!--0 to 31 -->
+        <ArrowDirectionIndex type="int">0</ArrowDirectionIndex>
+        <!--0:In-->
+        <!--1:Out-->
+        <InOut type="int">0</InOut>
+        <!--0-65535-->
+        <RouteType_1 type="int">0</RouteType_1>
+        <!--0-65535-->
+        <RouteType_2 type="int">0</RouteType_2>
+        <!--0:hide-->
+        <!--1:show-->
+        <RoadBg type="int">1</RoadBg>
+        <!--false:Invisible-->
+        <!--true:Visible-->
+        <ShapeVisible type="bool">True</ShapeVisible>
+        <!--false:Invisible-->
+        <!--true:Visible-->
+        <RecommendedLaneVisible type="bool">False</RecommendedLaneVisible>
+        <!--0:4 lane-->
+        <!--1:8 lane-->
+        <RecommendedLane type="int">0</RecommendedLane>
+        <!--0 to 7(from left to right)-->
+        <HighlightLane type="int">0</HighlightLane>
+
+        <SpeedLimit type="int">0</SpeedLimit>
+    </TBT>
+</DrivingSupport>

@@ -1,0 +1,79 @@
+<Audio name="Audio">
+    <!--Precision:Not Applicable-->
+    <!--0:OFF-->
+    <!--1:States Sentence-->
+    <!--2:Prefab-->
+    <!--3:PrefabWithPreset-->
+    <!--4:PrefabWithNo-->
+    <!--5:PrefabFM-->
+    <PrefabIndex type="int">0</PrefabIndex>
+    <!--Precision:Not Applicable-->
+    <!--false:Invisible-->
+    <!--true:visible-->
+    <SourceVisible type="bool">false</SourceVisible>
+    <Title>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1~14(Screen&Interface)-->
+        <IconIndex type="int">0</IconIndex>
+        <!--Precision:Not Applicable-->
+        <!--eg:Bluetooth-->
+        <Text type="string"> </Text>
+    </Title>
+    <Prefab>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Display-->
+        <!--1:Manual-->
+        <!--2:Presets-->
+        <!--3:Station List-->
+        <ManualState type="int">0</ManualState>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Display-->
+        <!--1:FM Link-->
+        <!--2:TP-->
+        <FMLinkState type="int">0</FMLinkState>
+        <!--Precision:Not Applicable-->
+        <!--Track or file number-->
+        <NO type="string"> </NO>
+        <!--Precision:Not Applicable-->
+        <!--preset number-->
+        <Preset type="string"> </Preset>
+        <!--Precision:Not Applicable-->
+        <!--Track Name or File name and so-->
+        <FirstText type="string"> </FirstText>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Scroll-->
+        <!--1:Scroll-->
+        <FirstIsScroll type="bool">false</FirstIsScroll>
+        <!--Precision:Not Applicable-->
+        <!--Artist Name or Station name and  so-->
+        <SecondText type="string"> </SecondText>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Scroll-->
+        <!--1:Scroll-->
+        <SecondIsScroll type="bool">false</SecondIsScroll>
+        <!--Precision:Not Applicable-->
+        <!--Album Name or Folder name and so-->
+        <ThirdText type="string"> </ThirdText>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Scroll-->
+        <!--1:Scroll-->
+        <ThirdIsScroll type="bool">false</ThirdIsScroll>
+    </Prefab>
+    <StatesSentence>
+        <!--Precision:Not Applicable-->
+        <!--771,770,769,778,779,780,781,782,783,784,785,786,790,787,788,789,772,773,774,775(Screen&Interface)-->
+        <Index type="int">771</Index>
+    </StatesSentence>
+    <PrefabFM>
+        <!--Precision:Not Applicable-->
+        <!--0~8-->
+        <!--0:Invisible-->
+        <HDSelectIndex type="int">0</HDSelectIndex>
+        <!--Precision:Not Applicable-->
+        <!--0：Grey-->
+        <!--1：Orange-->
+        <!---->
+        <Icon type="int">0</Icon>
+    </PrefabFM>
+</Audio>

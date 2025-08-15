@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:DataSourceTestAvalonia"
+    mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+    x:Class="DataSourceTestAvalonia.MainWindow"
+    Title="Data Source Test Tool">
+    <Grid Margin="10" RowDefinitions="Auto,Auto,Auto,3*,1*,Auto">
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Text="Data Source Test Tool" FontSize="20" FontWeight="Bold"
+            HorizontalAlignment="Center" Margin="0,0,0,10" />
+
+        <!-- Status Section -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+            <TextBlock x:Name="StatusText" Text="Server: Initializing..." FontWeight="Bold" />
+            <TextBlock x:Name="ClientStatusText" Text="Client: Not Connected" />
+            <Button x:Name="BrowseClientButton" Content="Browse Client" Width="120" />
+            <Button x:Name="ClientButton" Content="Start Client" Width="100" IsEnabled="False" />
+            <Button x:Name="ResendMessageButton" Content="Resend Messages" Width="130"
+                IsEnabled="False" />
+            <Button x:Name="ClearSessionButton" Content="Clear Session" Width="110" />
+            <Button x:Name="NewKzbButton" Content="New KZB" Width="100"
+                IsEnabled="False" />
+            <TextBlock x:Name="XmlDirectoryLabel" Width="400" Text="No client selected"
+                VerticalAlignment="Center" Background="LightGray" Padding="5"
+                TextTrimming="CharacterEllipsis"
+                ToolTip.Tip="{Binding Text, RelativeSource={RelativeSource Self}}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="OpenFolderMenuItem" Header="Open Folder" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </StackPanel>
+
+        <!-- Control Panel -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+            <ComboBox x:Name="ModuleComboBox" Width="120" PlaceholderText="Module" />
+            <TextBox x:Name="InterfaceNameTextBox" Width="200" Watermark="Interface Name Filter" />
+            <ComboBox x:Name="PreconditionComboBox" Width="150" PlaceholderText="Precondition" />
+            <Button x:Name="ScreenshotButton" Content="Screenshot" Width="100" />
+            <Button x:Name="CopyDllButton" Content="Client DLL" Width="150" />
+            <Button x:Name="CopyClientButton" Content="Client.exe" Width="160"
+                Background="LightGreen" />
+        </StackPanel>
+
+        <!-- Main Data Grid -->
+        <DataGrid Grid.Row="3" x:Name="XmlDataGrid" Margin="0,0,0,10"
+            IsReadOnly="False"
+            CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True"
+            AutoGenerateColumns="True"
+            x:DataType="local:XmlDataItem">
+        </DataGrid>
+
+
+        <!-- Warnings List -->
+        <ScrollViewer Grid.Row="4" x:Name="WarningsScrollViewer">
+            <ListBox x:Name="WarningListBox" />
+        </ScrollViewer>
+
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+<HUD name="HUD">
+    <!--for HUD Warped. -->
+    <!--Numbers of values depends HUD supplier.-->
+    <!--E.g. Short, Mid-Short ,Center ,Mid-Tall, Tall-->
+    <MirrorPositon type="int">0</MirrorPositon>
+    <!--TODO Define-->
+    <InterruptIndex type="int">0</InterruptIndex>
+    <!--TODO Define-->
+    <Gear type="int">0</Gear>
+    <!--Speed-->
+    <Speed type="int">0</Speed>
+    <OffsetInterruptIndex>
+        <!--TODO Define-->
+        <NextStreet type="int">0</NextStreet>
+        <!--TODO Define-->
+        <DistanceToGo type="int">0</DistanceToGo>
+        <!--TODO Define-->
+        <TurnByTurn type="int">0</TurnByTurn>
+    </OffsetInterruptIndex>
+    <ADAS>
+        <!--Data Range:1,2,3,4-->
+        <SetDistance type="int">0</SetDistance>
+    </ADAS>
+    <Version>
+        <!--SoftWare Version-->
+        <SoftWareVersion type="string"></SoftWareVersion>
+        <!--GIP Version-->
+        <GIPVersion type="string"></GIPVersion>
+        <!--VIP Version-->
+        <VIPVersion type="string"></VIPVersion>
+        <!--Version Visible Status-->
+        <VersionVisible type="bool">False</VersionVisible>
+    </Version>
+</HUD>

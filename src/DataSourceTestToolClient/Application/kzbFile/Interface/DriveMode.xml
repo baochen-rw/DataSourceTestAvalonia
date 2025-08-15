@@ -1,0 +1,27 @@
+<DriveMode name="DriveMode">
+    <!--Precision:Not Applicable-->
+    <!--false:Do not Show-->
+    <!--true:Show-->
+    <DriveModeVisible type="bool">false</DriveModeVisible>
+    <!--Precision:Not Applicable-->
+    <!--false:Do not Show-->
+    <!--true:Show-->
+    <OptionVisible type="bool">false</OptionVisible>
+    <!--Precision:Not Applicable-->
+    <!--0:Three options-->
+    <!--1:Six options-->
+    <OptionMode type="int">0</OptionMode>
+    <!--Precision:Not Applicable-->
+    <!--1:SPORT-->
+    <!--2:NORMAL-->
+    <!--3:ECO-->
+    <ModeSelectIndexFor3 type="int">1</ModeSelectIndexFor3>
+    <!--Precision:Not Applicable-->
+    <!--1:CUSTOM-->
+    <!--2:SPORT S+-->
+    <!--3:SPORT S-->
+    <!--4:NORMAL-->
+    <!--5:COMFORT-->
+    <!--6:ECO-->
+    <ModeSelectIndexFor6 type="int">1</ModeSelectIndexFor6>
+</DriveMode>

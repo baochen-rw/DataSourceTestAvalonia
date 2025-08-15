@@ -1,0 +1,886 @@
+<Popup name="Popup">
+    <PopupBg>
+        <!--Precision:Not Applicable-->
+        <!--0:No-Interrupt-->
+        <!--1:Warning-->
+        <!--2:Phone-->
+        <!--3:ProposedServices-->
+        <!--4:SafetyReminder(Door Open,Open SEA, Soanr Clean)-->
+        <!--5:TPMS-->
+        <!--6.ETC-->
+        <!--7:Charging(Reversed）-->
+        <!--8:VR-->
+        <!--9:Reversed-->
+        <!--10:TBT-->
+        <!--11:Door unlock-->
+        <!--12:FuelLid-->
+        <!--13:Reversed-->
+        <!--14:ACC-->
+        <!--15:DAC-->
+        <!--16:CRAWL-->
+        <!--17:SmartEntry-->
+        <!--18:TransportMode-->
+        <!--19:MyRoom（Reversed）-->
+        <InterruptId type="int">0</InterruptId>
+        <!--Precision:Not Applicable-->
+        <!--0:No ONS-->
+        <!--1:AudioStatus-->
+        <!--2:Volume-->
+        <!--3:Brightness-->
+        <!--4:Start&Stop-->
+        <!--5:PreSetTitle-->
+        <!--6:Reversed-->
+        <ONSId type="int">0</ONSId>
+        <!--Precision:Not Applicable-->
+        <!--0:893B -->
+        <!--1:460B-->
+        <ModeType type="int">0</ModeType>
+    </PopupBg>
+    <Phone>
+        <!--Precision:Not Applicable-->
+        <!--0.Not Connected-->
+        <!--1.Incoming Call-->
+        <!--2.Dialing Call-->
+        <!--3.Talking Call-->
+        <!--4.Incoming Call(Japan)-->
+        <!--5.HoldCall-->
+        <!--6.WaitingCall-->
+        <PageType type="int">0</PageType>
+        <!--Precision:Not Applicable-->
+        <!--0.Non-Display-->
+        <!--1.Normal-->
+        <!--2.Selected-->
+        <FirstButtonStatus type="int">1</FirstButtonStatus>
+        <!--Precision:Not Applicable-->
+        <!--0.Non-Display-->
+        <!--1.Normal-->
+        <!--2.Selected-->
+        <SecondButtonStatus type="int">0</SecondButtonStatus>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1.mobile-->
+        <!--2.home-->
+        <!--3.work-->
+        <!--4.other-->
+        <NumberIconType type="int">0</NumberIconType>
+        <!--Precision:Not Applicable-->
+        <!--0.Non-Display-->
+        <!--1.Normal-->
+        <!--2.Selected-->
+        <ThirdButtonStatus type="int">0</ThirdButtonStatus>
+        <!--Precision:Not Applicable-->
+        <!--false.Not  Scroll-->
+        <!--true.Scroll-->
+        <ContactNameScroll type="bool">false</ContactNameScroll>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <ContactNumber type="string">UnKnown</ContactNumber>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <ContactName type="string">UnKnown</ContactName>
+        <!--Precision:Not Applicable-->
+        <!--0:Swap calls-->
+        <!--1:Hold-->
+        <!--2:Activated-->
+        <TalkingButtonType type="int">0</TalkingButtonType>
+    </Phone>
+    <FuelLid>
+        <!--Precision:Not Applicable-->
+        <!--0-9-->
+        <Opening type="int">0</Opening>
+        <!--Precision:Not Applicable-->
+        <!--0:Fuel lid standby screen-->
+        <!--1:Refuel ready screen-->
+        <!--2:Close fuel lid screen-->
+        <State type="int">0</State>
+    </FuelLid>
+    <ProposedServices>
+        <!--Precision:Not Applicable-->
+        <!--0:invisible-->
+        <!--1~14:ProposedServices screen-->
+        <!---->
+        <ServicesId type="int">0</ServicesId>
+        <!--Precision:Not Applicable-->
+        <!--false:not selected-->
+        <!--true: selected-->
+        <ItemSelected type="bool">false</ItemSelected>
+    </ProposedServices>
+    <VoiceRecognition>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:idle-->
+        <!--2:reception-->
+        <!--3:progress-->
+        <Status type="int">0</Status>
+    </VoiceRecognition>
+    <SafetyReminder>
+        <!--Precision:Not Applicable-->
+        <!--0:Only Door open-->
+        <!--1:Only Sonar-->
+        <!--2:Door open to Sonar-->
+        <!--3:Sonar to Door Open-->
+        <!--4:Only Clean-->
+        <!--5:Door open to Clean-->
+        <!--6:Clean to Door Open-->
+        <!--7:Sonar to Clean-->
+        <!--8:Clean to Sonar-->
+        <Type type="int">0</Type>
+    </SafetyReminder>
+    <Sonar>
+        <!--Precision:Not Applicable-->
+        <!--Has 5 steps + invisible state-->
+        <FrontCenterLInfoIndex type="int">0</FrontCenterLInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 5 steps + invisible state-->
+        <FrontCenterRInfoIndex type="int">0</FrontCenterRInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 4 steps + invisible state-->
+        <FrontLeftInfoIndex type="int">0</FrontLeftInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 4 steps + invisible state-->
+        <FrontRightInfoIndex type="int">0</FrontRightInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 5 steps + invisible state -->
+        <RearCenterLInfoIndex type="int">0</RearCenterLInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 5 steps + invisible state -->
+        <RearCenterRInfoIndex type="int">0</RearCenterRInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 4 steps + invisible state-->
+        <RearLeftInfoIndex type="int">0</RearLeftInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--Has 4 steps + invisible state-->
+        <RearRightInfoIndex type="int">0</RearRightInfoIndex>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontCenterLRedRim type="bool">false</FrontCenterLRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontCenterRRedRim type="bool">false</FrontCenterRRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontLeftRedRim type="bool">false</FrontLeftRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontRightRedRim type="bool">false</FrontRightRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearCenterLRedRim type="bool">false</RearCenterLRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearCenterRRedRim type="bool">false</RearCenterRRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearLeftRedRim type="bool">false</RearLeftRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearRightRedRim type="bool">false</RearRightRedRim>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontCenterLStains type="int">0</FrontCenterLStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontCenterRStains type="int">0</FrontCenterRStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontLeftStains type="int">0</FrontLeftStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontRightStains type="int">0</FrontRightStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontSideRightStains type="int">0</FrontSideRightStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <FrontSideLeftStains type="int">0</FrontSideLeftStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearCenterLStains type="int">0</RearCenterLStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearCenterRStains type="int">0</RearCenterRStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearLeftStains type="int">0</RearLeftStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearRightStains type="int">0</RearRightStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearSideRightStains type="int">0</RearSideRightStains>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RearSideLeftStains type="int">0</RearSideLeftStains>
+        <!--Precision:Not Applicable-->
+        <!--0: Invisible -->
+        <!--1:mute -->
+        <!--2:unmuted-->
+        <RadarTextState type="int">0</RadarTextState>
+        <!--Precision:Not Applicable-->
+        <!--0: Invisible-->
+        <!--1:clear-->
+        <StainsTextState type="int">0</StainsTextState>
+    </Sonar>
+    <DoorOpen>
+        <!--Precision:Not Applicable-->
+        <!--0:drive side(Left)-->
+        <!--1:drive side (Right)-->
+        <!--2:all door unlock-->
+        <LockStatus type="int">0</LockStatus>
+        <!--Precision:Not Applicable-->
+        <!---->
+        <EngineCover type="int">0</EngineCover>
+        <!--Precision:Not Applicable-->
+        <!--0:closed-->
+        <!--1:unlock-->
+        <!--2:open-->
+        <LFDoor type="int">0</LFDoor>
+        <!--Precision:Not Applicable-->
+        <!--0:closed-->
+        <!--1:unlock-->
+        <!--2:open-->
+        <RFDoor type="int">0</RFDoor>
+        <!--Precision:Not Applicable-->
+        <!--0:closed-->
+        <!--1:unlock-->
+        <!--2:open-->
+        <LRDoor type="int">0</LRDoor>
+        <!--Precision:Not Applicable-->
+        <!--0:closed-->
+        <!--1:unlock-->
+        <!--2:open-->
+        <RRDoor type="int">0</RRDoor>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <TrunkDoor type="int">0</TrunkDoor>
+        <!--Precision:Not Applicable-->
+        <!--0:No reminder-->
+        <!--1:Rear side reminder-->
+        <!--2:Front side reminder-->
+        <LeftVehicleReminder type="int">0</LeftVehicleReminder>
+        <!--Precision:Not Applicable-->
+        <!--0:No reminder-->
+        <!--1:Rear side reminder-->
+        <!--2:Front side reminder-->
+        <RightVehicleReminder type="int">0</RightVehicleReminder>
+    </DoorOpen>
+    <FactoryMode>
+        <!--Precision:Not Applicable-->
+        <!--false:invisible-->
+        <!--true:visible-->
+        <Visible type="bool">false</Visible>
+        <!--Precision:Not Applicable-->
+        <!--0-4:index-->
+        <!--5:invisible-->
+        <CurrentIndex type="int">0</CurrentIndex>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:BSM-->
+        <!--2:Clearance sonar-->
+        <!--3:AC 100V  -->
+        <!--4:km/mile-->
+        <!--5:Rear Sunshade -->
+        <Item1 type="int">1</Item1>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:BSM-->
+        <!--2:Clearance sonar-->
+        <!--3:AC 100V  -->
+        <!--4:km/mile-->
+        <!--5:Rear Sunshade -->
+        <Item2 type="int">2</Item2>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:BSM-->
+        <!--2:Clearance sonar-->
+        <!--3:AC 100V  -->
+        <!--4:km/mile-->
+        <!--5:Rear Sunshade -->
+        <Item3 type="int">3</Item3>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:BSM-->
+        <!--2:Clearance sonar-->
+        <!--3:AC 100V  -->
+        <!--4:km/mile-->
+        <!--5:Rear Sunshade -->
+        <Item4 type="int">4</Item4>
+        <!--Precision:Not Applicable-->
+        <!--0:Invisible-->
+        <!--1:BSM-->
+        <!--2:Clearance sonar-->
+        <!--3:AC 100V  -->
+        <!--4:km/mile-->
+        <!--5:Rear Sunshade -->
+        <Item5 type="int">0</Item5>
+        <!--Precision:Not Applicable-->
+        <!--0:Off-->
+        <!--1:On-->
+        <Item1Status type="int">0</Item1Status>
+        <!--Precision:Not Applicable-->
+        <!--0:Off-->
+        <!--1:On-->
+        <Item2Status type="int">0</Item2Status>
+        <!--Precision:Not Applicable-->
+        <!--0:Off-->
+        <!--1:On-->
+        <Item3Status type="int">0</Item3Status>
+        <!--Precision:Not Applicable-->
+        <!--0:km-->
+        <!--1:miles-->
+        <Item4Status type="int">0</Item4Status>
+        <!--Precision:Not Applicable-->
+        <!--0:Open-->
+        <!--1:Close-->
+        <Item5Status type="int">0</Item5Status>
+    </FactoryMode>
+    <ETC>
+        <!--Precision:Not Applicable-->
+        <!--0:ETC Card is Not Inserted with code number-->
+        <!--1:ETC Card is Not Inserted-->
+        <!--2:Unable to Pass through ETC Gate-->
+        <!--3:Unable to Pass through ETC Gate with code nuber-->
+        <EnterState type="int">0</EnterState>
+        <!--Precision:Not Applicable-->
+        <!--01 ~ 63-->
+        <CodeNumber type="string">1</CodeNumber>
+    </ETC>
+    <DAC>
+        <!--Precision:Not Applicable-->
+        <!--0:km/h-->
+        <!--1:MPH-->
+        <Unit type="int">0</Unit>
+        <!--Precision:Not Applicable-->
+        <!--0-26-->
+        <SpeedIndex type="int">0</SpeedIndex>
+    </DAC>
+    <SmartEntry>
+        <!--Precision:Not Applicable-->
+        <!--0;Driver door is opened when vehicle is parked with ENG/READY ON-->
+        <!--1:Vehicle is parked for 50 minutes with ENG/READY ON-->
+        <Type type="int">0</Type>
+        <!--Precision:Not Applicable-->
+        <!--false:off-->
+        <!--true:on-->
+        <Selected type="bool">false</Selected>
+        <!--Precision:Not Applicable-->
+        <!--0:OFF/ON Button-->
+        <!--1:YES/ON Button-->
+        <SelectedItemType type="int">0</SelectedItemType>
+    </SmartEntry>
+    <AudioStatus>
+        <!--Precision:Not Applicable-->
+        <!--1:Audio OFF-->
+        <!--2:AM Radio-->
+        <!--3:FM Radio-->
+        <!--4:SAT Radio-->
+        <!--5:Traffic Info-->
+        <!--6:DAB-->
+        <!--7:Disc-->
+        <!--8:HDD-->
+        <!--9:SDREC-->
+        <!--10:SD-->
+        <!--11:USB -->
+        <!--12:IPod-->
+        <!--13:BT Audio-->
+        <!--14: DLNA-->
+        <!--15:TV-->
+        <!--16:VTR-->
+        <!--17:AUX-->
+        <!--18:Pandora  -->
+        <!--19:iHeart  -->
+        <!--20:Mirror Link -->
+        <!--21:Rear Voice -->
+        <!--22:G read aloud -->
+        <!--23:Lexus Insider -->
+        <!--24:Carlife-->
+        <!--25:Carplay -->
+        <!--26:Android Auto -->
+        <!--27Audio TEL -->
+        <!--28:Audio Helpnet -->
+        <!--29:Mail Reading -->
+        <!--30:DSRC long sentence reading -->
+        <!--Icon -->
+        <CurrentMediaTitle type="string">Unknown</CurrentMediaTitle>
+        <!--Precision:Not Applicable-->
+        <!--false:not scroll-->
+        <!--true:scroll-->
+        <CurrentMediaTitleScroll type="bool">false</CurrentMediaTitleScroll>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <MediaInfoText type="string">Unknown</MediaInfoText>
+        <!--Precision:Not Applicable-->
+        <!--Only 1/2/3/11 Icon is correct. Other icon to be comfirmed.-->
+        <!--1:Audio OFF-->
+        <!--2:AM Radio-->
+        <!--3:FM Radio-->
+        <!--4:SAT Radio-->
+        <!--5:Traffic Info-->
+        <!--6:DAB-->
+        <!--7:Disc-->
+        <!--8:HDD-->
+        <!--9:SDREC-->
+        <!--10:SD-->
+        <!--11:USB -->
+        <!--12:IPod-->
+        <!--13:BT Audio-->
+        <!--14: DLNA-->
+        <!--15:TV-->
+        <!--16:VTR-->
+        <!--17:AUX-->
+        <!--18:Pandora  -->
+        <!--19:iHeart  -->
+        <!--20:Mirror Link -->
+        <!--21:Rear Voice -->
+        <!--22:G read aloud -->
+        <!--23:Lexus Insider -->
+        <!--24:Carlife-->
+        <!--25:Carplay -->
+        <!--26:Android Auto -->
+        <!--27Audio TEL -->
+        <!--28:Audio Helpnet -->
+        <!--29:Mail Reading -->
+        <!--30:DSRC long sentence reading -->
+        <!--Icon -->
+        <CurrentMediaIconType type="int">0</CurrentMediaIconType>
+        <!--Precision:Not Applicable-->
+        <!--false:not scroll-->
+        <!--true:scroll-->
+        <MediaInfoTextScroll type="bool">false</MediaInfoTextScroll>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RadioChannel type="string">88.8</RadioChannel>
+        <!--Precision:Not Applicable-->
+        <!--eg.-->
+        <RadioUnit type="string">HZ</RadioUnit>
+        <!--Precision:Not Applicable-->
+        <!--0:None                        -->
+        <!--1:Now Playing-->
+        <!--2:Connected-->
+        <!--3:Portable Player Is Not Connected.-->
+        <!--4:Please Wait…-->
+        <!--5:Chk Ant-->
+        <!--6:Ch Unsub -->
+        <!--7:No Signal-->
+        <!--8:Ch OFF Air-->
+        <!--9:Ch Unavail-->
+        <!--10:There is No Reception-->
+        <!--11:Not Found-->
+        <!--12:Check Disc-->
+        <!--13:Error-->
+        <!--14:Reading Disc…-->
+        <!--15:Not Supported-->
+        <!--16:Playback Control ON-->
+        <!--17:Reading-->
+        <!--18:Emergency Call-->
+        <!--19:Being Checked-->
+        <!--20:Phone Call In Progress-->
+        <FeedbackExpla type="int">0</FeedbackExpla>
+        <!--Precision:Not Applicable-->
+        <!--1:Audio OFF-->
+        <!--2:AM Radio-->
+        <!--3:FM Radio-->
+        <!--4:SAT Radio-->
+        <!--5:Traffic Info-->
+        <!--6:DAB-->
+        <!--7:Disc-->
+        <!--8:HDD-->
+        <!--9:SDREC-->
+        <!--10:SD-->
+        <!--11:USB -->
+        <!--12:IPod-->
+        <!--13:BT Audio-->
+        <!--14: DLNA-->
+        <!--15:TV-->
+        <!--16:VTR-->
+        <!--17:AUX-->
+        <!--18:Pandora  -->
+        <!--19:iHeart  -->
+        <!--20:Mirror Link -->
+        <!--21:Rear Voice -->
+        <!--22:G read aloud -->
+        <!--23:Lexus Insider -->
+        <!--24:Carlife-->
+        <!--25:Carplay -->
+        <!--26:Android Auto -->
+        <!--27Audio TEL -->
+        <!--28:Audio Helpnet -->
+        <!--29:Mail Reading -->
+        <!--30:DSRC long sentence reading -->
+        <!--Icon -->
+        <Source type="int">0</Source>
+    </AudioStatus>
+    <Brightness>
+        <!--Precision:Not Applicable-->
+        <!--0-22-->
+        <Value type="int">0</Value>
+        <!--Precision:Not Applicable-->
+        <!--0:Day-->
+        <!--1:Night-->
+        <DayLightType type="int">0</DayLightType>
+    </Brightness>
+    <Volume>
+        <!--Precision:Not Applicable-->
+        <!--0:Normal-->
+        <!--1:Mute-->
+        <!--2:Pause-->
+        <!--3:Max-->
+        <State type="int">0</State>
+        <!--Precision:Not Applicable-->
+        <!--0-99-->
+        <Value type="int">0</Value>
+        <!--Precision:Not Applicable-->
+        <!--0:Audio-->
+        <!--1:Ring-->
+        <!--2:Call-->
+        <!--3:Error-->
+        <Type type="int">0</Type>
+    </Volume>
+    <Startstop>
+        <!--Precision:Not Applicable-->
+        <!--Interface to be confirmed, please do not use in this version！！！！-->
+        <Time type="string">0</Time>
+        <!--Precision:Not Applicable-->
+        <!--0:Press brake more to activate-->
+        <!--1:For Climate Control-->
+        <!--2:In Preparation-->
+        <!--3:Battery Charging-->
+        <!--4:Non-Dedicated Battery-->
+        <!--5:Stop & Start system Unavailable-->
+        <Item type="int">0</Item>
+    </Startstop>
+    <Preset>
+        <!--Precision:Not Applicable-->
+        <!--0:PreSet 1-->
+        <!--1:PreSet 2-->
+        <!--2:PreSet 3-->
+        <Item type="int">0</Item>
+    </Preset>
+    <TransportMode>
+        <!--Precision:Not Applicable-->
+        <!--0:Front defroster Selection -->
+        <!--1:AUTO  Selectiion-->
+        <!--2:OFF  Selection -->
+        <SelectedItem type="int">0</SelectedItem>
+    </TransportMode>
+    <WarningMessage>
+        <!--Precision:Not Applicable-->
+        <!--0:No Message Text-->
+        <!--1-999:Message Info -->
+        <!--Only Index 0~5 can be test, other index to be confirmed.-->
+        <MessageTextID type="int">0</MessageTextID>
+        <!--Precision:Not Applicable-->
+        <!--1-1000-->
+        <OilMaintenanceDistance type="string"></OilMaintenanceDistance>
+        <!--Precision:Not Applicable-->
+        <!--1-1000-->
+        <OilMaintenanceUnit type="int">0</OilMaintenanceUnit>
+        <!--Precision:Not Applicable-->
+        <!--1-1000-->
+        <OilMaintenanceMessageID type="int">0</OilMaintenanceMessageID>
+        <!--Precision:Not Applicable-->
+        <!--true:display-->
+        <!--false:not display-->
+        <MessageIconVisible type="bool">true</MessageIconVisible>
+    </WarningMessage>
+    <ADASPopup>
+        <!--Precision:Not Applicable-->
+        <!--0:No Warning-->
+        <!--1:Rear Side Radar-->
+        <!--2:TSS Mode-->
+        <!--3.FCM Mode-->
+        <!--4:TMN-->
+        <!--5:Parking Support-->
+        <!--6:PSC Mode-->
+        <!--7:URSM/PDA-->
+        <!--8:Advance-->
+        <!--9:Advance Distance-->
+        <WarningID type="int">0</WarningID>
+        <RearSideRadar>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <BSMState type="bool">false</BSMState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <FHLState type="bool">false</FHLState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <RCTAState type="bool">false</RCTAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <SEAState type="bool">false</SEAState>
+            <!--Precision:Not Applicable-->
+            <!--0:System Stopped-->
+            <!--1:See Owner's Manual-->
+            <MessageID type="int">0</MessageID>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <AVSState type="bool">false</AVSState>
+        </RearSideRadar>
+        <TSSMode>
+            <!--Precision:Not Applicable-->
+            <!--0:ASL-->
+            <!--1:CCS-->
+            <!--2:ACC-->
+            <!--3:URSM-->
+            <!---->
+            <Mode type="int">0</Mode>
+        </TSSMode>
+        <FCM>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <PCSState type="bool">false</PCSState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <LDAState type="bool">false</LDAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <PDAState type="bool">false</PDAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <RSAState type="bool">false</RSAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <AHBState type="bool">false</AHBState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <ACCState type="bool">false</ACCState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <LTAState type="bool">false</LTAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <DAState type="bool">false</DAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <DESAState type="bool">false</DESAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <LCAState type="bool">false</LCAState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <TMNState type="bool">false</TMNState>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <ISAState type="bool">false</ISAState>
+            <!--Precision:Not Applicable-->
+            <!--0:System Malfunction -->
+            <!--1:System Stopped -->
+            <!--2: Front Camera Low Visibility-->
+            <!--3:Out of Temperature Range -->
+            <!--4:Front Radar Sensor Blocked -->
+            <!--5:Front Radar Sensor Out of Temperature Range -->
+            <!--6:Front Radar In Self Calibration  -->
+            <!---->
+            <MessageID type="int">False</MessageID>
+            <!--Precision:Not Applicable-->
+            <!--false:Normal-->
+            <!--true: Breakdown-->
+            <PDA2State type="bool">false</PDA2State>
+        </FCM>
+        <TMN>
+            <!--Precision:Not Applicable-->
+            <!--0:Vehicle-->
+            <!--1:Signal Lamp-->
+            <!--2:Right Turn-->
+            <!--3:Energncy Vehicle-->
+            <!--4:Stop Support-->
+            <Type type="int">0</Type>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <VehicleVisible type="bool">true</VehicleVisible>
+            <!--Precision:Not Applicable-->
+            <!--0:Signal change 1-->
+            <!-- 1:Signal change 2-->
+            <!--2:Signal change 3-->
+            <!--3:signal change 4-->
+            <!--4:signal ahead 1-->
+            <!--5:signal ahead 2-->
+            <!---->
+            <SignalLampState type="int">0</SignalLampState>
+            <!--Precision:Not Applicable-->
+            <!--0-12-->
+            <TimerState type="int">0</TimerState>
+            <!--Precision:Not Applicable-->
+            <!--false:not display -->
+            <!--true:display-->
+            <VehicleState type="bool">false</VehicleState>
+            <!--Precision:Not Applicable-->
+            <!--false:not display -->
+            <!--true:display-->
+            <PeopleState type="bool">false</PeopleState>
+            <!--Precision:Not Applicable-->
+            <!--0:No-->
+            <!--1:Front Left-->
+            <!--2:Front Right-->
+            <!--3:Side Left-->
+            <!--4:Side Right-->
+            <!--5:Rear Left-->
+            <!--6:Rear Right-->
+            <!--7:Nearby-->
+            <ArrowPosition type="int">0</ArrowPosition>
+            <!--Precision:Not Applicable-->
+            <!--0:0°-->
+            <!--1:45°-->
+            <!--2:90°-->
+            <!--3:135°-->
+            <!--4:180°-->
+            <!--5:225°-->
+            <!--6:270°-->
+            <!--7:315°-->
+            <!---->
+            <ArrowDirection type="int">0</ArrowDirection>
+            <!--Precision:Not Applicable-->
+            <!--0: No-->
+            <!--1:50 m-->
+            <!--2:100 m-->
+            <!--3:150 m-->
+            <DistanceValue type="int">0</DistanceValue>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <StopSupportLeft type="bool">false</StopSupportLeft>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <StopSupportRight type="bool">false</StopSupportRight>
+            <!--Precision:Not Applicable-->
+            <!--true:display-->
+            <!--false:not display-->
+            <StopSupportLineVisible type="bool">false</StopSupportLineVisible>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <StopSupportMsgVisible type="bool">true</StopSupportMsgVisible>
+        </TMN>
+        <ParkingSupport>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <RCDState type="bool">false</RCDState>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <CSRState type="bool">false</CSRState>
+            <!--Precision:Not Applicable-->
+            <!--false:not display-->
+            <!--true:display-->
+            <PKSBState type="bool">false</PKSBState>
+            <!--Precision:Not Applicable-->
+            <!--0:System Malfunction Visit Your Dealer-->
+            <!--1:System Stopped See Owner's Manual-->
+            <!--2:Parking Assist Unavailable Sensor Blocked-->
+            <!--3:Parking Assist Unavailable Sensor Blocked-->
+            <!--4:Parking Assist Unavailable Low Visibility See Owner's Manual-->
+            <!---->
+            <MessageID type="int">0</MessageID>
+        </ParkingSupport>
+        <PCS>
+            <!--Precision:Not Applicable-->
+            <!--0:PCS Alert 1-->
+            <!--1:PCS Alert 2-->
+            <!--2:PCS Alert distance -->
+            <!--unusable condition-->
+            <!--3:Safety mode 1-->
+            <!--4:Safety mode 2-->
+            <!--5:Safety mode 3-->
+            <!--6:Saftey mode 4-->
+            <!--7:Right turn warning-->
+            <!--8:Left turn warning-->
+            <!---->
+            <MessageID type="int">0</MessageID>
+        </PCS>
+        <Advanced>
+            <!--Precision:Not Applicable-->
+            <!--0:Hands-OFF assist proposal-->
+            <!--1:System suggest to turn on the system-->
+            <!--2:System suggest the lane change to right-->
+            <!--3:System suggest the lane change to left-->
+            <MessageID type="int">0</MessageID>
+            <!--Precision:Not Applicable-->
+            <!--false:not selected-->
+            <!--true:selected-->
+            <ButtonState type="bool">true</ButtonState>
+        </Advanced>
+        <AdvanceDistance>
+            <!--Precision:Not Applicable-->
+            <!--0:Step 1-->
+            <!--1:Step 2-->
+            <!--2:Step 3-->
+            <!--3:Step 4-->
+            <Step type="int">0</Step>
+            <!--Precision:Not Applicable-->
+            <!--0:Grey-->
+            <!--1:Amber-->
+            <!--2:Blue-->
+            <Color type="int">0</Color>
+        </AdvanceDistance>
+    </ADASPopup>
+    <CRAWL>
+        <!--Precision:Not Applicable-->
+        <!--0:Empty-->
+        <!--1:Speed is Lo.-->
+        <!--2:Speed is Lo-Mid.-->
+        <!--3:Speed is Mid-->
+        <!--4:Speed is Mid-Hi.-->
+        <!--5:Speed is Hi.-->
+        <!---->
+        <SpeedKinds type="int">0</SpeedKinds>
+    </CRAWL>
+    <GPF>
+        <!--Precision:Not Applicable-->
+        <!--0:GPF cleaning proposal-->
+        <!--1:GPF has too much particulates (Warning level)-->
+        <!--2:GPF cleaning stop proposal-->
+        <!--3:GPF has much particulates (Alert level or more)-->
+        <!--4:GPF is  Normal level or less-->
+        <!--5:Ambient temperature is 0 degree C or lower-->
+        <!--6:GPF cleaning proposal(Caution level or more) -->
+        <Type type="int">0</Type>
+        <!--Precision:Not Applicable-->
+        <!--0-10-->
+        <!---->
+        <ValueLevel type="int">0</ValueLevel>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Display-->
+        <!--1:Cleaning-->
+        <!--2:Do cleaning-->
+        <CleanType type="int">0</CleanType>
+        <!--Precision:Not Applicable-->
+        <!--0:Not Display-->
+        <!--1:Stop-->
+        <!--2:Stop Cleaning-->
+        <StopType type="int">0</StopType>
+        <!--Precision:Not Applicable-->
+        <!--True:selected-->
+        <!--false:not selected-->
+        <!---->
+        <CleanSelect type="bool">true</CleanSelect>
+    </GPF>
+    <DriveMode>
+        <!--Precision:Not Applicable-->
+        <!--0:Custom-->
+        <!--1:Sport-->
+        <!--2:Normal-->
+        <!--3:ECO-->
+        <Type type="int">0</Type>
+    </DriveMode>
+</Popup>
