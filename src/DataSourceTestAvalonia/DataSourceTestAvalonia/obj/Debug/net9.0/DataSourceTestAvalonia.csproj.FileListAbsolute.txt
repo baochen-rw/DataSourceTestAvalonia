@@ -303,3 +303,4 @@ E:\DataSourceTestAvalonia\src\DataSourceTestAvalonia\DataSourceTestAvalonia\obj\
 E:\DataSourceTestAvalonia\src\DataSourceTestAvalonia\DataSourceTestAvalonia\obj\Debug\net9.0\DataSourceTestAvalonia.pdb
 E:\DataSourceTestAvalonia\src\DataSourceTestAvalonia\DataSourceTestAvalonia\obj\Debug\net9.0\DataSourceTestAvalonia.genruntimeconfig.cache
 E:\DataSourceTestAvalonia\src\DataSourceTestAvalonia\DataSourceTestAvalonia\obj\Debug\net9.0\ref\DataSourceTestAvalonia.dll
+E:\DataSourceTestAvalonia\src\DataSourceTestAvalonia\DataSourceTestAvalonia\obj\Debug\net9.0\DataSourceTestAvalonia.sourcelink.json

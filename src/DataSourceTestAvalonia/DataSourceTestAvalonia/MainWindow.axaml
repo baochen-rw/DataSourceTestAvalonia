@@ -7,14 +7,16 @@
     mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
     x:Class="DataSourceTestAvalonia.MainWindow"
     Title="Data Source Test Tool">
-    <Grid Margin="10" RowDefinitions="Auto,Auto,Auto,3*,1*,Auto">
+    <Grid Margin="10" RowDefinitions="Auto,Auto,Auto,2*,1*,1*,Auto">
 
         <!-- Title -->
-        <TextBlock Grid.Row="0" Text="Data Source Test Tool" FontSize="20" FontWeight="Bold"
+        <TextBlock Grid.Row="0" Text="Data Source Test Tool" FontSize="20"
+            FontWeight="Bold"
             HorizontalAlignment="Center" Margin="0,0,0,10" />
 
         <!-- Status Section -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10"
+            Margin="0,0,0,10">
             <TextBlock x:Name="StatusText" Text="Server: Initializing..." FontWeight="Bold" />
             <TextBlock x:Name="ClientStatusText" Text="Client: Not Connected" />
             <Button x:Name="BrowseClientButton" Content="Browse Client" Width="120" />
@@ -37,7 +39,8 @@
         </StackPanel>
 
         <!-- Control Panel -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10"
+            Margin="0,0,0,10">
             <ComboBox x:Name="ModuleComboBox" Width="120" PlaceholderText="Module" />
             <TextBox x:Name="InterfaceNameTextBox" Width="200" Watermark="Interface Name Filter" />
             <ComboBox x:Name="PreconditionComboBox" Width="150" PlaceholderText="Precondition" />
@@ -55,9 +58,62 @@
             x:DataType="local:XmlDataItem">
         </DataGrid>
 
+        <!-- Session Changes Panel -->
+        <StackPanel Grid.Row="4" Orientation="Vertical" Margin="0,0,0,10">
+            <TextBlock Text="📝 Session Changes" FontWeight="Bold" FontSize="16" Margin="0,0,0,5"
+                Foreground="DarkBlue" />
+            <Border BorderBrush="DarkBlue" BorderThickness="2" CornerRadius="5"
+                Background="AliceBlue" Padding="5">
+                <ScrollViewer VerticalScrollBarVisibility="Visible"
+                    HorizontalScrollBarVisibility="Auto"
+                    MaxHeight="200">
+                    <ItemsControl x:Name="SessionChangesItemsControl">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="local:XmlDataItem">
+                                <Border Background="White" BorderBrush="LightBlue"
+                                    BorderThickness="1"
+                                    CornerRadius="3" Margin="1" Padding="5">
+                                    <StackPanel Orientation="Vertical" Spacing="2">
+                                        <TextBlock Text="{Binding Name}" FontWeight="Bold"
+                                            Foreground="DarkBlue" FontSize="12"
+                                            TextTrimming="CharacterEllipsis" />
+                                        <StackPanel Orientation="Horizontal" Spacing="3">
+                                            <TextBlock Text="File:" FontWeight="SemiBold"
+                                                Foreground="Gray" FontSize="10" />
+                                            <TextBlock Text="{Binding FileName}" Foreground="Black"
+                                                FontSize="10"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="3">
+                                            <TextBlock Text="Type:" FontWeight="SemiBold"
+                                                Foreground="Gray" FontSize="10" />
+                                            <TextBlock Text="{Binding Type}" Foreground="Black"
+                                                FontSize="10" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="3">
+                                            <TextBlock Text="Value:" FontWeight="SemiBold"
+                                                Foreground="Green" FontSize="10" />
+                                            <TextBlock Text="{Binding Value}" Foreground="DarkGreen"
+                                                FontSize="11"
+                                                FontWeight="Bold" TextWrapping="Wrap"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
 
         <!-- Warnings List -->
-        <ScrollViewer Grid.Row="4" x:Name="WarningsScrollViewer">
+        <ScrollViewer Grid.Row="5" x:Name="WarningsScrollViewer">
             <ListBox x:Name="WarningListBox" />
         </ScrollViewer>
 

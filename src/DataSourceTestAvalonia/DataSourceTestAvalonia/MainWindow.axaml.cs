@@ -29,8 +29,9 @@ internal partial class MainWindow : Window
     private readonly ObservableCollection<string> _warnings = new();
 
     // Session-based data storage - keeps current values without modifying XML files
-    private ObservableCollection<XmlDataItem> _sessionData = new();
-    private readonly Dictionary<string, string> _sessionValues = new(); // Key: "fileName|name", Value: current value
+    private ObservableCollection<XmlDataItem> _filteredIF = new();
+    // Session changes for UI display - shows only modified values
+    private readonly ObservableCollection<XmlDataItem> _sessionChanges = new();
 
     // Client process management
     private Process? _clientProcess;
@@ -116,6 +117,8 @@ internal partial class MainWindow : Window
         {
             // Setup UI bindings
             WarningListBox.ItemsSource = _warnings;
+            XmlDataGrid.ItemsSource = _filteredIF;
+            SessionChangesItemsControl.ItemsSource = _sessionChanges;
 
             // Setup event handlers
             // Removed LoadXmlButton
@@ -473,8 +476,8 @@ internal partial class MainWindow : Window
             string originalValue = row["value"].ToString() ?? "";
 
             // Check if we have a session value override
-            string sessionKey = $"{fileName}|{name}";
-            string currentValue = _sessionValues.ContainsKey(sessionKey) ? _sessionValues[sessionKey] : originalValue;
+            var sessionItem = _sessionChanges.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
+            string currentValue = sessionItem?.Value ?? originalValue;
 
             return new XmlDataItem
             {
@@ -486,14 +489,11 @@ internal partial class MainWindow : Window
         }).ToList();
 
         // Update the session data collection
-        _sessionData.Clear();
+        _filteredIF.Clear();
         foreach (var item in itemsList)
         {
-            _sessionData.Add(item);
+            _filteredIF.Add(item);
         }
-
-        // Bind to the session data (which supports property change notifications)
-        XmlDataGrid.ItemsSource = _sessionData;
 
         _warnings.Add($"Set DataGrid ItemsSource to {itemsList.Count} items (with session overrides)");
     }
@@ -502,9 +502,22 @@ internal partial class MainWindow : Window
     {
         if (name == "screenshot") return;
 
-        // Store the value in session data (don't modify the original DataTable)
-        string sessionKey = $"{fileName}|{name}";
-        _sessionValues[sessionKey] = value;
+        // Store or update the value in session changes collection
+        var existingItem = _sessionChanges.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
+        if (existingItem != null)
+        {
+            existingItem.Value = value;
+        }
+        else
+        {
+            _sessionChanges.Add(new XmlDataItem
+            {
+                FileName = fileName,
+                Name = name,
+                Type = type,
+                Value = value
+            });
+        }
 
         // Convert bool values for client communication
         string sendValue = value;
@@ -590,10 +603,6 @@ internal partial class MainWindow : Window
                 // Only process Value column edits (other columns should be read-only)
                 if (columnName == "Value")
                 {
-                    // Store the change in session data (not in XML files)
-                    string sessionKey = $"{editedItem.FileName}|{editedItem.Name}";
-                    _sessionValues[sessionKey] = newValue;
-
                     // Update the current item's value
                     editedItem.Value = newValue;
 
@@ -710,10 +719,10 @@ internal partial class MainWindow : Window
     {
         try
         {
-            int sessionCount = _sessionValues.Count;
+            int sessionCount = _sessionChanges.Count;
 
-            // Clear the session values dictionary
-            _sessionValues.Clear();
+            // Clear the session changes collection
+            _sessionChanges.Clear();
 
             // Refresh the DataGrid to show original values (without session overrides)
             var module = ModuleComboBox.SelectedItem?.ToString() ?? "";
@@ -821,30 +830,16 @@ internal partial class MainWindow : Window
     {
         try
         {
-            if (_sessionValues.Count > 0)
+            if (_sessionChanges.Count > 0)
             {
-                _warnings.Add($"Resending {_sessionValues.Count} session values to client with 200ms delays...");
+                _warnings.Add($"Resending {_sessionChanges.Count} session values to client with 200ms delays...");
 
-                foreach (var kvp in _sessionValues)
+                foreach (var sessionItem in _sessionChanges)
                 {
-                    // Parse the session key: "fileName|name"
-                    string[] parts = kvp.Key.Split('|');
-                    if (parts.Length == 2)
-                    {
-                        string fileName = parts[0];
-                        string name = parts[1];
-                        string value = kvp.Value;
+                    SendToClient(sessionItem.FileName, sessionItem.Name, sessionItem.Type, sessionItem.Value);
 
-                        // Find the type from the current session data
-                        var item = _sessionData.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
-                        if (item != null)
-                        {
-                            SendToClient(fileName, name, item.Type, value);
-
-                            // Add 200ms delay between commands
-                            await Task.Delay(200);
-                        }
-                    }
+                    // Add 200ms delay between commands
+                    await Task.Delay(200);
                 }
 
                 _warnings.Add("Finished resending session values");
