@@ -10,6 +10,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace DataSourceTestAvalonia;
 
@@ -20,6 +21,14 @@ public class XmlDataItem
     public string Name { get; set; } = "";
     public string Type { get; set; } = "";
     public string Value { get; set; } = "";
+}
+
+// Settings data model
+public class AppSettings
+{
+    public string ClientDirectory { get; set; } = "";
+    public string LastKzbDirectory { get; set; } = "";
+    public Dictionary<string, int> MessageHistory { get; set; } = new();
 }
 
 internal partial class MainWindow : Window
@@ -36,6 +45,11 @@ internal partial class MainWindow : Window
     // Client process management
     private Process? _clientProcess;
     private string _clientDirectory = "";
+    private string _lastKzbDirectory = "";
+
+    // Message history for frequently used messages
+    private readonly Dictionary<string, int> _messageHistory = new();
+    private readonly int _maxHistoryMessages = 10;
 
     /// <summary>
     /// Gets the client executable path by combining the client directory with the exe filename
@@ -129,8 +143,13 @@ internal partial class MainWindow : Window
             NewKzbButton.Click += NewKzbButton_Click;
             ScreenshotButton.Click += ScreenshotButton_Click;
             PreconditionComboBox.SelectionChanged += PreconditionComboBox_SelectionChanged;
+            LoadPreconditionButton.Click += LoadPreconditionButton_Click;
             CopyDllButton.Click += CopyDllButton_Click;
             CopyClientButton.Click += CopyClientButton_Click;
+            OpenFolderMenuItem.Click += OpenFolderMenuItem_Click;
+            RefreshMessagesButton.Click += RefreshMessagesButton_Click;
+            ThemeToggleButton.Click += ThemeToggleButton_Click;
+            ClearHistoryButton.Click += ClearHistoryButton_Click;
 
             InterfaceNameTextBox.TextChanged += InterfaceNameTextBox_TextChanged;
             ModuleComboBox.SelectionChanged += ModuleComboBox_SelectionChanged;
@@ -148,14 +167,23 @@ internal partial class MainWindow : Window
             CurrentState = AppState.Initializing;
             SetupPaths();
             SetupXmlRecording();
+            LoadAppSettings();
             LoadSavedClientPath();
+            CreateKanziClientDllSaveFolder();
             // Don't automatically copy files - user will trigger with buttons
             // CopyDatasourceToolsDll();
             // CopyKanziClientSaveFiles();
             // Don't load interfaces at startup - wait for client connection
             //LoadInterfacesFromClientFolder();
             LoadPreconditions();
+
+            // Initialize theme
+            UpdateThemeButton();
+
             StartServer();
+
+            // Initialize common messages UI
+            UpdateCommonMessagesUI();
         }
         catch (Exception ex)
         {
@@ -323,7 +351,113 @@ internal partial class MainWindow : Window
 
         catch (Exception ex)
         {
-            _warnings.Add($"Error copying KanziClientSave files: {ex.Message}");
+            AddWarning($"❌ Error copying KanziClientSave files: {ex.Message}");
+        }
+    }
+
+    private void CreateKanziClientDllSaveFolder()
+    {
+        try
+        {
+            string dllSaveFolder = Path.Combine(_baseDir, "KanziClientDLLSave");
+
+            if (!Directory.Exists(dllSaveFolder))
+            {
+                Directory.CreateDirectory(dllSaveFolder);
+                AddWarning($"📁 Created KanziClientDLLSave folder: {dllSaveFolder}");
+            }
+            else
+            {
+                AddWarning($"✅ KanziClientDLLSave folder already exists: {dllSaveFolder}");
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error creating KanziClientDLLSave folder: {ex.Message}");
+        }
+    }
+
+    private void CopyKanziClientDllSaveFiles()
+    {
+        try
+        {
+            string sourceFolder = Path.Combine(_baseDir, "KanziClientDLLSave");
+
+            // Use selected client directory if available, otherwise use default KanziClient folder
+            string destinationFolder;
+            if (!string.IsNullOrEmpty(_clientDirectory))
+            {
+                destinationFolder = _clientDirectory;
+            }
+            else
+            {
+                destinationFolder = Path.Combine(_baseDir, "KanziClient");
+            }
+
+            if (!Directory.Exists(sourceFolder))
+            {
+                AddWarning($"📁 KanziClientDLLSave folder not found: {sourceFolder}. Creating it now...");
+                Directory.CreateDirectory(sourceFolder);
+                AddWarning($"💡 Please place your DLL files in {sourceFolder} and try again.");
+                return;
+            }
+
+            // Create destination folder if it doesn't exist
+            if (!Directory.Exists(destinationFolder))
+            {
+                Directory.CreateDirectory(destinationFolder);
+                AddWarning($"📁 Created destination folder: {destinationFolder}");
+            }
+
+            // Copy all files from source to destination
+            string[] files = Directory.GetFiles(sourceFolder, "*", SearchOption.AllDirectories);
+
+            if (files.Length == 0)
+            {
+                AddWarning($"⚠️ No files found in KanziClientDLLSave folder. Please add DLL files to {sourceFolder}");
+                return;
+            }
+
+            int copiedCount = 0;
+            int replacedCount = 0;
+
+            AddWarning($"🔄 Starting to copy {files.Length} files from KanziClientDLLSave...");
+
+            foreach (string sourceFile in files)
+            {
+                // Get relative path to maintain folder structure
+                string relativePath = Path.GetRelativePath(sourceFolder, sourceFile);
+                string destinationFile = Path.Combine(destinationFolder, relativePath);
+
+                // Create subdirectories if needed
+                string? destinationDir = Path.GetDirectoryName(destinationFile);
+                if (!string.IsNullOrEmpty(destinationDir) && !Directory.Exists(destinationDir))
+                {
+                    Directory.CreateDirectory(destinationDir);
+                }
+
+                // Check if file already exists
+                bool fileExists = File.Exists(destinationFile);
+                if (fileExists)
+                {
+                    replacedCount++;
+                    AddWarning($"🔄 Replacing existing file: {relativePath}");
+                }
+
+                // Copy file with overwrite
+                File.Copy(sourceFile, destinationFile, true);
+                copiedCount++;
+            }
+
+            AddWarning($"✅ Successfully copied {copiedCount} files from KanziClientDLLSave to {destinationFolder}");
+            if (replacedCount > 0)
+            {
+                AddWarning($"🔄 Replaced {replacedCount} existing files");
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error copying KanziClientDLLSave files: {ex.Message}");
         }
     }
 
@@ -498,7 +632,7 @@ internal partial class MainWindow : Window
         _warnings.Add($"Set DataGrid ItemsSource to {itemsList.Count} items (with session overrides)");
     }
 
-    private void SendToClient(string fileName, string name, string type, string value)
+    private void SendToClient(string fileName, string name, string type, string value, bool trackInHistory = true)
     {
         if (name == "screenshot") return;
 
@@ -525,6 +659,50 @@ internal partial class MainWindow : Window
             sendValue = (value == "0" || value.ToLower() == "false") ? "false" : "true";
 
         _server.SendSyncCommand(fileName, type, name, sendValue);
+
+        // Track this message in history only if requested (exclude preconditions)
+        if (trackInHistory)
+        {
+            TrackMessageInHistory(fileName, name, type, value);
+        }
+    }
+
+    private void TrackMessageInHistory(string fileName, string name, string type, string value)
+    {
+        try
+        {
+            // Create a unique key for this message
+            string messageKey = $"{name}={value} ({fileName})";
+
+            // Increment count or add new entry
+            if (_messageHistory.ContainsKey(messageKey))
+            {
+                _messageHistory[messageKey]++;
+            }
+            else
+            {
+                _messageHistory[messageKey] = 1;
+            }
+
+            // Always update UI immediately after tracking a message
+            Dispatcher.UIThread.Post(() => UpdateCommonMessagesUI());
+
+            // Save settings after every message to prevent loss on app close
+            SaveAppSettings();
+        }
+        catch (Exception ex)
+        {
+            _warnings.Add($"Error tracking message history: {ex.Message}");
+        }
+    }
+
+    private List<string> GetTopMessages()
+    {
+        return _messageHistory
+            .OrderByDescending(kvp => kvp.Value)
+            .Take(_maxHistoryMessages)
+            .Select(kvp => $"{kvp.Key} ({kvp.Value}x)")
+            .ToList();
     }
 
     private void RecordAction(string fileName, string type, string name, string value)
@@ -560,7 +738,7 @@ internal partial class MainWindow : Window
                     string name = item.Name;
                     string type = item.GetAttribute("type");
                     string value = item.GetAttribute("value");
-                    SendToClient(fileName, name, type, value);
+                    SendToClient(fileName, name, type, value, trackInHistory: false);
 
                     // Add 200ms delay between commands
                     await Task.Delay(500);
@@ -691,13 +869,21 @@ internal partial class MainWindow : Window
     {
         try
         {
-            AddWarning("Manual DLL copy triggered...");
+            AddWarning("🔄 Starting DLL file operations...");
+
+            // Copy standard DLL files
             CopyDatasourceToolsDll();
-            AddWarning("DLL copy completed.");
+            AddWarning("✅ Standard DLL files copied successfully!");
+
+            // Copy DLL Save files
+            CopyKanziClientDllSaveFiles();
+            AddWarning("✅ DLL Save files copied successfully!");
+
+            AddWarning("🎯 All DLL file operations completed!");
         }
         catch (Exception ex)
         {
-            _warnings.Add($"Error during manual DLL copy: {ex.Message}");
+            AddWarning($"❌ Error during DLL file operations: {ex.Message}");
         }
     }
 
@@ -892,8 +1078,12 @@ internal partial class MainWindow : Window
                 _warnings.Add("Closed existing client for KZB update");
             }
 
-            // Set starting directory to client directory if available
-            if (!string.IsNullOrEmpty(_clientDirectory) && Directory.Exists(_clientDirectory))
+            // Set starting directory to last KZB directory if available, otherwise use client directory
+            if (!string.IsNullOrEmpty(_lastKzbDirectory) && Directory.Exists(_lastKzbDirectory))
+            {
+                options.SuggestedStartLocation = await topLevel.StorageProvider.TryGetFolderFromPathAsync(new Uri(_lastKzbDirectory));
+            }
+            else if (!string.IsNullOrEmpty(_clientDirectory) && Directory.Exists(_clientDirectory))
             {
                 options.SuggestedStartLocation = await topLevel.StorageProvider.TryGetFolderFromPathAsync(new Uri(_clientDirectory));
             }
@@ -904,6 +1094,10 @@ internal partial class MainWindow : Window
                 string selectedKzbFile = result[0].Path.LocalPath;
                 string kzbFileName = Path.GetFileName(selectedKzbFile);
                 string destinationPath = Path.Combine(_clientDirectory, kzbFileName);
+
+                // Save the directory of the selected KZB file for next time
+                _lastKzbDirectory = Path.GetDirectoryName(selectedKzbFile) ?? "";
+                SaveLastKzbDirectory();
 
                 _warnings.Add($"Copying KZB file: {kzbFileName}");
 
@@ -951,6 +1145,202 @@ internal partial class MainWindow : Window
             {
                 LoadPreconditionFile(preconditionPath);
             }
+        }
+    }
+
+    private void LoadPreconditionButton_Click(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var preconditionFile = PreconditionComboBox.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(preconditionFile))
+            {
+                AddWarning("⚠️ Please select a precondition file first.");
+                return;
+            }
+
+            string preconditionPath = Path.Combine(_baseDir, "PreCondition", preconditionFile);
+            if (File.Exists(preconditionPath))
+            {
+                AddWarning($"🔄 Loading precondition: {preconditionFile}");
+                LoadPreconditionFile(preconditionPath);
+            }
+            else
+            {
+                AddWarning($"❌ Precondition file not found: {preconditionFile}");
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error loading precondition: {ex.Message}");
+        }
+    }
+
+    private void OpenFolderMenuItem_Click(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(_clientDirectory) || !Directory.Exists(_clientDirectory))
+            {
+                AddWarning("❌ No client directory set or directory doesn't exist.");
+                return;
+            }
+
+            // Open the folder in Windows Explorer
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "explorer.exe",
+                Arguments = $"\"{_clientDirectory}\"",
+                UseShellExecute = true
+            });
+
+            AddWarning($"📂 Opened client folder: {_clientDirectory}");
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error opening folder: {ex.Message}");
+        }
+    }
+
+    private void RefreshMessagesButton_Click(object? sender, RoutedEventArgs e)
+    {
+        UpdateCommonMessagesUI();
+    }
+
+    private void ClearHistoryButton_Click(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            _messageHistory.Clear();
+            SaveAppSettings();
+            UpdateCommonMessagesUI();
+            AddWarning("🗑️ Message history cleared!");
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error clearing message history: {ex.Message}");
+        }
+    }
+
+    private void ThemeToggleButton_Click(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            ThemeManager.Instance.ToggleTheme();
+            UpdateThemeButton();
+            AddWarning($"🎨 Theme switched to {ThemeManager.Instance.GetThemeDisplayName()}");
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error toggling theme: {ex.Message}");
+        }
+    }
+
+    private void UpdateThemeButton()
+    {
+        ThemeToggleButton.Content = ThemeManager.Instance.GetNextThemeDisplayName();
+    }
+
+    private void UpdateCommonMessagesUI()
+    {
+        try
+        {
+            CommonMessagesPanel.Children.Clear();
+
+            var topMessages = GetTopMessages();
+            if (topMessages.Count == 0)
+            {
+                var noMessagesText = new TextBlock
+                {
+                    Text = "No common messages yet. Edit some interface values to build history.",
+                    FontStyle = Avalonia.Media.FontStyle.Italic,
+                    Foreground = Avalonia.Media.Brushes.Gray,
+                    Margin = new Avalonia.Thickness(5)
+                };
+                CommonMessagesPanel.Children.Add(noMessagesText);
+                return;
+            }
+
+            foreach (var message in topMessages)
+            {
+                // Parse the message format: "name=value (filename) (count)"
+                if (TryParseMessageHistory(message, out string name, out string value, out string fileName, out int count))
+                {
+                    var button = new Button
+                    {
+                        Content = $"{name}={value} ({count}x)",
+                        Margin = new Avalonia.Thickness(2),
+                        Padding = new Avalonia.Thickness(8, 4),
+                        FontSize = 11,
+                        Background = Avalonia.Media.Brushes.LightBlue
+                    };
+
+                    // Add click handler to reapply this message
+                    button.Click += (s, e) => ApplyCommonMessage(fileName, name, value);
+
+                    CommonMessagesPanel.Children.Add(button);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error updating common messages UI: {ex.Message}");
+        }
+    }
+
+    private bool TryParseMessageHistory(string message, out string name, out string value, out string fileName, out int count)
+    {
+        name = "";
+        value = "";
+        fileName = "";
+        count = 0;
+
+        try
+        {
+            // Format: "name=value (filename) (countx)"
+            var parts = message.Split(" (");
+            if (parts.Length >= 3)
+            {
+                var nameValue = parts[0].Split("=", 2);
+                if (nameValue.Length == 2)
+                {
+                    name = nameValue[0];
+                    value = nameValue[1];
+                    fileName = parts[1].TrimEnd(')');
+                    var countStr = parts[2].Replace("x)", "");
+                    return int.TryParse(countStr, out count);
+                }
+            }
+        }
+        catch { }
+
+        return false;
+    }
+
+    private void ApplyCommonMessage(string fileName, string name, string value)
+    {
+        try
+        {
+            // Find the item type from current session data
+            var item = _filteredIF.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
+            if (item != null)
+            {
+                // Update the item in the main grid
+                item.Value = value;
+
+                // Send to client
+                SendToClient(fileName, name, item.Type, value);
+
+                AddWarning($"📤 Applied common message: {name}={value} from {fileName}");
+            }
+            else
+            {
+                AddWarning($"⚠️ Could not find interface {name} in {fileName}. Try refreshing the interface list.");
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error applying common message: {ex.Message}");
         }
     }
 
@@ -1089,60 +1479,170 @@ internal partial class MainWindow : Window
     {
         try
         {
-            string settingsPath = Path.Combine(_baseDir, "client_settings.txt");
-            if (File.Exists(settingsPath))
+            // This will be handled by LoadAppSettings now - just update UI
+            if (!string.IsNullOrEmpty(_clientDirectory))
             {
-                _clientDirectory = File.ReadAllText(settingsPath).Trim();
+                // Always show the directory in the label
+                XmlDirectoryLabel.Text = _clientDirectory;
+
                 string clientExePath = GetClientExePath();
-                if (!string.IsNullOrEmpty(_clientDirectory) && File.Exists(clientExePath))
+                if (File.Exists(clientExePath))
                 {
-                    XmlDirectoryLabel.Text = _clientDirectory;
                     UpdateClientButtonState();
-                    _warnings.Add($"Loaded saved client: {clientExePath}");
-
-                    // Don't automatically copy files - user will trigger with buttons
-                    // CopyKanziClientSaveFiles();
-
-                    // Load interfaces from the saved client directory
+                    AddWarning($"✅ Loaded saved client: {clientExePath}");
                     LoadInterfacesFromClientFolder();
                 }
                 else
                 {
-                    _clientDirectory = "";
-                    XmlDirectoryLabel.Text = "No client selected";
                     UpdateClientButtonState();
+                    AddWarning($"⚠️ Client directory loaded but executable not found: {clientExePath}");
+                    AddWarning($"💡 Tip: Use the 'Client.exe' button to copy client files or browse for a different location.");
                 }
             }
             else
             {
                 XmlDirectoryLabel.Text = "No client selected";
                 UpdateClientButtonState();
+                AddWarning($"🔍 No saved client directory found. Please browse for client location.");
             }
         }
         catch (Exception ex)
         {
-            _warnings.Add($"Error loading saved client path: {ex.Message}");
-            XmlDirectoryLabel.Text = "No client selected";
+            AddWarning($"❌ Error loading saved client path: {ex.Message}");
+            XmlDirectoryLabel.Text = "Error loading client";
             UpdateClientButtonState();
         }
     }
 
     private void SaveClientPath()
     {
+        SaveAppSettings();
+    }
+
+    private void SaveLastKzbDirectory()
+    {
+        SaveAppSettings();
+    }
+
+    private void SaveAppSettings()
+    {
         try
         {
-            string settingsPath = Path.Combine(_baseDir, "client_settings.txt");
-            File.WriteAllText(settingsPath, _clientDirectory);
+            var settings = new AppSettings
+            {
+                ClientDirectory = _clientDirectory,
+                LastKzbDirectory = _lastKzbDirectory,
+                MessageHistory = new Dictionary<string, int>(_messageHistory)
+            };
+
+            string settingsPath = Path.Combine(_baseDir, "app_settings.json");
+            string json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(settingsPath, json);
         }
         catch (Exception ex)
         {
-            _warnings.Add($"Error saving client path: {ex.Message}");
+            _warnings.Add($"Error saving app settings: {ex.Message}");
+        }
+    }
+
+    private void LoadLastKzbDirectory()
+    {
+        LoadAppSettings();
+    }
+
+    private void LoadAppSettings()
+    {
+        try
+        {
+            string settingsPath = Path.Combine(_baseDir, "app_settings.json");
+            if (File.Exists(settingsPath))
+            {
+                string json = File.ReadAllText(settingsPath);
+                var settings = JsonSerializer.Deserialize<AppSettings>(json);
+
+                if (settings != null)
+                {
+                    _clientDirectory = settings.ClientDirectory ?? "";
+                    _lastKzbDirectory = settings.LastKzbDirectory ?? "";
+
+                    // Load message history
+                    _messageHistory.Clear();
+                    if (settings.MessageHistory != null)
+                    {
+                        foreach (var kvp in settings.MessageHistory)
+                        {
+                            _messageHistory[kvp.Key] = kvp.Value;
+                        }
+                    }
+
+                    _warnings.Add($"Loaded app settings - Client: {_clientDirectory}, Last KZB: {_lastKzbDirectory}, Messages: {_messageHistory.Count}");
+                }
+            }
+            else
+            {
+                // Try to migrate from old settings files
+                MigrateOldSettings();
+            }
+        }
+        catch (Exception ex)
+        {
+            _warnings.Add($"Error loading app settings: {ex.Message}");
+            // Try to migrate from old settings files
+            MigrateOldSettings();
+        }
+    }
+
+    private void MigrateOldSettings()
+    {
+        try
+        {
+            // Migrate client settings
+            string clientSettingsPath = Path.Combine(_baseDir, "client_settings.txt");
+            if (File.Exists(clientSettingsPath))
+            {
+                _clientDirectory = File.ReadAllText(clientSettingsPath).Trim();
+            }
+
+            // Migrate KZB settings
+            string kzbSettingsPath = Path.Combine(_baseDir, "last_kzb_settings.txt");
+            if (File.Exists(kzbSettingsPath))
+            {
+                _lastKzbDirectory = File.ReadAllText(kzbSettingsPath).Trim();
+            }
+
+            // Save to new format and delete old files
+            if (!string.IsNullOrEmpty(_clientDirectory) || !string.IsNullOrEmpty(_lastKzbDirectory))
+            {
+                SaveAppSettings();
+
+                // Delete old files
+                try { File.Delete(clientSettingsPath); } catch { }
+                try { File.Delete(kzbSettingsPath); } catch { }
+
+                _warnings.Add("Migrated settings from old format to new JSON format.");
+            }
+        }
+        catch (Exception ex)
+        {
+            _warnings.Add($"Error migrating old settings: {ex.Message}");
         }
     }
     #endregion
 
     protected override void OnClosed(EventArgs e)
     {
+        // Save settings one final time to ensure message history is preserved
+        try
+        {
+            SaveAppSettings();
+            AddWarning("💾 Final settings save completed on app close");
+        }
+        catch (Exception ex)
+        {
+            // Even if saving fails, continue with cleanup
+            AddWarning($"❌ Error saving settings on close: {ex.Message}");
+        }
+
         // Close client process if running
         if (_clientProcess != null && !_clientProcess.HasExited)
         {
