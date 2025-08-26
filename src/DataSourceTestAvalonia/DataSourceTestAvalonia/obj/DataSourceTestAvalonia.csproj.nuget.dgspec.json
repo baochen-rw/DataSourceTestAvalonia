@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj": {}
+    "E:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj": {}
   },
   "projects": {
-    "e:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj": {
+    "E:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj",
+        "projectUniqueName": "E:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj",
         "projectName": "DataSourceTestAvalonia",
-        "projectPath": "e:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj",
+        "projectPath": "E:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\DataSourceTestAvalonia.csproj",
         "packagesPath": "C:\\Users\\ts\\.nuget\\packages\\",
-        "outputPath": "e:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\obj\\",
+        "outputPath": "E:\\DataSourceTestAvalonia\\src\\DataSourceTestAvalonia\\DataSourceTestAvalonia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ts\\AppData\\Roaming\\NuGet\\NuGet.Config"

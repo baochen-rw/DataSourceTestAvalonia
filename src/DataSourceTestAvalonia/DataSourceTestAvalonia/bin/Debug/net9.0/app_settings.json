@@ -4,5 +4,6 @@
   "MessageHistory": {
     "ADAS.TrackingDotsVisible=1 (ADAS)": 1,
     "ADAS.CACCVisible=1 (ADAS)": 1
-  }
+  },
+  "Theme": "Light"
 }

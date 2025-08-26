@@ -1,0 +1,9 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="1" />
+  <Popup.DriveMode.Type filename="Popup" type="int" value="0" />
+  <DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="1" />
+  <Common.CommonCarModelType filename="Common" type="int" value="16" />
+  <Common.CommonCarModelType filename="Common" type="int" value="17" />
+  <Common.CommonCarModelType filename="Common" type="int" value="16" />
+</script>

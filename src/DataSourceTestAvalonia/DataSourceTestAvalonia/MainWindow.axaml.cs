@@ -29,6 +29,7 @@ public class AppSettings
     public string ClientDirectory { get; set; } = "";
     public string LastKzbDirectory { get; set; } = "";
     public Dictionary<string, int> MessageHistory { get; set; } = new();
+    public string Theme { get; set; } = "Light"; // "Light" or "Dark"
 }
 
 internal partial class MainWindow : Window
@@ -50,6 +51,10 @@ internal partial class MainWindow : Window
     // Message history for frequently used messages
     private readonly Dictionary<string, int> _messageHistory = new();
     private readonly int _maxHistoryMessages = 10;
+
+    // Debounced settings save to improve performance
+    private System.Timers.Timer? _settingsSaveTimer;
+    private bool _settingsNeedSave = false;
 
     /// <summary>
     /// Gets the client executable path by combining the client directory with the exe filename
@@ -124,83 +129,138 @@ internal partial class MainWindow : Window
             throw; // Re-throw so the application fails clearly
         }
     }
-
+    #region Initialization
+    /// <summary>
+    /// Initializes the complete application including UI bindings, event handlers, and services.
+    /// This method orchestrates the entire application startup sequence.
+    /// </summary>
+    /// <exception cref="Exception">Thrown when any initialization step fails</exception>
     private void InitializeApplication()
     {
         try
         {
-            // Setup UI bindings
-            WarningListBox.ItemsSource = _warnings;
-            XmlDataGrid.ItemsSource = _filteredIF;
-            SessionChangesItemsControl.ItemsSource = _sessionChanges;
-
-            // Setup event handlers
-            // Removed LoadXmlButton
-            BrowseClientButton.Click += BrowseClientButton_Click;
-            ClientButton.Click += ClientButton_Click;
-            ResendMessageButton.Click += ResendMessageButton_Click;
-            ClearSessionButton.Click += ClearSessionButton_Click;
-            NewKzbButton.Click += NewKzbButton_Click;
-            ScreenshotButton.Click += ScreenshotButton_Click;
-            PreconditionComboBox.SelectionChanged += PreconditionComboBox_SelectionChanged;
-            LoadPreconditionButton.Click += LoadPreconditionButton_Click;
-            CopyDllButton.Click += CopyDllButton_Click;
-            CopyClientButton.Click += CopyClientButton_Click;
-            OpenFolderMenuItem.Click += OpenFolderMenuItem_Click;
-            RefreshMessagesButton.Click += RefreshMessagesButton_Click;
-            ThemeToggleButton.Click += ThemeToggleButton_Click;
-            ClearHistoryButton.Click += ClearHistoryButton_Click;
-
-            InterfaceNameTextBox.TextChanged += InterfaceNameTextBox_TextChanged;
-            ModuleComboBox.SelectionChanged += ModuleComboBox_SelectionChanged;
-
-            // Setup DataGrid event handlers
-            XmlDataGrid.CellEditEnding += XmlDataGrid_CellEditEnding;
-
-            // Setup server event handlers
-            _server.StatusChanged += (msg) =>
-            {
-                Dispatcher.UIThread.Post(() => UpdateServerStatus(msg));
-            };
-
-            // Initialize application
-            CurrentState = AppState.Initializing;
-            SetupPaths();
-            SetupXmlRecording();
-            LoadAppSettings();
-            LoadSavedClientPath();
-            CreateKanziClientDllSaveFolder();
-            // Don't automatically copy files - user will trigger with buttons
-            // CopyDatasourceToolsDll();
-            // CopyKanziClientSaveFiles();
-            // Don't load interfaces at startup - wait for client connection
-            //LoadInterfacesFromClientFolder();
-            LoadPreconditions();
-
-            // Initialize theme
-            UpdateThemeButton();
-
-            StartServer();
-
-            // Initialize common messages UI
-            UpdateCommonMessagesUI();
+            SetupUIBindings();
+            SetupEventHandlers();
+            InitializeServices();
+            InitializeThemeAndUI();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error during application initialization: {ex.Message}");
-            Console.WriteLine($"Stack trace: {ex.StackTrace}");
-
-            // Try to show error in warnings if possible
-            try
-            {
-                _warnings?.Add($"Initialization Error: {ex.Message}");
-            }
-            catch { }
-
+            HandleInitializationError(ex);
             throw;
         }
     }
 
+    /// <summary>
+    /// Sets up data bindings between UI controls and data collections.
+    /// </summary>
+    private void SetupUIBindings()
+    {
+        WarningListBox.ItemsSource = _warnings;
+        XmlDataGrid.ItemsSource = _filteredIF;
+        SessionChangesItemsControl.ItemsSource = _sessionChanges;
+    }
+
+    /// <summary>
+    /// Registers all event handlers for UI controls and services.
+    /// </summary>
+    private void SetupEventHandlers()
+    {
+        // Button event handlers
+        BrowseClientButton.Click += BrowseClientButton_Click;
+        ClientButton.Click += ClientButton_Click;
+        ResendMessageButton.Click += ResendMessageButton_Click;
+        ClearSessionButton.Click += ClearSessionButton_Click;
+        NewKzbButton.Click += NewKzbButton_Click;
+        ScreenshotButton.Click += ScreenshotButton_Click;
+        PreconditionComboBox.SelectionChanged += PreconditionComboBox_SelectionChanged;
+        LoadPreconditionButton.Click += LoadPreconditionButton_Click;
+        CopyDllButton.Click += CopyDllButton_Click;
+        CopyClientButton.Click += CopyClientButton_Click;
+        OpenFolderMenuItem.Click += OpenFolderMenuItem_Click;
+        RefreshMessagesButton.Click += RefreshMessagesButton_Click;
+        ThemeToggleButton.Click += ThemeToggleButton_Click;
+        ClearHistoryButton.Click += ClearHistoryButton_Click;
+
+        // Control event handlers
+        InterfaceNameTextBox.TextChanged += InterfaceNameTextBox_TextChanged;
+        ModuleComboBox.SelectionChanged += ModuleComboBox_SelectionChanged;
+        XmlDataGrid.CellEditEnding += XmlDataGrid_CellEditEnding;
+
+        // Server event handlers
+        _server.StatusChanged += (msg) => Dispatcher.UIThread.Post(() => UpdateServerStatus(msg));
+    }
+
+    /// <summary>
+    /// Initializes application services and loads persistent data.
+    /// </summary>
+    private void InitializeServices()
+    {
+        CurrentState = AppState.Initializing;
+        SetupPaths();
+        SetupXmlRecording();
+        LoadAppSettings();
+        LoadSavedClientPath();
+        CreateKanziClientDllSaveFolder();
+        LoadPreconditions();
+        InitializeDebouncedSave();
+    }
+
+    /// <summary>
+    /// Initializes the debounced settings save timer.
+    /// </summary>
+    private void InitializeDebouncedSave()
+    {
+        _settingsSaveTimer = new System.Timers.Timer(2000); // 2 second delay
+        _settingsSaveTimer.Elapsed += (sender, e) =>
+        {
+            if (_settingsNeedSave)
+            {
+                SaveAppSettings();
+                _settingsNeedSave = false;
+            }
+        };
+        _settingsSaveTimer.AutoReset = false; // Only fire once per trigger
+    }
+
+    /// <summary>
+    /// Schedules a debounced settings save to improve performance.
+    /// Settings will be saved after a 2-second delay from the last call.
+    /// </summary>
+    private void ScheduleSettingsSave()
+    {
+        _settingsNeedSave = true;
+        _settingsSaveTimer?.Stop();
+        _settingsSaveTimer?.Start();
+    }
+
+    /// <summary>
+    /// Initializes theme, starts server, and updates UI.
+    /// </summary>
+    private void InitializeThemeAndUI()
+    {
+        UpdateThemeButton();
+        StartServer();
+        UpdateCommonMessagesUI();
+    }
+
+    /// <summary>
+    /// Handles initialization errors with proper logging and cleanup.
+    /// </summary>
+    /// <param name="ex">The exception that occurred during initialization</param>
+    private void HandleInitializationError(Exception ex)
+    {
+        Console.WriteLine($"Error during application initialization: {ex.Message}");
+        Console.WriteLine($"Stack trace: {ex.StackTrace}");
+
+        // Try to show error in warnings if possible
+        try
+        {
+            _warnings?.Add($"❌ Initialization Error: {ex.Message}");
+        }
+        catch { }
+    }
+    #endregion
     /// <summary>
     /// Test method to verify DataGrid functionality with hardcoded data
     /// </summary>
@@ -298,61 +358,86 @@ internal partial class MainWindow : Window
         try
         {
             string sourceFolder = Path.Combine(_baseDir, "KanziClientSave");
+            string destinationFolder = DetermineDestinationFolder();
 
-            // Use selected client directory if available, otherwise use default KanziClient folder
-            string destinationFolder;
-            if (!string.IsNullOrEmpty(_clientDirectory))
-            {
-                destinationFolder = _clientDirectory;
-            }
-            else
-            {
-                destinationFolder = Path.Combine(_baseDir, "KanziClient");
-            }
+            if (!ValidateSourceFolder(sourceFolder)) return;
 
-            if (!Directory.Exists(sourceFolder))
-            {
-                _warnings.Add($"KanziClientSave folder not found: {sourceFolder}. Skipping file copy.");
-                return;
-            }
+            EnsureDestinationFolderExists(destinationFolder);
 
-            // Create destination folder if it doesn't exist
-            if (!Directory.Exists(destinationFolder))
-            {
-                Directory.CreateDirectory(destinationFolder);
-                _warnings.Add($"Created destination folder: {destinationFolder}");
-            }
-
-            // Copy all files from source to destination
-            string[] files = Directory.GetFiles(sourceFolder, "*", SearchOption.AllDirectories);
-            int copiedCount = 0;
-
-            foreach (string sourceFile in files)
-            {
-                // Get relative path to maintain folder structure
-                string relativePath = Path.GetRelativePath(sourceFolder, sourceFile);
-                string destinationFile = Path.Combine(destinationFolder, relativePath);
-
-                // Create subdirectories if needed
-                string? destinationDir = Path.GetDirectoryName(destinationFile);
-                if (!string.IsNullOrEmpty(destinationDir) && !Directory.Exists(destinationDir))
-                {
-                    Directory.CreateDirectory(destinationDir);
-                }
-
-                // Copy file with overwrite
-                File.Copy(sourceFile, destinationFile, true);
-                copiedCount++;
-            }
-
+            int copiedCount = CopyAllFiles(sourceFolder, destinationFolder);
             _warnings.Add($"Copied {copiedCount} files from KanziClientSave to {destinationFolder}");
         }
-
-
         catch (Exception ex)
         {
             AddWarning($"❌ Error copying KanziClientSave files: {ex.Message}");
         }
+    }
+
+    /// <summary>
+    /// Determines the destination folder for file copying based on client directory setting
+    /// </summary>
+    private string DetermineDestinationFolder()
+    {
+        return !string.IsNullOrEmpty(_clientDirectory)
+            ? _clientDirectory
+            : Path.Combine(_baseDir, "KanziClient");
+    }
+
+    /// <summary>
+    /// Validates that the source folder exists
+    /// </summary>
+    private bool ValidateSourceFolder(string sourceFolder)
+    {
+        if (Directory.Exists(sourceFolder)) return true;
+
+        _warnings.Add($"KanziClientSave folder not found: {sourceFolder}. Skipping file copy.");
+        return false;
+    }
+
+    /// <summary>
+    /// Ensures the destination folder exists, creating it if necessary
+    /// </summary>
+    private void EnsureDestinationFolderExists(string destinationFolder)
+    {
+        if (Directory.Exists(destinationFolder)) return;
+
+        Directory.CreateDirectory(destinationFolder);
+        _warnings.Add($"Created destination folder: {destinationFolder}");
+    }
+
+    /// <summary>
+    /// Copies all files from source to destination, maintaining folder structure
+    /// </summary>
+    private int CopyAllFiles(string sourceFolder, string destinationFolder)
+    {
+        string[] files = Directory.GetFiles(sourceFolder, "*", SearchOption.AllDirectories);
+        int copiedCount = 0;
+
+        foreach (string sourceFile in files)
+        {
+            CopyFileWithStructure(sourceFile, sourceFolder, destinationFolder);
+            copiedCount++;
+        }
+
+        return copiedCount;
+    }
+
+    /// <summary>
+    /// Copies a single file while maintaining directory structure
+    /// </summary>
+    private void CopyFileWithStructure(string sourceFile, string sourceFolder, string destinationFolder)
+    {
+        string relativePath = Path.GetRelativePath(sourceFolder, sourceFile);
+        string destinationFile = Path.Combine(destinationFolder, relativePath);
+
+        // Create subdirectories if needed
+        string? destinationDir = Path.GetDirectoryName(destinationFile);
+        if (!string.IsNullOrEmpty(destinationDir) && !Directory.Exists(destinationDir))
+        {
+            Directory.CreateDirectory(destinationDir);
+        }
+
+        File.Copy(sourceFile, destinationFile, true);
     }
 
     private void CreateKanziClientDllSaveFolder()
@@ -632,11 +717,39 @@ internal partial class MainWindow : Window
         _warnings.Add($"Set DataGrid ItemsSource to {itemsList.Count} items (with session overrides)");
     }
 
+    /// <summary>
+    /// Sends a command to the connected client and updates session state.
+    /// </summary>
+    /// <param name="fileName">XML file name containing the interface</param>
+    /// <param name="name">Interface element name</param>
+    /// <param name="type">Data type (string, int, float, bool)</param>
+    /// <param name="value">New value to send</param>
+    /// <param name="trackInHistory">Whether to record this message in usage history (default: true)</param>
     private void SendToClient(string fileName, string name, string type, string value, bool trackInHistory = true)
     {
         if (name == "screenshot") return;
 
-        // Store or update the value in session changes collection
+        UpdateSessionChanges(fileName, name, type, value);
+
+        string sendValue = ConvertBooleanValue(value, type);
+        _server.SendSyncCommand(fileName, type, name, sendValue);
+
+        // Track this message in history only if requested (exclude preconditions)
+        if (trackInHistory)
+        {
+            TrackMessageInHistory(fileName, name, type, value);
+        }
+    }
+
+    /// <summary>
+    /// Updates the session changes collection with the new value.
+    /// </summary>
+    /// <param name="fileName">XML file name</param>
+    /// <param name="name">Interface element name</param>
+    /// <param name="type">Data type</param>
+    /// <param name="value">New value</param>
+    private void UpdateSessionChanges(string fileName, string name, string type, string value)
+    {
         var existingItem = _sessionChanges.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
         if (existingItem != null)
         {
@@ -652,48 +765,69 @@ internal partial class MainWindow : Window
                 Value = value
             });
         }
-
-        // Convert bool values for client communication
-        string sendValue = value;
-        if (type == "bool")
-            sendValue = (value == "0" || value.ToLower() == "false") ? "false" : "true";
-
-        _server.SendSyncCommand(fileName, type, name, sendValue);
-
-        // Track this message in history only if requested (exclude preconditions)
-        if (trackInHistory)
-        {
-            TrackMessageInHistory(fileName, name, type, value);
-        }
     }
 
+    /// <summary>
+    /// Converts boolean values to client-compatible format.
+    /// </summary>
+    /// <param name="value">Original value</param>
+    /// <param name="type">Data type</param>
+    /// <returns>Converted value for client communication</returns>
+    private static string ConvertBooleanValue(string value, string type)
+    {
+        if (type != "bool") return value;
+
+        return value switch
+        {
+            "0" or "false" or "False" => "false",
+            _ => "true"
+        };
+    }
+
+    /// <summary>
+    /// Records message usage frequency for "Most Used Messages" feature.
+    /// Only tracks manual user interactions, excludes precondition loads.
+    /// </summary>
+    /// <param name="fileName">XML file containing the interface</param>
+    /// <param name="name">Interface element name</param>
+    /// <param name="type">Data type</param>
+    /// <param name="value">Value that was set</param>
     private void TrackMessageInHistory(string fileName, string name, string type, string value)
     {
         try
         {
-            // Create a unique key for this message
-            string messageKey = $"{name}={value} ({fileName})";
+            string messageKey = CreateMessageKey(fileName, name, value);
+            IncrementMessageCount(messageKey);
 
-            // Increment count or add new entry
-            if (_messageHistory.ContainsKey(messageKey))
-            {
-                _messageHistory[messageKey]++;
-            }
-            else
-            {
-                _messageHistory[messageKey] = 1;
-            }
-
-            // Always update UI immediately after tracking a message
+            // Always update UI immediately
             Dispatcher.UIThread.Post(() => UpdateCommonMessagesUI());
 
-            // Save settings after every message to prevent loss on app close
-            SaveAppSettings();
+            // Use debounced save for better performance
+            ScheduleSettingsSave();
         }
         catch (Exception ex)
         {
-            _warnings.Add($"Error tracking message history: {ex.Message}");
+            AddWarning($"❌ Error tracking message history: {ex.Message}");
         }
+    }
+
+    /// <summary>
+    /// Creates a unique message key for history tracking.
+    /// </summary>
+    /// <param name="fileName">XML file name</param>
+    /// <param name="name">Interface name</param>
+    /// <param name="value">Interface value</param>
+    /// <returns>Formatted message key</returns>
+    private string CreateMessageKey(string fileName, string name, string value)
+        => $"{name}={value} ({fileName})";
+
+    /// <summary>
+    /// Increments the usage count for a message key.
+    /// </summary>
+    /// <param name="messageKey">Message key to increment</param>
+    private void IncrementMessageCount(string messageKey)
+    {
+        _messageHistory[messageKey] = _messageHistory.GetValueOrDefault(messageKey, 0) + 1;
     }
 
     private List<string> GetTopMessages()
@@ -712,10 +846,22 @@ internal partial class MainWindow : Window
         XmlElement element = _recordXml.CreateElement(name);
         element.SetAttribute("filename", fileName);
         element.SetAttribute("type", type);
-        element.SetAttribute("value", value == "True" || value == "true" ? "1" :
-                                     value == "False" || value == "false" ? "0" : value);
+        element.SetAttribute("value", ConvertValueForRecording(value));
         _scriptRoot.AppendChild(element);
         _recordXml.Save(Path.Combine(_outputPath, "Unit_Test_Record.xml"));
+    }
+
+    /// <summary>
+    /// Converts boolean values to XML format for recording (True/False -> 1/0)
+    /// </summary>
+    private static string ConvertValueForRecording(string value)
+    {
+        return value switch
+        {
+            "True" or "true" => "1",
+            "False" or "false" => "0",
+            _ => value
+        };
     }
 
 
@@ -729,29 +875,43 @@ internal partial class MainWindow : Window
 
             if (doc.DocumentElement != null)
             {
-                var commands = doc.DocumentElement.ChildNodes.OfType<XmlElement>().ToList();
-                _warnings.Add($"Loading {commands.Count} precondition commands with 200ms delays...");
-
-                foreach (XmlElement item in commands)
-                {
-                    string fileName = item.GetAttribute("filename");
-                    string name = item.Name;
-                    string type = item.GetAttribute("type");
-                    string value = item.GetAttribute("value");
-                    SendToClient(fileName, name, type, value, trackInHistory: false);
-
-                    // Add 200ms delay between commands
-                    await Task.Delay(500);
-                }
-
-                _warnings.Add("Finished loading precondition commands.");
+                await ProcessPreconditionCommands(doc.DocumentElement);
             }
-            // Removed LoadPreconditionButton.Content update
         }
         catch (Exception ex)
         {
             _warnings.Add($"Error loading precondition file: {ex.Message}");
         }
+    }
+
+    /// <summary>
+    /// Processes precondition commands from XML with delays between commands
+    /// </summary>
+    private async Task ProcessPreconditionCommands(XmlElement documentElement)
+    {
+        var commands = documentElement.ChildNodes.OfType<XmlElement>().ToList();
+        _warnings.Add($"Loading {commands.Count} precondition commands with 500ms delays...");
+
+        foreach (XmlElement item in commands)
+        {
+            ExecutePreconditionCommand(item);
+            await Task.Delay(500);
+        }
+
+        _warnings.Add("Finished loading precondition commands.");
+    }
+
+    /// <summary>
+    /// Executes a single precondition command
+    /// </summary>
+    private void ExecutePreconditionCommand(XmlElement item)
+    {
+        string fileName = item.GetAttribute("filename");
+        string name = item.Name;
+        string type = item.GetAttribute("type");
+        string value = item.GetAttribute("value");
+
+        SendToClient(fileName, name, type, value, trackInHistory: false);
     }
 
     #region Event Handlers
@@ -1228,6 +1388,7 @@ internal partial class MainWindow : Window
         {
             ThemeManager.Instance.ToggleTheme();
             UpdateThemeButton();
+            SaveAppSettings(); // Save theme preference immediately
             AddWarning($"🎨 Theme switched to {ThemeManager.Instance.GetThemeDisplayName()}");
         }
         catch (Exception ex)
@@ -1532,7 +1693,8 @@ internal partial class MainWindow : Window
             {
                 ClientDirectory = _clientDirectory,
                 LastKzbDirectory = _lastKzbDirectory,
-                MessageHistory = new Dictionary<string, int>(_messageHistory)
+                MessageHistory = new Dictionary<string, int>(_messageHistory),
+                Theme = ThemeManager.Instance.CurrentTheme.ToString()
             };
 
             string settingsPath = Path.Combine(_baseDir, "app_settings.json");
@@ -1541,7 +1703,7 @@ internal partial class MainWindow : Window
         }
         catch (Exception ex)
         {
-            _warnings.Add($"Error saving app settings: {ex.Message}");
+            _warnings.Add($"❌ Error saving app settings: {ex.Message}");
         }
     }
 
@@ -1565,6 +1727,20 @@ internal partial class MainWindow : Window
                     _clientDirectory = settings.ClientDirectory ?? "";
                     _lastKzbDirectory = settings.LastKzbDirectory ?? "";
 
+                    // Load and apply theme
+                    string themeName = settings.Theme ?? "Light";
+                    if (Enum.TryParse<AppTheme>(themeName, out AppTheme theme))
+                    {
+                        ThemeManager.Instance.SetTheme(theme);
+                        AddWarning($"🎨 Applied saved theme: {ThemeManager.Instance.GetThemeDisplayName()}");
+                    }
+                    else
+                    {
+                        // Default to Light theme if invalid value
+                        ThemeManager.Instance.SetTheme(AppTheme.Light);
+                        AddWarning($"⚠️ Invalid theme '{themeName}' in settings, defaulting to Light theme");
+                    }
+
                     // Load message history
                     _messageHistory.Clear();
                     if (settings.MessageHistory != null)
@@ -1575,11 +1751,15 @@ internal partial class MainWindow : Window
                         }
                     }
 
-                    _warnings.Add($"Loaded app settings - Client: {_clientDirectory}, Last KZB: {_lastKzbDirectory}, Messages: {_messageHistory.Count}");
+                    _warnings.Add($"💾 Loaded app settings - Client: {_clientDirectory}, Last KZB: {_lastKzbDirectory}, Messages: {_messageHistory.Count}, Theme: {themeName}");
                 }
             }
             else
             {
+                // No settings file exists - use defaults
+                ThemeManager.Instance.SetTheme(AppTheme.Light);
+                AddWarning($"🎨 No settings file found, using default Light theme");
+
                 // Try to migrate from old settings files
                 MigrateOldSettings();
             }
@@ -1634,6 +1814,8 @@ internal partial class MainWindow : Window
         // Save settings one final time to ensure message history is preserved
         try
         {
+            // Stop debounced timer and force immediate save
+            _settingsSaveTimer?.Stop();
             SaveAppSettings();
             AddWarning("💾 Final settings save completed on app close");
         }
@@ -1642,6 +1824,13 @@ internal partial class MainWindow : Window
             // Even if saving fails, continue with cleanup
             AddWarning($"❌ Error saving settings on close: {ex.Message}");
         }
+
+        // Cleanup timer
+        try
+        {
+            _settingsSaveTimer?.Dispose();
+        }
+        catch { }
 
         // Close client process if running
         if (_clientProcess != null && !_clientProcess.HasExited)
