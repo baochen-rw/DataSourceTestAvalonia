@@ -1,9 +1,36 @@
 {
-  "ClientDirectory": "D:\\release\\20250829_Kanzi_Project_Platform_vReleasefor#5-Toyota-CV-YZK(737D)_Meter_PC_Ts02\\Binary_Win32",
-  "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary",
+  "ClientDirectory": "D:\\release\\20250829_Kanzi_Project_Platform_vReleasefor#5-Toyota-CV-YZK(737D)_Meter_PC_Ts04_1\\Binary_Win32",
+  "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary\\Vehicle=141D\u0026422D",
   "MessageHistory": {
-    "ADAS.TrackingDotsVisible=1 (ADAS)": 1,
-    "ADAS.CACCVisible=1 (ADAS)": 1
+    "ADAS.TrackingDotsVisible=1 (ADAS)": 2,
+    "ADAS.CACCVisible=1 (ADAS)": 1,
+    "ADAS.CACCVisible=2 (ADAS)": 1,
+    "ADAS.DistanceTime.ColorState=5 (ADAS)": 1,
+    "ADAS.LCA.OperatingArrow.Right=1 (ADAS)": 1,
+    "ADAS.LCA.VehicleApproachingLine.LeftVisible=4 (ADAS)": 1,
+    "ADAS.Vehicle.Preceding.Visible=5 (ADAS)": 1,
+    "ADAS.Vehicle.Left.Color=6 (ADAS)": 1,
+    "ADAS.Vehicle.Left.Distance=4 (ADAS)": 1,
+    "ADAS.Vehicle.Left.CutInOrCutOut=5 (ADAS)": 1,
+    "ADAS.Vehicle.Left.Visible=5 (ADAS)": 1,
+    "ADAS.Vehicle.Right.Color=5 (ADAS)": 1,
+    "ADAS.Vehicle.Right.CutInOrCutOut=1 (ADAS)": 1,
+    "ADAS.Vehicle.Right.Visible=2 (ADAS)": 1,
+    "ADAS.Vehicle.Right.CutInOrCutOut=2 (ADAS)": 1,
+    "ADAS.Vehicle.Right.CutInOrCutOut=3 (ADAS)": 1,
+    "ADAS.Vehicle.Right.CutInOrCutOut=4 (ADAS)": 1,
+    "Common.IG_State=3 (Common)": 7,
+    "wait= ()": 7,
+    "Common.PopScreenType=1 (Common)": 7,
+    "Common.ModeType=2 (Common)": 7,
+    "Common.MidLeft.ModuleIndex=12 (Common)": 7,
+    "Common.MidRight.ModuleIndex=12 (Common)": 7,
+    "Common.LeftRightMidPosition=2 (Common)": 7,
+    "Popup.PopupBg.InterruptId=5 (Popup)": 7,
+    "TPMS.Visible=1 (TPMS)": 8,
+    "TPMS.PopupVisible=1 (TPMS)": 7
   },
-  "Theme": "Light"
+  "Theme": "Light",
+  "KzbWatchFolder": "D:\\3\\tmc-veleda\\00.KanziProjects\\",
+  "KzbWatchEnabled": true
 }

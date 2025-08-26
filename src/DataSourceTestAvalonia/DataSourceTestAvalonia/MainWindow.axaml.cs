@@ -30,6 +30,8 @@ public class AppSettings
     public string LastKzbDirectory { get; set; } = "";
     public Dictionary<string, int> MessageHistory { get; set; } = new();
     public string Theme { get; set; } = "Light"; // "Light" or "Dark"
+    public string KzbWatchFolder { get; set; } = "";
+    public bool KzbWatchEnabled { get; set; } = false;
 }
 
 internal partial class MainWindow : Window
@@ -45,8 +47,13 @@ internal partial class MainWindow : Window
 
     // Client process management
     private Process? _clientProcess;
+    private DateTime _clientStartTime;
+    private System.Timers.Timer? _clientCheckTimer;
     private string _clientDirectory = "";
     private string _lastKzbDirectory = "";
+
+    // KZB file watching
+    private readonly KzbFileWatcher _kzbWatcher = new();
 
     // Message history for frequently used messages
     private readonly Dictionary<string, int> _messageHistory = new();
@@ -182,6 +189,10 @@ internal partial class MainWindow : Window
         ThemeToggleButton.Click += ThemeToggleButton_Click;
         ClearHistoryButton.Click += ClearHistoryButton_Click;
 
+        // KZB watcher event handlers
+        KzbWatchCheckBox.IsCheckedChanged += KzbWatchCheckBox_IsCheckedChanged;
+        BrowseKzbWatchButton.Click += BrowseKzbWatchButton_Click;
+
         // Control event handlers
         InterfaceNameTextBox.TextChanged += InterfaceNameTextBox_TextChanged;
         ModuleComboBox.SelectionChanged += ModuleComboBox_SelectionChanged;
@@ -204,6 +215,8 @@ internal partial class MainWindow : Window
         CreateKanziClientDllSaveFolder();
         LoadPreconditions();
         InitializeDebouncedSave();
+        InitializeClientHealthCheck();
+        InitializeKzbWatcher();
     }
 
     /// <summary>
@@ -221,6 +234,38 @@ internal partial class MainWindow : Window
             }
         };
         _settingsSaveTimer.AutoReset = false; // Only fire once per trigger
+    }
+
+    /// <summary>
+    /// Initializes a timer to periodically check client status and show helpful reminders.
+    /// </summary>
+    private void InitializeClientHealthCheck()
+    {
+        _clientCheckTimer = new System.Timers.Timer(30000); // Check every 30 seconds
+        _clientCheckTimer.Elapsed += (sender, e) =>
+        {
+            try
+            {
+                Dispatcher.UIThread.Post(() =>
+                {
+                    // Only show reminders if not connected and no client is running
+                    if (CurrentState != AppState.ClientConnected && CurrentState != AppState.Initializing)
+                    {
+                        string clientExePath = GetClientExePath();
+                        if (string.IsNullOrEmpty(clientExePath) || !File.Exists(clientExePath))
+                        {
+                            AddWarning("⏰ REMINDER: No client executable found! Use 'Browse Client Directory' or 'Client.exe' button.");
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in client health check: {ex.Message}");
+            }
+        };
+        _clientCheckTimer.AutoReset = true;
+        _clientCheckTimer.Start();
     }
 
     /// <summary>
@@ -289,8 +334,8 @@ internal partial class MainWindow : Window
                         ClientStatusText.Text = "Client: Connected";
                         EnableControls(true);
                         _screenshotIndex = 0;
-                        // Load interfaces when client connects and DataGrid is enabled
-                        LoadInterfacesFromClientFolder();
+                        // Load interfaces when client connects and preserve current filters
+                        LoadInterfacesFromClientFolderWithFilters();
                         break;
 
                     case AppState.ClientDisconnected:
@@ -625,6 +670,29 @@ internal partial class MainWindow : Window
 
         XmlDirectoryLabel.Text = _clientDirectory;
         LoadXmlFromDirectory(interfacePath);
+    }
+
+    /// <summary>
+    /// Loads interfaces from client folder while preserving current filter settings
+    /// </summary>
+    private void LoadInterfacesFromClientFolderWithFilters()
+    {
+        // Store current filter values
+        string currentModule = ModuleComboBox.SelectedItem?.ToString() ?? "ALL";
+        string currentFilter = InterfaceNameTextBox.Text ?? "";
+
+        // Load interfaces normally
+        LoadInterfacesFromClientFolder();
+
+        // Restore filter values and apply them
+        if (ModuleComboBox.Items.Contains(currentModule))
+        {
+            ModuleComboBox.SelectedItem = currentModule;
+        }
+        InterfaceNameTextBox.Text = currentFilter;
+
+        // Apply the preserved filters
+        UpdateDataGrid(currentModule, currentFilter);
     }
 
     private void LoadXmlFromDirectory(string directoryPath)
@@ -1091,8 +1159,14 @@ internal partial class MainWindow : Window
             string clientExePath = GetClientExePath();
             if (string.IsNullOrEmpty(clientExePath) || !File.Exists(clientExePath))
             {
-                AddWarning("❌ No client executable found! Please browse for the client first, or click 'Client.exe' button to copy client files.");
-                AddWarning("💡 Tip: Use the green 'Client.exe' button to copy client files to the selected directory.");
+                AddWarning("🚨 ❌ CRITICAL: NO CLIENT EXECUTABLE FOUND! 🚨");
+                AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                AddWarning("📋 TO FIX THIS ISSUE:");
+                AddWarning("   1️⃣ Click 'Browse Client Directory' to select client folder");
+                AddWarning("   2️⃣ OR click the green 'Client.exe' button to copy client files");
+                AddWarning("   3️⃣ Make sure 'DataSourceTestToolClient.exe' exists in the client folder you just selected");
+                AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                AddWarning($"🔍 Looking for: {(!string.IsNullOrEmpty(clientExePath) ? clientExePath : "No path set")}");
                 return;
             }
 
@@ -1118,6 +1192,7 @@ internal partial class MainWindow : Window
             _clientProcess.EnableRaisingEvents = true;
             _clientProcess.Exited += ClientProcess_Exited;
 
+            _clientStartTime = DateTime.Now;
             _clientProcess.Start();
             AddWarning($"Started client: {clientExePath}");
         }
@@ -1133,9 +1208,46 @@ internal partial class MainWindow : Window
         {
             Dispatcher.UIThread.Post(() =>
             {
-                _warnings.Add("Client process has exited");
+                // Calculate how long the client was running
+                TimeSpan runTime = DateTime.Now - _clientStartTime;
 
-                // Update UI state if client disconnected
+                // Check if client exited without ever establishing connection
+                // This is a much better indicator of DLL issues than just time
+                bool neverConnected = (CurrentState != AppState.ClientConnected &&
+                                     (CurrentState == AppState.ServerStarted ||
+                                      CurrentState == AppState.ClientDisconnected));
+
+                if (neverConnected && runTime.TotalSeconds > 3)
+                {
+                    // Client was visible but never connected - classic DLL missing scenario
+                    AddWarning("💥 🔌 CLIENT STARTED BUT NEVER CONNECTED!");
+                    AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                    AddWarning("🔍 DIAGNOSIS: Client window appeared but couldn't establish connection");
+                    AddWarning("🎯 MOST LIKELY CAUSE: Missing or incompatible DLL files");
+                    AddWarning("🛠️ SOLUTION:");
+                    AddWarning("   1️⃣ Click 'Copy DLL' button to copy required DLLs");
+                    AddWarning("   2️⃣ Ensure all dependencies are in the client directory");
+                    AddWarning("   3️⃣ Try starting the client again");
+                    AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                    AddWarning($"⏱️ Client ran for {runTime.TotalSeconds:F1} seconds without connecting");
+                }
+                else if (runTime.TotalSeconds < 3)
+                {
+                    // Client crashed immediately - different issue
+                    AddWarning("💥 ⚡ CLIENT CRASHED IMMEDIATELY! (< 3 seconds)");
+                    AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                    AddWarning("🔍 CAUSE: Severe compatibility or missing system files");
+                    AddWarning("🛠️ SOLUTION:");
+                    AddWarning("   1️⃣ Check Windows Event Viewer for crash details");
+                    AddWarning("   2️⃣ Click 'Copy DLL' button to copy required DLLs");
+                    AddWarning("   3️⃣ Ensure .NET runtime is installed");
+                    AddWarning("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                    AddWarning($"⏱️ Client crashed after only {runTime.TotalSeconds:F1} seconds");
+                }
+                else
+                {
+                    AddWarning($"Client process has exited after {runTime.TotalSeconds:F1} seconds");
+                }                // Update UI state if client disconnected
                 if (CurrentState == AppState.ClientConnected)
                 {
                     CurrentState = AppState.ClientDisconnected;
@@ -1281,6 +1393,7 @@ internal partial class MainWindow : Window
                 _clientProcess.EnableRaisingEvents = true;
                 _clientProcess.Exited += ClientProcess_Exited;
 
+                _clientStartTime = DateTime.Now;
                 _clientProcess.Start();
                 _warnings.Add($"Restarted client with new KZB: {kzbFileName}");
 
@@ -1401,6 +1514,174 @@ internal partial class MainWindow : Window
     {
         ThemeToggleButton.Content = ThemeManager.Instance.GetNextThemeDisplayName();
     }
+
+    #region KZB File Watcher Event Handlers
+
+    /// <summary>
+    /// Initializes the KZB file watcher and sets up event handlers
+    /// </summary>
+    private void InitializeKzbWatcher()
+    {
+        // Set up event handlers for the KZB watcher
+        _kzbWatcher.KzbFileChanged += OnKzbFileChanged;
+        _kzbWatcher.StatusMessage += AddWarning;
+    }
+
+    private void KzbWatchCheckBox_IsCheckedChanged(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            bool enabled = KzbWatchCheckBox.IsChecked == true;
+            _kzbWatcher.SetEnabled(enabled);
+            UpdateKzbWatchStatus();
+            ScheduleSettingsSave(); // Save the setting
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error toggling KZB watcher: {ex.Message}");
+        }
+    }
+
+    private async void BrowseKzbWatchButton_Click(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var topLevel = GetTopLevel(this);
+            if (topLevel != null)
+            {
+                var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new Avalonia.Platform.Storage.FolderPickerOpenOptions
+                {
+                    Title = "Select KZB Watch Folder",
+                    AllowMultiple = false
+                });
+
+                if (folders.Count > 0)
+                {
+                    string selectedFolder = folders[0].Path.LocalPath;
+                    
+                    // Auto-locate child folder with master.kzb (similar to client folder selection)
+                    string actualWatchFolder = FindKzbFolder(selectedFolder);
+                    
+                    _kzbWatcher.SetWatchFolder(actualWatchFolder);
+                    KzbWatchFolderLabel.Text = actualWatchFolder;
+                    UpdateKzbWatchStatus();
+                    ScheduleSettingsSave(); // Save the folder path
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error selecting KZB watch folder: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// Finds the folder containing master.kzb in the selected directory or subdirectories
+    /// </summary>
+    private string FindKzbFolder(string selectedFolder)
+    {
+        try
+        {
+            // Search for master.kzb in the selected folder and subdirectories
+            var foundFiles = Directory.GetFiles(selectedFolder, "master.kzb", SearchOption.AllDirectories);
+
+            if (foundFiles.Length > 0)
+            {
+                // Get the directory containing master.kzb
+                string foundDirectory = Path.GetDirectoryName(foundFiles[0]) ?? selectedFolder;
+                AddWarning($"📂 Auto-located KZB folder: {foundDirectory}");
+                return foundDirectory;
+            }
+            else
+            {
+                AddWarning($"⚠️ master.kzb not found in {selectedFolder} or its subdirectories. Using selected folder.");
+                return selectedFolder;
+            }
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"⚠️ Error searching for master.kzb: {ex.Message}. Using selected folder.");
+            return selectedFolder;
+        }
+    }
+
+    /// <summary>
+    /// Handles KZB file change events from the watcher
+    /// </summary>
+    private async Task OnKzbFileChanged(string kzbFilePath)
+    {
+        try
+        {
+            if (!File.Exists(kzbFilePath))
+            {
+                AddWarning($"❌ KZB file no longer exists: {kzbFilePath}");
+                return;
+            }
+
+            if (CurrentState != AppState.ClientConnected)
+            {
+                AddWarning("⚠️ Client not connected. Starting client with new KZB file...");
+            }
+
+            string kzbFileName = Path.GetFileName(kzbFilePath);
+            string destinationPath = Path.Combine(_clientDirectory, kzbFileName);
+            // Kill existing client if running
+            if (_clientProcess != null && !_clientProcess.HasExited)
+            {
+                _clientProcess.Kill();
+                _clientProcess.WaitForExit(3000);
+                AddWarning("🔄 Stopped existing client");
+            }
+
+            // Wait a moment then start client with new KZB
+            await Task.Delay(1000);
+            // Copy the KZB file
+            File.Copy(kzbFilePath, destinationPath, true);
+            AddWarning($"✅ Copied KZB file: {kzbFileName}");
+
+
+
+            // Start new client process
+            _clientProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = GetClientExePath(),
+                    Arguments = kzbFileName,
+                    WorkingDirectory = _clientDirectory,
+                    UseShellExecute = true
+                }
+            };
+
+            // Set up process exit monitoring
+            _clientProcess.EnableRaisingEvents = true;
+            _clientProcess.Exited += ClientProcess_Exited;
+
+            _clientStartTime = DateTime.Now;
+            _clientProcess.Start();
+            AddWarning($"� Auto-restarted client with new KZB: {kzbFileName}");
+
+            // Wait a moment for client to connect, then resend session values
+            await Task.Delay(2000);
+            await ResendSessionValues();
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error processing KZB file: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// Updates the KZB watcher status display
+    /// </summary>
+    private void UpdateKzbWatchStatus()
+    {
+        var (statusText, statusColor) = _kzbWatcher.GetStatus();
+        KzbWatchStatusLabel.Text = statusText;
+        KzbWatchStatusLabel.Foreground = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse(statusColor));
+    }
+
+    #endregion
 
     private void UpdateCommonMessagesUI()
     {
@@ -1694,7 +1975,9 @@ internal partial class MainWindow : Window
                 ClientDirectory = _clientDirectory,
                 LastKzbDirectory = _lastKzbDirectory,
                 MessageHistory = new Dictionary<string, int>(_messageHistory),
-                Theme = ThemeManager.Instance.CurrentTheme.ToString()
+                Theme = ThemeManager.Instance.CurrentTheme.ToString(),
+                KzbWatchFolder = _kzbWatcher.WatchFolder,
+                KzbWatchEnabled = _kzbWatcher.IsEnabled
             };
 
             string settingsPath = Path.Combine(_baseDir, "app_settings.json");
@@ -1726,6 +2009,14 @@ internal partial class MainWindow : Window
                 {
                     _clientDirectory = settings.ClientDirectory ?? "";
                     _lastKzbDirectory = settings.LastKzbDirectory ?? "";
+                    
+                    // Configure KZB watcher with saved settings
+                    _kzbWatcher.Configure(settings.KzbWatchFolder ?? "", settings.KzbWatchEnabled);
+
+                    // Update KZB watcher UI
+                    KzbWatchCheckBox.IsChecked = _kzbWatcher.IsEnabled;
+                    KzbWatchFolderLabel.Text = string.IsNullOrEmpty(_kzbWatcher.WatchFolder) ? "No folder selected" : _kzbWatcher.WatchFolder;
+                    UpdateKzbWatchStatus();
 
                     // Load and apply theme
                     string themeName = settings.Theme ?? "Light";
@@ -1829,6 +2120,9 @@ internal partial class MainWindow : Window
         try
         {
             _settingsSaveTimer?.Dispose();
+            _clientCheckTimer?.Stop();
+            _clientCheckTimer?.Dispose();
+            _kzbWatcher?.Dispose(); // Stop and dispose KZB file watcher
         }
         catch { }
 
