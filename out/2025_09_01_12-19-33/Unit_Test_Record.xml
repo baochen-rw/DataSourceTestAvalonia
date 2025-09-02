@@ -1,0 +1,36 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Common.CommonCarModelType filename="Common" type="int" value="8" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="0" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="42" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="1" />
+  <Common.CommonCarModelType filename="Common" type="int" value="9" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.LeftVehicleReminder filename="Popup" type="int" value="0" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="0" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="4" />
+</script>

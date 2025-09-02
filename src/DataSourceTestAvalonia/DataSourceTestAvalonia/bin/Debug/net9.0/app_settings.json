@@ -1,5 +1,5 @@
 {
-  "ClientDirectory": "D:\\release\\20250829_Kanzi_Project_Platform_vReleasefor#5-Toyota-CV-YZK(737D)_Meter_PC_Ts04_1\\Binary_Win32",
+  "ClientDirectory": "D:\\release\\20250919_Kanzi_Project_Platform_vReleasefor#2-Legacy-CV-2(150D)_Meter_PC_Ts01\\Binary_32",
   "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary\\Vehicle=141D\u0026422D",
   "MessageHistory": {
     "ADAS.TrackingDotsVisible=1 (ADAS)": 2,
@@ -28,7 +28,11 @@
     "Common.LeftRightMidPosition=2 (Common)": 7,
     "Popup.PopupBg.InterruptId=5 (Popup)": 7,
     "TPMS.Visible=1 (TPMS)": 8,
-    "TPMS.PopupVisible=1 (TPMS)": 7
+    "TPMS.PopupVisible=1 (TPMS)": 7,
+    "Popup.PopupBg.InterruptId=0 (Popup)": 4,
+    "Popup.PopupBg.InterruptId=4 (Popup)": 2,
+    "Popup.PopupBg.InterruptId=11 (Popup)": 1,
+    "Popup.PopupBg.InterruptId=50 (Popup)": 1
   },
   "Theme": "Light",
   "KzbWatchFolder": "D:\\3\\tmc-veleda\\00.KanziProjects\\",

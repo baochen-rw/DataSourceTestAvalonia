@@ -1,0 +1,17 @@
+<script>
+	<!-- Safety Reminders 【Door Open】【Unlock】【Sea】 main node scale -->
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+	<wait delay="1000" />
+	<Popup.SafetyReminder.Type filename="Popup" type="int" value="1" />
+	<!-- <wait delay="1000" />
+	<screenshot name="SafetyReminder_1 sonar" />
+	<Popup.SafetyReminder.Type filename="Popup" type="int" value="2" /> -->
+	<!-- <wait delay="1000" />
+	<screenshot name="SafetyReminder_2 sonar" />
+	<Popup.SafetyReminder.Type filename="Popup" type="int" value="3" />
+	<wait delay="1000" />
+	<screenshot name="SafetyReminder_3 noamal" />
+	<Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+	<wait delay="1000" />
+	<screenshot name="SafetyReminder_4 clean smallest Driving support- Parking support" /> -->
+</script>

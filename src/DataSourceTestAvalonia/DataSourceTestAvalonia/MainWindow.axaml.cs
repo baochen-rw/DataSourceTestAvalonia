@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data;
 using System;
 using System.IO;
@@ -9,18 +10,78 @@ using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Text.Json;
 
 namespace DataSourceTestAvalonia;
 
 // Simple data model for the grid
-public class XmlDataItem
+public class XmlDataItem : INotifyPropertyChanged
 {
-    public string FileName { get; set; } = "";
-    public string Name { get; set; } = "";
-    public string Type { get; set; } = "";
-    public string Value { get; set; } = "";
+    private string _fileName = "";
+    private string _name = "";
+    private string _type = "";
+    private string _value = "";
+
+    public string FileName
+    {
+        get => _fileName;
+        set
+        {
+            if (_fileName != value)
+            {
+                _fileName = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            if (_name != value)
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public string Type
+    {
+        get => _type;
+        set
+        {
+            if (_type != value)
+            {
+                _type = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public string Value
+    {
+        get => _value;
+        set
+        {
+            if (_value != value)
+            {
+                _value = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }
 
 // Settings data model
@@ -822,6 +883,10 @@ internal partial class MainWindow : Window
         if (existingItem != null)
         {
             existingItem.Value = value;
+            // Force UI refresh by removing and re-adding the item
+            var index = _sessionChanges.IndexOf(existingItem);
+            _sessionChanges.RemoveAt(index);
+            _sessionChanges.Insert(index, existingItem);
         }
         else
         {
@@ -1558,10 +1623,10 @@ internal partial class MainWindow : Window
                 if (folders.Count > 0)
                 {
                     string selectedFolder = folders[0].Path.LocalPath;
-                    
+
                     // Auto-locate child folder with master.kzb (similar to client folder selection)
                     string actualWatchFolder = FindKzbFolder(selectedFolder);
-                    
+
                     _kzbWatcher.SetWatchFolder(actualWatchFolder);
                     KzbWatchFolderLabel.Text = actualWatchFolder;
                     UpdateKzbWatchStatus();
@@ -2009,7 +2074,7 @@ internal partial class MainWindow : Window
                 {
                     _clientDirectory = settings.ClientDirectory ?? "";
                     _lastKzbDirectory = settings.LastKzbDirectory ?? "";
-                    
+
                     // Configure KZB watcher with saved settings
                     _kzbWatcher.Configure(settings.KzbWatchFolder ?? "", settings.KzbWatchEnabled);
 

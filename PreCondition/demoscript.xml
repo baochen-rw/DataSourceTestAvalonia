@@ -1,0 +1,14 @@
+<script>
+	<wait delay="1000" />
+	<!-- DoorOpen -->
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+	<Common.CommonCarModelType filename="Common" type="int" value="17" />
+
+
+	<Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+	<wait delay="1000" />
+	<Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+	<wait delay="1000" />
+
+
+</script>

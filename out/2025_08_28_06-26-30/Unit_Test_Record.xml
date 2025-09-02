@@ -1,0 +1,10 @@
+<script>
+  <Common.CommonCarModelType filename="Common" type="int" value="16" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+  <Popup.DoorOpen.LeftVehicleReminder filename="Popup" type="int" value="0" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="1" />
+</script>

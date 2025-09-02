@@ -1,0 +1,12 @@
+<script>
+  <ADAS.TrackingDotsVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.CACCVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.ACCWindowVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.MIDVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.LIMITState filename="ADAS" type="int" value="0" />
+  <ADAS.DistanceTime.Level filename="ADAS" type="int" value="0" />
+  <ADAS.LCA.OperatingArrow.Left filename="ADAS" type="int" value="0" />
+  <ADAS.LCA.OperatingArrow.Right filename="ADAS" type="int" value="0" />
+  <ADAS.LCA.VehicleApproachingLine.RightVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.Vehicle.Preceding.Color filename="ADAS" type="int" value="0" />
+</script>

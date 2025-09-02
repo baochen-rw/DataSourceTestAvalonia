@@ -1,0 +1,4 @@
+<script>
+  <ADAS.TrackingDotsVisible filename="ADAS" type="bool" value="1" />
+  <ADAS.CACCVisible filename="ADAS" type="bool" value="1" />
+</script>

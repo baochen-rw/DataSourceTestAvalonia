@@ -1,0 +1,25 @@
+{
+  "ClientDirectory": "D:\\release\\20250919_Kanzi_Project_Platform_vReleasefor#2-Legacy-CV-2(150D)_Meter_PC_Ts01\\Binary_32",
+  "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary\\Vehicle=150D",
+  "MessageHistory": {
+    "Popup.PopupBg.InterruptId=4 (Popup)": 14,
+    "Common.CommonCarModelType=8 (Common)": 1,
+    "Popup.DoorOpen.TrunkDoor=1 (Popup)": 23,
+    "Popup.DoorOpen.TrunkDoor=0 (Popup)": 6,
+    "Popup.DoorOpen.TrunkDoor=3 (Popup)": 12,
+    "Popup.DoorOpen.RRDoor=42 (Popup)": 1,
+    "Popup.DoorOpen.RRDoor=1 (Popup)": 14,
+    "Popup.DoorOpen.LRDoor=2 (Popup)": 5,
+    "Popup.DoorOpen.RFDoor=1 (Popup)": 11,
+    "Popup.DoorOpen.RRDoor=2 (Popup)": 2,
+    "Popup.DoorOpen.LFDoor=1 (Popup)": 5,
+    "Common.CommonCarModelType=9 (Common)": 5,
+    "Popup.DoorOpen.TrunkDoor=2 (Popup)": 11,
+    "Popup.DoorOpen.TrunkDoor=4 (Popup)": 24,
+    "Popup.DoorOpen.LeftVehicleReminder=0 (Popup)": 12,
+    "Popup.DoorOpen.RRDoor=12 (Popup)": 1,
+    "Popup.DoorOpen.LRDoor=1 (Popup)": 7,
+    "Popup.DoorOpen.LFDoor=2 (Popup)": 6
+  },
+  "Theme": "Light"
+}

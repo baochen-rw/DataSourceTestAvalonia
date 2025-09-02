@@ -1,0 +1,7 @@
+<script>
+  <Common.CommonCarModelType filename="Common" type="int" value="17" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="5" />
+  <TPMS.PopupVisible filename="TPMS" type="bool" value="1" />
+  <TPMS.Visible filename="TPMS" type="bool" value="1" />
+  <TPMS.Visible filename="TPMS" type="bool" value="1" />
+</script>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\DataSourceTestAvalonia\src\DataSourceTestToolClient\Application\CMakeFiles\020155f359460291f5cf59c7c4285fe1\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{ACBE2CEE-95CD-3BFE-905D-DEDBC2C7228F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

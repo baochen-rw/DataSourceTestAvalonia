@@ -1,0 +1,12 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <PitchAndRoll.PitchPointerBarStatus filename="PitchAndRoll" type="bool" value="1" />
+  <PitchAndRoll.RollPointerBarStatus filename="PitchAndRoll" type="bool" value="1" />
+  <PitchAndRoll.BGandPointerVisible filename="PitchAndRoll" type="bool" value="10" />
+  <Gauge.REVPointer.Visible filename="Gauge" type="bool" value="1" />
+  <Gauge.REVPointer.Value filename="Gauge" type="float" value="1" />
+  <PitchAndRoll.PitchPointerBarStatus filename="PitchAndRoll" type="bool" value="1" />
+  <ADAS.MIDVisible filename="ADAS" type="bool" value="1" />
+</script>

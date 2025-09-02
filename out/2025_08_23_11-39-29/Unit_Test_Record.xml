@@ -1,0 +1,10 @@
+<script>
+  <ADAS.TrackingDotsVisible filename="ADAS" type="bool" value="1" />
+  <ADAS.CACCVisible filename="ADAS" type="bool" value="0" />
+  <ADAS.ACCWindowVisible filename="ADAS" type="bool" value="2" />
+  <ADAS.MIDVisible filename="ADAS" type="bool" value="3" />
+  <ADAS.DecelerationAssistIcon filename="ADAS" type="int" value="0" />
+  <ADAS.HandleIcon filename="ADAS" type="int" value="4" />
+  <ADAS.DistanceTime.Level filename="ADAS" type="int" value="5" />
+  <ADAS.DecelerationAssistIcon filename="ADAS" type="int" value="6" />
+</script>

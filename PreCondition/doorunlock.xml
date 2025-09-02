@@ -1,0 +1,17 @@
+<script>
+	<!-- Door Lock Status Screenshots -->
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="11" />
+	<Popup.DoorOpen.LockStatus filename="Popup" type="int" value="0" />
+	<wait delay="1500" />
+	<screenshot name="DoorUnlock_0" />
+
+	<!-- <Popup.PopupBg.InterruptId filename="Popup" type="int" value="11" />
+	<Popup.DoorOpen.LockStatus filename="Popup" type="int" value="1" />
+	<wait delay="1500" />
+	<screenshot name="DoorUnlock_1" />
+
+	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="11" />
+	<Popup.DoorOpen.LockStatus filename="Popup" type="int" value="2" />
+	<wait delay="1500" />
+	<screenshot name="DoorUnlock_2" /> -->
+</script>
