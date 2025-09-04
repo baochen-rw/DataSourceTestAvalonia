@@ -1044,7 +1044,71 @@ internal partial class MainWindow : Window
         string type = item.GetAttribute("type");
         string value = item.GetAttribute("value");
 
-        SendToClient(fileName, name, type, value, trackInHistory: false);
+        // Validate type compatibility before sending
+        if (ValidatePreconditionType(fileName, name, type, value))
+        {
+            SendToClient(fileName, name, type, value, trackInHistory: false);
+        }
+    }
+
+    /// <summary>
+    /// Validates that precondition type matches interface type and shows warnings for mismatches
+    /// </summary>
+    private bool ValidatePreconditionType(string fileName, string name, string preconditionType, string value)
+    {
+        try
+        {
+            // Find the interface definition in loaded data
+            var interfaceRow = _xmlReader.mDataTable.AsEnumerable()
+                .FirstOrDefault(row =>
+                    row["fileName"].ToString() == fileName &&
+                    row["name"].ToString() == name);
+
+            if (interfaceRow == null)
+            {
+                AddWarning($"⚠️ PRECONDITION WARNING: Interface '{name}' not found in '{fileName}' - interface may not exist");
+                return true; // Allow sending anyway, let the client handle it
+            }
+
+            string actualType = interfaceRow["type"].ToString() ?? "";
+
+            // Check for bool/int mismatch (most common issue)
+            if (actualType == "bool" && preconditionType == "int")
+            {
+                AddWarning($"🚨 PRECONDITION TYPE MISMATCH: '{name}' in '{fileName}'");
+                AddWarning($"   Interface expects: bool (true/false)");
+                AddWarning($"   Precondition sends: int ({value})");
+                AddWarning($"   💡 FIX: Change precondition XML type=\"int\" to type=\"bool\" and value to \"true\" or \"false\"");
+                return true; // Still send but with warning
+            }
+
+            // Check for int/bool mismatch
+            if (actualType == "int" && preconditionType == "bool")
+            {
+                AddWarning($"🚨 PRECONDITION TYPE MISMATCH: '{name}' in '{fileName}'");
+                AddWarning($"   Interface expects: int (number)");
+                AddWarning($"   Precondition sends: bool ({value})");
+                AddWarning($"   💡 FIX: Change precondition XML type=\"bool\" to type=\"int\" and value to a number");
+                return true; // Still send but with warning
+            }
+
+            // Check for other type mismatches
+            if (actualType != preconditionType && !string.IsNullOrEmpty(actualType))
+            {
+                AddWarning($"⚠️ PRECONDITION TYPE MISMATCH: '{name}' in '{fileName}'");
+                AddWarning($"   Interface type: {actualType}");
+                AddWarning($"   Precondition type: {preconditionType}");
+                AddWarning($"   💡 Consider updating precondition XML to match interface type");
+                return true; // Still send but with warning
+            }
+
+            return true; // Types match or no issue detected
+        }
+        catch (Exception ex)
+        {
+            AddWarning($"❌ Error validating precondition type for '{name}': {ex.Message}");
+            return true; // Continue sending on validation error
+        }
     }
 
     #region Event Handlers
