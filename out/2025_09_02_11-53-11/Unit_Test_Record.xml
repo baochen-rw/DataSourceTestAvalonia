@@ -1,0 +1,5 @@
+<script>
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+</script>

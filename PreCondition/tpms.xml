@@ -14,5 +14,5 @@
 	<Popup.PopupBg.InterruptId filename="Popup" type="int" value="5" />
 
 	<TPMS.Visible filename="TPMS" type="bool" value="1" />
-	<TPMS.PopupVisible filename="TPMS" type="bool" value="1" />
+	<TPMS.PopupVisible filename="TPMS" type="int" value="1" />
 </Commands>

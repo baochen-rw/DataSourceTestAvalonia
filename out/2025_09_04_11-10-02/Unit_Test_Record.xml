@@ -1,0 +1,6 @@
+<script>
+  <ADAS.TrackingDotsVisible filename="ADAS" type="bool" value="1" />
+  <ADAS.CACCVisible filename="ADAS" type="bool" value="2" />
+  <ADAS.ACCWindowVisible filename="ADAS" type="bool" value="3" />
+  <ADAS.HandleIcon filename="ADAS" type="int" value="0" />
+</script>

@@ -1,0 +1,15 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="0" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="0" />
+</script>

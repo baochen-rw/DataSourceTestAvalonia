@@ -1,0 +1,19 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="0" />
+  <ADAS.MIDVisible filename="ADAS" type="bool" value="1" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="1" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="26" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="25" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="21" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="15" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="2" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="3" />
+  <ADAS.MessageBox.PopupMessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.PopupMessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.Visible filename="ADAS" type="bool" value="0" />
+  <ADAS.MessageBox.Visible filename="ADAS" type="bool" value="1" />
+</script>

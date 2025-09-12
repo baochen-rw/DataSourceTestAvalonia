@@ -1,0 +1,15 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="2" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.ModeType filename="Common" type="int" value="3" />
+  <Common.ModeType filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="0" />
+</script>

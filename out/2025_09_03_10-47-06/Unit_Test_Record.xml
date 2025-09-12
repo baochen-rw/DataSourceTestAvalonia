@@ -1,0 +1,35 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="11" />
+  <Popup.DoorOpen.LockStatus filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.LockStatus filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.EngineCover filename="Popup" type="int" value="2" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="3" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="1" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="3" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="0" />
+  <Popup.DoorOpen.LFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RFDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.LRDoor filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.RRDoor filename="Popup" type="int" value="4" />
+</script>

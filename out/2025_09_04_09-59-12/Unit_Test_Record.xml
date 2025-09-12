@@ -1,0 +1,36 @@
+<script>
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="6" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="0" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="6" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="0" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="0" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <DriveInfo.State.TripVisible filename="DriveInfo" type="bool" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <DriveInfo.State.TripVisible filename="DriveInfo" type="bool" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="41" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="10" />
+  <DriveInfo.State.TripVisible filename="DriveInfo" type="bool" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="11" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="2" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="10" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="9" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="33" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="4" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="10" />
+</script>

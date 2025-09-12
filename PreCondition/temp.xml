@@ -1,0 +1,9 @@
+<script>
+	<Common.IG_State filename="Common" type="int" value="3" />
+	<Common.MidLeft.ModuleIndex filename="Common" type="int" value="11" />
+	<Common.MidRight.ModuleIndex filename="Common" type="int" value="11" />
+	<Common.LeftRightMidPosition filename="Common" type="int" value="9" />
+	<Common.LeftRightMidPosition filename="Common" type="int" value="10" />
+	<Common.LeftRightMidPosition filename="Common" type="int" value="11" />
+
+</script>

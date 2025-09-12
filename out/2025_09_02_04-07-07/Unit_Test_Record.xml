@@ -1,0 +1,5 @@
+<script>
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="27" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="26" />
+  <ADAS.MessageBox.MessageID filename="ADAS" type="int" value="27" />
+</script>

@@ -1,0 +1,23 @@
+<script>
+
+  <wait delay="1000" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <wait delay="200" />
+  <Common.ModeType filename="Common" type="int" value="1" />
+  <wait delay="200" />
+  <Common.ThemeType filename="Common" type="int" value="2" />
+  <wait delay="200" />
+  <DriveMode.DisplayIndex filename="DriveMode" type="int" value="2" />
+  <wait delay="200" />
+  <DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="1" />
+  <wait delay="2000" />
+  <DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="0" />
+  <wait delay="2000" />
+  <Common.IG_State filename="Common" type="int" value="0" />
+  <wait delay="3000" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+
+  <wait delay="5000" />
+
+  <exit />
+</script>

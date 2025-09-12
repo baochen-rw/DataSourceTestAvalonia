@@ -1,0 +1,13 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="1" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="3" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="4" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="5" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="1" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="1" />
+  <Popup.SafetyReminder.Type filename="Popup" type="int" value="2" />
+</script>

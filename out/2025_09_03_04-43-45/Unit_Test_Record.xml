@@ -1,0 +1,30 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="4" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.ModeType filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="4" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.ThemeType filename="Common" type="int" value="0" />
+  <Common.ModeType filename="Common" type="int" value="0" />
+  <Common.ModeType filename="Common" type="int" value="3" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="42" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="0" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidCenter.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Charge.BatteryStatusOfDistanceValue filename="Charge" type="string" value="453" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="45" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusValueOfSOH filename="Charge" type="string" value="1" />
+  <Charge.BatteryStatusValueOfSOCE filename="Charge" type="string" value="2" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="2" />
+</script>

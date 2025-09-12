@@ -1,6 +1,6 @@
 {
-  "ClientDirectory": "D:\\release\\20250919_Kanzi_Project_Platform_vReleasefor#2-Legacy-CV-2(150D)_Meter_PC_Ts01\\Binary_32",
-  "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary\\Vehicle=141D\u0026422D",
+  "ClientDirectory": "D:\\release\\20250815_Kanzi_Project_Platform_vReleasefor#2-Toyota-CV-DN(827D)_Meter_PC_Ts06\\Binary_Win32",
+  "LastKzbDirectory": "D:\\2\\tmc-veleda\\00.KanziProjects\\Master\\Binary\\Vehicle=245D",
   "MessageHistory": {
     "ADAS.TrackingDotsVisible=1 (ADAS)": 6,
     "ADAS.CACCVisible=1 (ADAS)": 1,
@@ -30,13 +30,16 @@
     "TPMS.Visible=1 (TPMS)": 8,
     "TPMS.PopupVisible=1 (TPMS)": 8,
     "Popup.PopupBg.InterruptId=0 (Popup)": 4,
-    "Popup.PopupBg.InterruptId=4 (Popup)": 3,
+    "Popup.PopupBg.InterruptId=4 (Popup)": 11,
     "Popup.PopupBg.InterruptId=11 (Popup)": 2,
     "Popup.PopupBg.InterruptId=50 (Popup)": 1,
     "ADAS.ACCWindowVisible=3 (ADAS)": 2,
     "ADAS.HandleIcon=0 (ADAS)": 1,
     "ADAS.DecelerationAssistIcon=4 (ADAS)": 1,
-    "ADAS.MIDVisible=5 (ADAS)": 1
+    "ADAS.MIDVisible=5 (ADAS)": 1,
+    "Popup.DoorOpen.LFDoor=4 (Popup)": 3,
+    "Popup.DoorOpen.RFDoor=4 (Popup)": 3,
+    "Popup.DoorOpen.EngineCover=2 (Popup)": 2
   },
   "Theme": "Light",
   "KzbWatchFolder": "D:\\3\\tmc-veleda\\00.KanziProjects\\",

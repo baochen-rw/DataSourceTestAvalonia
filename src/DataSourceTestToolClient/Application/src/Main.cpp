@@ -1,20 +1,29 @@
-/*
- * @Author: JiangHannan
- * @Date: 2021-05-15 03:51:03
- * @LastEditTime: 2021-05-15 03:57:19
- * @LastEditors: JiangHannan
- * @Description:
- * @FilePath: \src\Main.cpp
- *
- */
+#include "application.h"
+#include "network_client.h"
+#include <iostream>
+#include <thread>
+#include <chrono>
 
-#include "TestToolApplication.h"
-#include "TestToolClient.h"
-
-kanzi::Application *createApplication()
+int main()
 {
-#ifdef __linux__
-	// TestToolClient::getKzbFile();
-#endif //__linux__
-	return new TestToolApplication;
+    std::cout << "DataSourceTestTool - Clean Version" << std::endl;
+
+    // Create application
+    Application app;
+    app.onConfigure();
+    app.onProjectLoaded();
+    app.registerMetadataOverride();
+
+    // Create client and connect
+    NetworkClient &client = NetworkClient::getInstance();
+    client.connectToServer();
+
+    std::cout << "Application running. Press Enter to quit..." << std::endl;
+    std::cin.get();
+
+    // Cleanup
+    client.disconnect();
+    app.quit();
+
+    return 0;
 }

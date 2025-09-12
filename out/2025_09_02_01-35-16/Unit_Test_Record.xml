@@ -1,0 +1,15 @@
+<script>
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="28" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="28" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="28" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="28" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="8" />
+  <Common.MidLeft.OPVisible filename="Common" type="int" value="0" />
+  <Common.MidLeft.OPVisible filename="Common" type="int" value="1" />
+  <Common.MidRight.OPVisible filename="Common" type="int" value="1" />
+  <Common.MidLeft.OPVisible filename="Common" type="bool" value="0" />
+  <Common.MidLeft.OPVisible filename="Common" type="bool" value="1" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="28" />
+</script>

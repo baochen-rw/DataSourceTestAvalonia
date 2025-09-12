@@ -1,0 +1,879 @@
+<script>
+<!-- BackgroundMTS -->
+	<Common.IG_State filename= "Common" type="int" value="3" />
+	<Common.Language filename= "Common" type="int" value="2" />
+	<Gauge.DialMode filename= "Gauge" type="int" value="1" />
+	<Common.ThemeType filename= "Common" type="int" value="8" />
+	<Gauge.SpeedMaximum filename= "Gauge" type="int" value="1" />
+	<Gauge.RpmMaximum filename= "Gauge" type="int" value="5" />
+	<Gauge.Rpm filename= "Gauge" type="float" value="5400" />
+	<Gauge.Speed filename= "Gauge" type="float" value="68" />
+	<Gauge.RPMTransparency filename= "Gauge" type="float" value="1" />
+	<Common.MidLeft.ModuleIndex filename= "Common" type="int" value="4" />
+	<ECO.Judge.Score.IndicatorMode filename= "ECO" type="int" value="1" />
+	<ECO.Judge.Visible filename= "ECO" type="bool" value="1" />
+	<ECO.Judge.Score.StartValue filename= "ECO" type="int" value="5" />
+	<ECO.Judge.Score.CruiseValue filename= "ECO" type="int" value="3" />
+	<ECO.Judge.Score.StopValue filename= "ECO" type="int" value="4" />
+	<ECO.Judge.Score.Overall filename= "ECO" type="string" value="90" />
+	<ECO.Judge.Score.EcoZone filename= "ECO" type="float" value="0.8" />
+	<ECO.Judge.Score.HVEcoArea filename= "ECO" type="float" value="1" />
+	<ECO.Judge.Score.PowerAre filename= "ECO" type="float" value="0.5" />
+	<ECO.Judge.Score.Mode filename= "ECO" type="int" value="1" />
+	<Common.MidRight.ModuleIndex filename= "Common" type="int" value="9" />
+	<Audio.SourceVisible filename= "Audio" type="bool" value="1" />
+	<Audio.PrefabIndex filename= "Audio" type="int" value="3" />
+	<Audio.Title.IconIndex filename= "Audio" type="int" value="12" />
+	<Audio.Title.Text filename= "Audio" type="string" value="SAT" />
+	<Audio.Prefab.Preset filename= "Audio" type="string" value="13" />
+	<Audio.Prefab.FirstText filename= "Audio" type="string" value="111.1" />
+	<Audio.Prefab.SecondText filename= "Audio" type="string" value="IHeartRadio" />
+	<Audio.Prefab.ThirdText filename= "Audio" type="string" value="AsLongAsYouLoveMe" />
+	<Common.LeftRightMidPosition filename= "Common" type="int" value="11" />
+	<Common.Layout filename= "Common" type="int" value="1" />
+	<wait delay="3000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="0" />
+	<wait delay="4000" />
+	<screenshot name="Background_MTS_1" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="1" />
+	<wait delay="2000" />
+	<screenshot name="Background_MTS_2" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="2" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_3" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="3" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_4" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="4" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_5" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="5" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_6" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Common.MTSType filename= "Common" type="int" value="6" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_7" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.LeftRightMidPosition filename= "Common" type="int" value="10" />
+	<Common.MTSType filename= "Common" type="int" value="1" />
+	<wait delay="3000" />
+	<screenshot name="Background_MTS_8" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="2" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_9" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="3" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_10" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="4" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_11" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="5" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_12" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="6" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_13" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.LeftRightMidPosition filename= "Common" type="int" value="9" />
+	<Common.MTSType filename= "Common" type="int" value="1" />
+	<wait delay="3000" />
+	<screenshot name="Background_MTS_14" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.MTSType filename= "Common" type="int" value="2" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_15" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.MTSType filename= "Common" type="int" value="3" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_16" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.MTSType filename= "Common" type="int" value="4" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_17" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.MTSType filename= "Common" type="int" value="5" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_18" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="1" />
+	<Common.MTSType filename= "Common" type="int" value="6" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_19" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MidCenter.ModuleIndex filename= "Common" type="int" value="1" />
+	<Common.LeftRightMidPosition filename= "Common" type="int" value="10" />
+	<ADAS.MIDVisible filename= "ADAS" type="bool" value="1" />
+	<ADAS.DistanceTime.Level filename= "ADAS" type="int" value="2" />
+	<ADAS.Lane.LeftState filename= "ADAS" type="int" value="1" />
+	<ADAS.Lane.RightState filename= "ADAS" type="int" value="1" />
+	<ADAS.Vehicle.Preceding.Visible filename= "ADAS" type="bool" value="1" />
+	<ADAS.Vehicle.Preceding.Distance filename= "ADAS" type="int" value="4" />
+	<Common.MTSType filename= "Common" type="int" value="1" />
+	<wait delay="3000" />
+	<screenshot name="Background_MTS_38" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="2" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_39" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="3" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_40" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="4" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_41" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="5" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_42" />
+	<wait delay="1000" />
+	<Common.ModeType filename= "Common" type="int" value="2" />
+	<Common.MTSType filename= "Common" type="int" value="6" />
+	<wait delay="1000" />
+	<screenshot name="Background_MTS_43" />
+	<wait delay="1000" />
+	<Common.MTSType filename= "Common" type="int" value="0" />	
+	
+	<wait delay="1000" />
+		<screenshot name="Background_MTS_44" />
+	<wait delay="1000" />
+<!-- MTS -->
+    <Common.IG_State filename= "Common" type="int" value="3" />
+	<Common.ThemeType filename= "Common" type="int" value="8 " />
+	<Gauge.RPMTransparency filename="Gauge" type="float" value="1" />
+	<Common.Language filename= "Common" type="int" value="2" />
+	<Gauge.SpeedMaximum filename= "Gauge" type="int" value="1" />
+	<Gauge.RpmMaximum filename= "Gauge" type="int" value="1" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Gauge.DialMode filename= "Gauge" type="int" value="1" />
+	<Gauge.Rpm filename= "Gauge" type="float" value="5400" />
+	<Gauge.Speed filename= "Gauge" type="float" value="68" />
+	<MTS.Visible filename= "MTS" type="bool" value="1" />
+	<wait delay="3000" />
+	<MTS.Visible filename= "MTS" type="bool" value="0" />
+	<wait delay="2000" />
+	<screenshot name="MTS_1" />
+	<wait delay="1000" />
+	<MTS.Visible filename= "MTS" type="bool" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="2" />
+	<wait delay="2000" />
+	<screenshot name="MTS_4" />
+	<wait delay="1000" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="MTS_5" />
+	<wait delay="1000" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="MTS_6" />
+	<wait delay="1000" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="MTS_7" />
+	<wait delay="1000" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />
+	<wait delay="2000" />
+	<screenshot name="MTS_8" />
+	<wait delay="1000" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="7" />
+	<wait delay="2000" />
+	<screenshot name="MTS_9" />
+	<wait delay="1000" />
+	
+	<MTS.DisplayIndex filename= "MTS" type="int" value="1" />
+	<wait delay="3000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="6" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="MTS_12" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="6" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="2" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="MTS_13" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="MTS_14" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="MTS_15" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="7" />
+	<wait delay="2000" />
+	<screenshot name="MTS_16" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="2" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="MTS_17" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="3" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />
+	<wait delay="2000" />
+	<screenshot name="MTS_18" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="4" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="MTS_19" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="MTS_20" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="2" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="MTS_21" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="3" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />
+	<wait delay="2000" />
+	<screenshot name="MTS_22" />
+	<wait delay="1000" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="6" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="7" />
+	<wait delay="2000" />
+	<screenshot name="MTS_24" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="MTS_25" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />
+	<wait delay="2000" />
+	<screenshot name="MTS_26" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="MTS_27" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="2" />
+	<wait delay="2000" />
+	<screenshot name="MTS_28" />
+	<wait delay="1000" />
+	
+	
+	
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="4" />	
+	
+	<wait delay="2000" />
+	<screenshot name="MTS_29" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="2" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="7" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_30" />
+	<wait delay="1000" />		
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="3" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_31" />
+	<wait delay="1000" />	
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="4" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="6" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_32" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="5" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="5" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_33" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="6" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="6" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="2" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_34" />
+	<wait delay="1000" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="6" />	
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="2" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="7" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="3" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="4" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="5" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="1" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="7" />	
+	<wait delay="2000" />
+	<screenshot name="MTS_35" />
+	<wait delay="1000" />
+
+	
+	<MTS.Visible filename= "MTS" type="bool" value="0" />
+	<wait delay="3000" />
+	<screenshot name="MTS_36" />
+	<wait delay="3000" />
+	
+	<MTS.DisplayIndex filename= "MTS" type="int" value="0" />
+	<MTS.ModeSelectIndex filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_CursorPosition filename= "MTS" type="int" value="1" />
+	<MTS.MTSList_FirstRegion filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_SecondRegion filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_ThirdRegion filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_FourthRegion filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_FifthRegion filename= "MTS" type="int" value="0" />
+	<MTS.MTSList_SixthRegion filename= "MTS" type="int" value="0" />
+	<wait delay="1000" />
+		<screenshot name="MTS_3000000000" />
+	<wait delay="1000" />
+
+<!-- DriveMode -->
+
+    <Common.IG_State filename= "Common" type="int" value="3" />
+	<Common.ThemeType filename= "Common" type="int" value="8" />
+	<Common.Language filename= "Common" type="int" value="2" />
+	<Gauge.SpeedMaximum filename= "Gauge" type="int" value="1" />
+	<Gauge.RpmMaximum filename= "Gauge" type="int" value="5" />
+	<Common.ModeType filename= "Common" type="int" value="3" />
+	<Gauge.DialMode filename= "Gauge" type="int" value="1" />
+	<Gauge.Rpm filename= "Gauge" type="float" value="5400" />
+	<Gauge.Speed filename= "Gauge" type="float" value="68" />
+	<wait delay="3000" />
+	<DriveMode.DriveModeVisible filename= "DriveMode" type="bool" value="0" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_0" />
+	<wait delay="1000" />
+	<DriveMode.DriveModeVisible filename= "DriveMode" type="bool" value="1" />
+	<wait delay="3000" />
+	<screenshot name="DriveMode_1" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="0" />
+	<DriveMode.DisplayIndex filename= "DriveMode" type="int" value="0" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_2" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="1" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_3" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="2" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_4" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_5" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_6" />
+	<wait delay="1000" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_7" />
+	<wait delay="1000" />
+	<DriveMode.DisplayIndex filename= "DriveMode" type="int" value="3" />
+	<DriveMode.List_CUSTOM filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.List_SPORTS filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.List_SPORTS1 filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.List_Comfort filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.List_Normal filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.List_ECO filename= "DriveMode" type="bool" value="1" />
+	<DriveMode.UpDownSwitch filename= "DriveMode" type="int" value="0" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="1" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="0" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_8" />
+	<wait delay="1000" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="2" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="1" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_9" />
+	<wait delay="1000" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="3" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="2" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_10" />
+	<wait delay="1000" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="4" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_11" />
+	<wait delay="1000" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="5" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_12" />
+	<wait delay="1000" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="6" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="5" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_13" />
+	<wait delay="1000" />
+
+
+    <DriveMode.UpDownSwitch filename= "DriveMode" type="int" value="1" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="5" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="4" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_14" />
+	<wait delay="1000" />
+
+
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="4" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="3" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_15" />
+	<wait delay="1000" />
+
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="3" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="2" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_16" />
+	<wait delay="1000" />
+
+
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="2" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="1" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_17" />
+	<wait delay="1000" />
+
+    <DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="1" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="0" />
+	<wait delay="2000" />
+	<screenshot name="DriveMode_18" />
+	<wait delay="1000" />
+
+	<DriveMode.DriveModeVisible filename="DriveMode" type="bool" value="0" />
+	<DriveMode.ModeSelectIndex filename= "DriveMode" type="int" value="1" />
+	
+	<DriveMode.List_CUSTOM filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_SPORTS filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_SPORTS1 filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_Comfort filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_Normal filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_ECO filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_RearComfort filename= "DriveMode" type="bool" value="0" />
+	<DriveMode.List_Range filename= "DriveMode" type="bool" value="0" />
+
+	<DriveMode.DisplayIndex filename= "DriveMode" type="int" value="0" />
+	<DriveMode.TextDisplayInext filename= "DriveMode" type="int" value="0" />
+	<DriveMode.OptionSelectIndex filename= "DriveMode" type="int" value="0" />
+	<DriveMode.UpDownSwitch filename= "DriveMode" type="int" value="0" />
+
+<!-- DAC_CRAWL -->
+    <Common.IG_State filename="Common" type="int" value="3" />
+    <Common.ThemeType filename="Common" type="int" value="8" />
+	<Common.Language filename="Common" type="int" value="2" />
+    <!--速度最大-->
+    <Gauge.SpeedMaximum filename="Gauge" type="int" value="1" />
+    <!--转速最大-->
+    <Gauge.RpmMaximum filename="Gauge" type="int" value="5" />
+    <!--dial-->
+    <Common.ModeType filename="Common" type="int" value="3" />
+    <!--表盘类型-->
+	<Gauge.DialMode filename="Gauge" type="int" value="1" />
+	<!--左右Mid的位置-->
+  <Gauge.Rpm filename="Gauge" type="float" value="5400" />
+  <Gauge.Speed filename="Gauge" type="float" value="68" />
+
+  <Common.LeftRightMidPosition filename="Common" type="int" value="11" />
+  
+
+  <wait delay="4000" />
+  <screenshot name="DAC_CRAWL_1"/>
+  
+  <DAC_CRAWL.Visible filename="DAC_CRAWL" type="int" value="1" />
+  <wait delay="1000" />
+  <DAC_CRAWL.DAC.Unit filename="DAC_CRAWL" type="int" value="1" />
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_2"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="1" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_3"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="2" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_4"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="3" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_5"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="4" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_6"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_7"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="6" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_8"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="7" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_9"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="8" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_10"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="9" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_11"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="10" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_12"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="11" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_13"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="12" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_14"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="13" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_15"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="14" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_16"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="15" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_17"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="16" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_18"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="17" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_19"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="18" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_20"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="19" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_21"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="20" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_22"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="21" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_23"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="22" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_24"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="23" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_25"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="24" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_26"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="25" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_27"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="26" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_28"/>
+
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="25" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_29"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="13" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_30"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_31"/>
+
+  <wait delay="1000" />
+
+
+  <DAC_CRAWL.DAC.Unit filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_32"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="1" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_33"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="2" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_34"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="3" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_35"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="4" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_36"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_37"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="6" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_38"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="7" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_39"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="8" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_40"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="9" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_41"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="10" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_42"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="11" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_43"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="12" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_44"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="13" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_45"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="14" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_46"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="15" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_47"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="16" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_48"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="17" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_49"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="18" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_50"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="19" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_51"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="20" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_52"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="21" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_53"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="22" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_54"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="23" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_55"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="24" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_56"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="25" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_57"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="26" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_58"/>
+
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="25" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_59"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="13" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_60"/>
+  <DAC_CRAWL.DAC.SpeedIndex filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_61"/>
+  
+
+  <wait delay="1000" />
+
+  <DAC_CRAWL.Visible filename="DAC_CRAWL" type="int" value="2" />
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="2000" />
+  <screenshot name="DAC_CRAWL_62"/>
+  
+<!--   <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="0.5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_63"/>-->
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="1" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_64"/>
+  
+<!--   <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="1.5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_65"/>-->
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="2" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_66"/>
+<!--  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="2.5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_67"/>-->
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="3" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_68"/>
+<!--   <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="3.5" />
+  <wait delay="1000" />
+ <screenshot name="DAC_CRAWL_69"/>-->
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="4" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_70"/>
+<!--   <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="4.5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_71"/>-->
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="5" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_72"/>
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="6" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_73"/>
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="4" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_74"/>
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="1" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_75"/>
+  <DAC_CRAWL.CRAWL.SpeedKinds filename="DAC_CRAWL" type="int" value="0" />
+  <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_76"/>
+
+  <wait delay="1000" />
+  <DAC_CRAWL.Visible filename="DAC_CRAWL" type="int" value="0" />
+
+
+    <wait delay="1000" />
+  <screenshot name="DAC_CRAWL_77"/>
+  
+    <wait delay="1000" />
+	
+	<exit />
+</script>

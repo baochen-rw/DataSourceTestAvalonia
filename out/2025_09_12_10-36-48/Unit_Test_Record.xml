@@ -1,0 +1,25 @@
+<script>
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusValueOfSOH filename="Charge" type="string" value="1" />
+  <Charge.BatteryStatusValueOfSOCE filename="Charge" type="string" value="1" />
+  <Charge.BatteryStatusOfDistanceValue filename="Charge" type="string" value="1" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="2" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="2" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="3" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="2" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="2" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="0" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="2" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+</script>

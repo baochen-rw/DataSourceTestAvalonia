@@ -1,3 +1,0 @@
-E:/DataSourceTestAvalonia/src/DataSourceTestToolClient/Application/CMakeFiles/DataSourceTestToolClient.dir
-E:/DataSourceTestAvalonia/src/DataSourceTestToolClient/Application/CMakeFiles/ALL_BUILD.dir
-E:/DataSourceTestAvalonia/src/DataSourceTestToolClient/Application/CMakeFiles/ZERO_CHECK.dir

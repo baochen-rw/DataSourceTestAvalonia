@@ -1,0 +1,5 @@
+<script>
+  <Common.LeftRightMidPosition filename="Common" type="int" value="9" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="0" />
+</script>

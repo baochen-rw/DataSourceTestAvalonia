@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\DataSourceTestAvalonia\src\DataSourceTestToolClient\Application\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\DataSourceTestAvalonia\src\DataSourceTestToolClient\Application\src\application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\DataSourceTestAvalonia\src\DataSourceTestToolClient\Application\src\network_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\DataSourceTestAvalonia\src\DataSourceTestToolClient\Application\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{107E054B-641D-3596-BEC4-1FA3CA6BA5CC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

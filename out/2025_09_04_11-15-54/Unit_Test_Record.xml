@@ -1,0 +1,9 @@
+<script>
+  <ADAS.TrackingDotsVisible filename="ADAS" type="bool" value="1" />
+  <ADAS.CACCVisible filename="ADAS" type="bool" value="2" />
+  <ADAS.ACCWindowVisible filename="ADAS" type="bool" value="3" />
+  <ADAS.DecelerationAssistIcon filename="ADAS" type="int" value="4" />
+  <ADAS.MIDVisible filename="ADAS" type="bool" value="5" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="11" />
+</script>

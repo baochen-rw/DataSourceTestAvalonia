@@ -1,0 +1,26 @@
+<script>
+	<Common.IG_State filename="Common" type="int" value="3" />
+	<Common.Language filename="Common" type="int" value="2" />
+	<Common.ThemeType filename="Common" type="int" value="1" />
+	<Gauge.SpeedMaximum filename="Gauge" type="int" value="1" />
+	<Gauge.RpmMaximum filename="Gauge" type="int" value="1" />
+	<Gauge.DialMode filename="Gauge" type="int" value="1" />
+	<Gauge.Speed filename="Gauge" type="float" value="68" />
+	<Gauge.Rpm filename="Gauge" type="float" value="5400" />
+	<Gauge.RPMTransparency filename="Gauge" type="float" value="1" />
+	<Common.ModeType filename="Common" type="int" value="3" />
+	<Common.LeftRightMidPosition filename="Common" type="int" value="3" />
+	<ECO.EcoJudge.AGCVisible filename="ECO" type="bool" value="0" />
+	<ECO.EcoFuel.AGCVisible filename="ECO" type="bool" value="0" />
+	<wait delay="7000" />
+	<!-- <Common.MidLeft.ModuleIndex filename="Common" type="int" value="1" />
+	<Common.MidRight.ModuleIndex filename="Common" type="int" value="1" /> -->
+	<ECO.EcoFuel.Visible filename="ECO" type="bool" value="1" />
+	<ECO.EcoFuel.AverageFuel.Title filename="ECO" type="int" value="0" />
+	<ECO.EcoFuel.Style filename="ECO" type="int" value="1" />
+	<Common.CenterOpVisible filename="Common" type="bool" value="1" />
+	<Common.Cursor.Position filename="Common" type="int" value="1" />
+	<Common.MidLeft.OPVisible filename="Common" type="int" value="1" />
+	<Common.MidRight.OPVisible filename="Common" type="int" value="1" />
+
+</script>

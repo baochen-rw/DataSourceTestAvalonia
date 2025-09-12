@@ -1,0 +1,19 @@
+<script>
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="41" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="40" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="3" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="4" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="5" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="6" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="1" />
+  <Common.ThemeType filename="Common" type="int" value="1" />
+  <Common.ThemeType filename="Common" type="int" value="2" />
+  <Common.ThemeType filename="Common" type="int" value="3" />
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="0" />
+</script>

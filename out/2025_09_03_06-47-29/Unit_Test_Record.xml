@@ -1,0 +1,7 @@
+<script>
+  <Common.IG_State filename="Common" type="int" value="3" />
+  <Common.ModeType filename="Common" type="int" value="2" />
+  <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
+  <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
+  <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+</script>

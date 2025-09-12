@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.10)
+project(DataSourceTestToolClient_Simple)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find Boost (only the components we actually use)
+find_package(Boost REQUIRED COMPONENTS system)
+
+# Create the simplified executable
+add_executable(DataSourceTestToolClient_Simple
+    src/Main_Simple.cpp
+    src/TestToolApplication_Simple.cpp
+    src/TestToolClient_Simple.cpp
+)
+
+# Link with Boost
+target_link_libraries(DataSourceTestToolClient_Simple 
+    ${Boost_LIBRARIES}
+)
+
+# Include Boost headers
+target_include_directories(DataSourceTestToolClient_Simple PRIVATE 
+    ${Boost_INCLUDE_DIRS}
+)
+
+# On Windows, link with Winsock
+if(WIN32)
+    target_link_libraries(DataSourceTestToolClient_Simple ws2_32 wsock32)
+endif()
+
+# Set output directory
+set_target_properties(DataSourceTestToolClient_Simple PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)

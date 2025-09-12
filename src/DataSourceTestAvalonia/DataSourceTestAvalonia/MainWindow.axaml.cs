@@ -1018,20 +1018,128 @@ internal partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Processes precondition commands from XML with delays between commands
+    /// Processes precondition commands from XML with support for wait delays and command execution
     /// </summary>
     private async Task ProcessPreconditionCommands(XmlElement documentElement)
     {
         var commands = documentElement.ChildNodes.OfType<XmlElement>().ToList();
-        _warnings.Add($"Loading {commands.Count} precondition commands with 500ms delays...");
+        _warnings.Add($"Loading {commands.Count} precondition commands with wait delay support...");
 
         foreach (XmlElement item in commands)
         {
-            ExecutePreconditionCommand(item);
-            await Task.Delay(500);
+            // Handle wait commands
+            if (item.Name.Equals("wait", StringComparison.OrdinalIgnoreCase))
+            {
+                await ProcessWaitCommand(item);
+            }
+            // Handle screenshot commands
+            else if (item.Name.Equals("screenshot", StringComparison.OrdinalIgnoreCase))
+            {
+                await ProcessScreenshotCommand(item);
+            }
+            // Handle exit commands
+            else if (item.Name.Equals("exit", StringComparison.OrdinalIgnoreCase))
+            {
+                _warnings.Add("Exit command encountered - stopping precondition execution.");
+                break;
+            }
+            // Handle regular interface commands
+            else
+            {
+                ExecutePreconditionCommand(item);
+                // Default delay between commands (can be overridden by explicit wait commands)
+                await Task.Delay(200);
+            }
         }
 
         _warnings.Add("Finished loading precondition commands.");
+    }
+
+    /// <summary>
+    /// Processes wait command with specified delay
+    /// </summary>
+    private async Task ProcessWaitCommand(XmlElement waitElement)
+    {
+        try
+        {
+            string delayStr = waitElement.GetAttribute("delay");
+            if (int.TryParse(delayStr, out int delayMs))
+            {
+                _warnings.Add($"⏱️ Waiting {delayMs}ms as requested by wait command...");
+
+                // Update UI to show waiting status
+                Dispatcher.UIThread.Post(() =>
+                {
+                    StatusText.Text = $"Server: Waiting ({delayMs}ms)...";
+                });
+
+                await Task.Delay(delayMs);
+
+                // Restore normal status
+                Dispatcher.UIThread.Post(() =>
+                {
+                    StatusText.Text = "Server: Running";
+                });
+
+                _warnings.Add($"✅ Wait completed ({delayMs}ms)");
+            }
+            else
+            {
+                _warnings.Add($"⚠️ Invalid delay value in wait command: '{delayStr}' - skipping wait");
+            }
+        }
+        catch (Exception ex)
+        {
+            _warnings.Add($"❌ Error processing wait command: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// Processes screenshot command with specified name
+    /// </summary>
+    /// <param name="screenshotElement">XML element containing screenshot command</param>
+    private async Task ProcessScreenshotCommand(XmlElement screenshotElement)
+    {
+        try
+        {
+            string screenshotName = screenshotElement.GetAttribute("name");
+
+            if (string.IsNullOrEmpty(screenshotName))
+            {
+                // If no name specified, use the current screenshot index
+                screenshotName = _screenshotIndex.ToString();
+            }
+
+            // Create the full path for the screenshot
+            string screenshotPath = Path.Combine(_outputPath, $"{screenshotName}.png");
+
+            _warnings.Add($"📸 Taking screenshot: {screenshotName} -> {screenshotPath}");
+
+            // Update UI to show screenshot status
+            Dispatcher.UIThread.Post(() =>
+            {
+                StatusText.Text = $"Server: Taking screenshot ({screenshotName})...";
+            });
+
+            // Send screenshot command to server
+            _server.SendScreenshotCommand(screenshotPath);
+            _screenshotIndex++;
+
+            // Small delay to allow screenshot to be taken
+            await Task.Delay(500);
+
+            // Restore normal status
+            Dispatcher.UIThread.Post(() =>
+            {
+                StatusText.Text = "Server: Running";
+            });
+
+            _warnings.Add($"✅ Screenshot command sent: {screenshotName}");
+        }
+        catch (Exception ex)
+        {
+            _warnings.Add($"❌ Error processing screenshot command: {ex.Message}");
+        }
     }
 
     /// <summary>
@@ -1419,9 +1527,11 @@ internal partial class MainWindow : Window
         {
             if (_sessionChanges.Count > 0)
             {
-                _warnings.Add($"Resending {_sessionChanges.Count} session values to client with 200ms delays...");
+                // Create a copy of the collection to avoid "Collection was modified" errors
+                var sessionItemsCopy = _sessionChanges.ToList();
+                _warnings.Add($"Resending {sessionItemsCopy.Count} session values to client with 200ms delays...");
 
-                foreach (var sessionItem in _sessionChanges)
+                foreach (var sessionItem in sessionItemsCopy)
                 {
                     SendToClient(sessionItem.FileName, sessionItem.Name, sessionItem.Type, sessionItem.Value);
 

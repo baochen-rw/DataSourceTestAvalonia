@@ -1,0 +1,7 @@
+<script>
+  <Popup.PopupBg.InterruptId filename="Popup" type="int" value="4" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+  <Popup.DoorOpen.TrunkDoor filename="Popup" type="int" value="3" />
+</script>
