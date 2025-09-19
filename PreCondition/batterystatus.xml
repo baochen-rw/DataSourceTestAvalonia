@@ -4,4 +4,10 @@
   <Common.MidLeft.ModuleIndex filename="Common" type="int" value="42" />
   <Common.MidRight.ModuleIndex filename="Common" type="int" value="42" />
   <Charge.BatteryStatusVisible filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfDistanceValue filename="Charge" type="string" value="99999" />
+  <Charge.BatteryStatusOfDistanceUnit filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealth filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusOfHealthValueState filename="Charge" type="int" value="1" />
+  <Charge.BatteryStatusValueOfSOCE filename="Charge" type="string" value="100" />
+  <Charge.BatteryStatusValueOfSOH filename="Charge" type="string" value="100" />
 </script>
