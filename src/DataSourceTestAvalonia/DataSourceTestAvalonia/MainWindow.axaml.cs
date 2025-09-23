@@ -23,6 +23,7 @@ public class XmlDataItem : INotifyPropertyChanged
     private string _name = "";
     private string _type = "";
     private string _value = "";
+    private bool _isPinned = false;
 
     public string FileName
     {
@@ -76,6 +77,19 @@ public class XmlDataItem : INotifyPropertyChanged
         }
     }
 
+    public bool IsPinned
+    {
+        get => _isPinned;
+        set
+        {
+            if (_isPinned != value)
+            {
+                _isPinned = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
@@ -93,6 +107,7 @@ public class AppSettings
     public string Theme { get; set; } = "Light"; // "Light" or "Dark"
     public string KzbWatchFolder { get; set; } = "";
     public bool KzbWatchEnabled { get; set; } = false;
+    public HashSet<string> PinnedInterfaces { get; set; } = new();
 }
 
 internal partial class MainWindow : Window
@@ -119,6 +134,10 @@ internal partial class MainWindow : Window
     // Message history for frequently used messages
     private readonly Dictionary<string, int> _messageHistory = new();
     private readonly int _maxHistoryMessages = 10;
+
+    // Pin functionality
+    private readonly HashSet<string> _pinnedInterfaces = new();
+    private bool _showOnlyPinned = false;
 
     // Debounced settings save to improve performance
     private System.Timers.Timer? _settingsSaveTimer;
@@ -258,6 +277,8 @@ internal partial class MainWindow : Window
         InterfaceNameTextBox.TextChanged += InterfaceNameTextBox_TextChanged;
         ModuleComboBox.SelectionChanged += ModuleComboBox_SelectionChanged;
         XmlDataGrid.CellEditEnding += XmlDataGrid_CellEditEnding;
+        ShowOnlyPinnedButton.IsCheckedChanged += ShowOnlyPinnedButton_IsCheckedChanged;
+        ClearPinsButton.Click += ClearPinsButton_Click;
 
         // Server event handlers
         _server.StatusChanged += (msg) => Dispatcher.UIThread.Post(() => UpdateServerStatus(msg));
@@ -827,23 +848,37 @@ internal partial class MainWindow : Window
             var sessionItem = _sessionChanges.FirstOrDefault(x => x.FileName == fileName && x.Name == name);
             string currentValue = sessionItem?.Value ?? originalValue;
 
+            // Create unique identifier for pinned interface tracking
+            string interfaceKey = $"{fileName}.{name}";
+            bool isPinned = _pinnedInterfaces.Contains(interfaceKey);
+
             return new XmlDataItem
             {
                 FileName = fileName,
                 Name = name,
                 Type = row["type"].ToString() ?? "",
-                Value = currentValue
+                Value = currentValue,
+                IsPinned = isPinned
             };
         }).ToList();
+
+        // Apply pinned filter if enabled
+        if (_showOnlyPinned)
+        {
+            itemsList = itemsList.Where(item => item.IsPinned).ToList();
+            _warnings.Add($"Applied pinned filter: showing {itemsList.Count} pinned items");
+        }
 
         // Update the session data collection
         _filteredIF.Clear();
         foreach (var item in itemsList)
         {
+            // Subscribe to property changes for pin handling
+            item.PropertyChanged += OnXmlDataItemPropertyChanged;
             _filteredIF.Add(item);
         }
 
-        _warnings.Add($"Set DataGrid ItemsSource to {itemsList.Count} items (with session overrides)");
+        _warnings.Add($"Set DataGrid ItemsSource to {itemsList.Count} items (with session overrides{(_showOnlyPinned ? " - pinned only" : "")})");
     }
 
     /// <summary>
@@ -1152,6 +1187,14 @@ internal partial class MainWindow : Window
         string type = item.GetAttribute("type");
         string value = item.GetAttribute("value");
 
+        // Auto-pin interfaces when loading preconditions (per user request)
+        string interfaceKey = $"{fileName}.{name}";
+        if (!_pinnedInterfaces.Contains(interfaceKey))
+        {
+            _pinnedInterfaces.Add(interfaceKey);
+            _warnings.Add($"📌 Auto-pinned from precondition: {name} ({fileName})");
+        }
+
         // Validate type compatibility before sending
         if (ValidatePreconditionType(fileName, name, type, value))
         {
@@ -1320,6 +1363,78 @@ internal partial class MainWindow : Window
         var module = ModuleComboBox.SelectedItem?.ToString() ?? "";
         var filter = InterfaceNameTextBox.Text ?? "";
         UpdateDataGrid(module, filter);
+    }
+
+    private void ShowOnlyPinnedButton_IsCheckedChanged(object? sender, RoutedEventArgs e)
+    {
+        _showOnlyPinned = ShowOnlyPinnedButton.IsChecked == true;
+        var module = ModuleComboBox.SelectedItem?.ToString() ?? "";
+        var filter = InterfaceNameTextBox.Text ?? "";
+        UpdateDataGrid(module, filter);
+        
+        _warnings.Add($"📌 Filter changed: {(_showOnlyPinned ? "Showing only pinned interfaces" : "Showing all interfaces")}");
+    }
+
+    private void ClearPinsButton_Click(object? sender, RoutedEventArgs e)
+    {
+        int pinnedCount = _pinnedInterfaces.Count;
+        _pinnedInterfaces.Clear();
+        
+        // Update all items in the current filtered view
+        foreach (var item in _filteredIF)
+        {
+            if (item.IsPinned)
+            {
+                item.IsPinned = false;
+            }
+        }
+        
+        // If we're showing only pinned, switch back to showing all
+        if (_showOnlyPinned)
+        {
+            _showOnlyPinned = false;
+            ShowOnlyPinnedButton.IsChecked = false;
+        }
+        
+        // Refresh the data grid
+        var module = ModuleComboBox.SelectedItem?.ToString() ?? "";
+        var filter = InterfaceNameTextBox.Text ?? "";
+        UpdateDataGrid(module, filter);
+        
+        _warnings.Add($"🗑️ Cleared {pinnedCount} pinned interface(s)");
+        
+        // Save the updated settings
+        ScheduleSettingsSave();
+    }
+
+    private void OnXmlDataItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(XmlDataItem.IsPinned) && sender is XmlDataItem item)
+        {
+            string interfaceKey = $"{item.FileName}.{item.Name}";
+            
+            if (item.IsPinned)
+            {
+                _pinnedInterfaces.Add(interfaceKey);
+                _warnings.Add($"📌 Pinned: {item.Name} ({item.FileName})");
+            }
+            else
+            {
+                _pinnedInterfaces.Remove(interfaceKey);
+                _warnings.Add($"📍 Unpinned: {item.Name} ({item.FileName})");
+            }
+            
+            // Save the updated pinned interfaces
+            ScheduleSettingsSave();
+            
+            // If we're showing only pinned and this item was unpinned, refresh the view
+            if (_showOnlyPinned && !item.IsPinned)
+            {
+                var module = ModuleComboBox.SelectedItem?.ToString() ?? "";
+                var filter = InterfaceNameTextBox.Text ?? "";
+                UpdateDataGrid(module, filter);
+            }
+        }
     }
 
     private void ScreenshotButton_Click(object? sender, RoutedEventArgs e)

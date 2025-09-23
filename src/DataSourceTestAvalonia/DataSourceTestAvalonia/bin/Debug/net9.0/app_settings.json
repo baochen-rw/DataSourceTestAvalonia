@@ -43,5 +43,6 @@
   },
   "Theme": "Light",
   "KzbWatchFolder": "D:\\3\\tmc-veleda\\00.KanziProjects\\",
-  "KzbWatchEnabled": true
+  "KzbWatchEnabled": true,
+  "PinnedInterfaces": []
 }

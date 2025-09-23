@@ -45,6 +45,10 @@
             Margin="0,0,0,10">
             <ComboBox x:Name="ModuleComboBox" Width="120" PlaceholderText="Module" />
             <TextBox x:Name="InterfaceNameTextBox" Width="200" Watermark="Interface Name Filter" />
+            <ToggleButton x:Name="ShowOnlyPinnedButton" Content="📌 Show Pinned Only" Width="140"
+                ToolTip.Tip="Toggle to show only pinned interfaces" />
+            <Button x:Name="ClearPinsButton" Content="🗑️ Clear Pins" Width="100"
+                ToolTip.Tip="Clear all pinned interfaces" />
             <ComboBox x:Name="PreconditionComboBox" Width="150" PlaceholderText="Precondition" />
             <Button x:Name="LoadPreconditionButton" Content="Load" Width="50" />
             <Button x:Name="ScreenshotButton" Content="Screenshot" Width="100" />
@@ -86,8 +90,34 @@
         <DataGrid Grid.Row="5" x:Name="XmlDataGrid" Margin="0,0,0,10"
             IsReadOnly="False"
             CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True"
-            AutoGenerateColumns="True"
+            AutoGenerateColumns="False"
             x:DataType="local:XmlDataItem">
+            <DataGrid.Columns>
+                <!-- Pin Column -->
+                <DataGridTemplateColumn Header="📌" Width="50" IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="local:XmlDataItem">
+                            <CheckBox IsChecked="{Binding IsPinned, Mode=TwoWay}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ToolTip.Tip="Pin/Unpin this interface" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- File Name Column -->
+                <DataGridTextColumn Header="File Name" Binding="{Binding FileName}" Width="120" />
+
+                <!-- Name Column -->
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200" />
+
+                <!-- Type Column -->
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="80" />
+
+                <!-- Value Column -->
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="150"
+                    IsReadOnly="False" />
+            </DataGrid.Columns>
         </DataGrid>
 
         <!-- Session Changes Panel -->
